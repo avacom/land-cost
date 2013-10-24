@@ -1,0 +1,15 @@
+D:\Programming\LandCost\LandCostTest\bin\Debug\LandCostTest.exe
+D:\Programming\LandCost\LandCostTest\bin\Debug\LandCostTest.pdb
+D:\Programming\LandCost\LandCostTest\obj\x86\Debug\ResolveAssemblyReference.cache
+D:\Programming\LandCost\LandCostTest\obj\x86\Debug\LandCostTest.exe
+D:\Programming\LandCost\LandCostTest\obj\x86\Debug\LandCostTest.pdb
+D:\Programming\LandCost\LandCostTest\bin\Debug\LandCost.Entities.dll
+D:\Programming\LandCost\LandCostTest\bin\Debug\GMap.NET.Core.dll
+D:\Programming\LandCost\LandCostTest\bin\Debug\netDxf.dll
+D:\Programming\LandCost\LandCostTest\bin\Debug\LandCost.Entities.pdb
+D:\Programming\LandCost\LandCostTest\bin\Debug\GMap.NET.Core.pdb
+D:\Programming\LandCost\LandCostTest\bin\Debug\netDxf.pdb
+D:\Programming\LandCost\LandCostTest\bin\Debug\netDxf.xml
+D:\Programming\LandCost\LandCostTest\bin\Debug\LandCostTest.exe.config
+D:\Programming\LandCost\LandCostTest\bin\Debug\GMap.NET.WindowsForms.dll
+D:\Programming\LandCost\LandCostTest\bin\Debug\GMap.NET.WindowsForms.pdb

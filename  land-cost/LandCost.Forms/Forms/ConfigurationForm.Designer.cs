@@ -1,0 +1,90 @@
+﻿namespace LandCost.Forms
+{
+    partial class ConfigurationForm
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.listPanel = new System.Windows.Forms.Panel();
+            this.profilePanel = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.75175F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 83.24825F));
+            this.tableLayoutPanel1.Controls.Add(this.listPanel, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.profilePanel, 1, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1049, 491);
+            this.tableLayoutPanel1.TabIndex = 0;
+            // 
+            // listPanel
+            // 
+            this.listPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listPanel.Location = new System.Drawing.Point(3, 3);
+            this.listPanel.Name = "listPanel";
+            this.listPanel.Size = new System.Drawing.Size(169, 485);
+            this.listPanel.TabIndex = 0;
+            // 
+            // profilePanel
+            // 
+            this.profilePanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.profilePanel.Location = new System.Drawing.Point(178, 3);
+            this.profilePanel.Name = "profilePanel";
+            this.profilePanel.Size = new System.Drawing.Size(868, 485);
+            this.profilePanel.TabIndex = 1;
+            // 
+            // ConfigurationForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1049, 491);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.MinimumSize = new System.Drawing.Size(1065, 360);
+            this.Name = "ConfigurationForm";
+            this.ShowInTaskbar = false;
+            this.Text = "Профілі";
+            this.Shown += new System.EventHandler(this.ConfigurationForm_Shown);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel listPanel;
+        private System.Windows.Forms.Panel profilePanel;
+    }
+}

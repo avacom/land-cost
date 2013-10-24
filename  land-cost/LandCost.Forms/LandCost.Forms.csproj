@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{39B3AB40-5C4A-4892-8F34-BAAC57070988}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LandCost.Forms</RootNamespace>
+    <AssemblyName>LandCost.Forms</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\CertificationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\CertificationForm.Designer.cs">
+      <DependentUpon>CertificationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CoefficientValueSetControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CoefficientValueSetControl.Designer.cs">
+      <DependentUpon>CoefficientValueSetControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\CoefficientValueControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\CoefficientValueControl.Designer.cs">
+      <DependentUpon>CoefficientValueControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ToolStripRadioButtonMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\AreaForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AreaForm.Designer.cs">
+      <DependentUpon>AreaForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ConfigurationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ConfigurationForm.Designer.cs">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DecimalTextBox\DecimalTextBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\EditedListView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\EditedListView.Designer.cs">
+      <DependentUpon>EditedListView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DocumentForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DocumentForm.Designer.cs">
+      <DependentUpon>DocumentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProfileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\ProfileControl.Designer.cs">
+      <DependentUpon>ProfileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\DecimalTextBox\KeyRejectedEventArgs.cs" />
+    <Compile Include="Controls\DecimalTextBox\PasteEventArgs.cs" />
+    <Compile Include="Forms\FunctionalUsageForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FunctionalUsageForm.Designer.cs">
+      <DependentUpon>FunctionalUsageForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SearchForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SearchForm.Designer.cs">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FunctionalUsageCoefficientsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FunctionalUsageCoefficientsForm.Designer.cs">
+      <DependentUpon>FunctionalUsageCoefficientsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IEditor.cs" />
+    <Compile Include="Forms\LocalCoefficientForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LocalCoefficientForm.Designer.cs">
+      <DependentUpon>LocalCoefficientForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\LocalCoefficientValueForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\LocalCoefficientValueForm.Designer.cs">
+      <DependentUpon>LocalCoefficientValueForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\ProgressForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ProgressForm.Designer.cs">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IModificationAnnouncer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Forms\RegionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\RegionForm.Designer.cs">
+      <DependentUpon>RegionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SelectPolygonForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SelectPolygonForm.Designer.cs">
+      <DependentUpon>SelectPolygonForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\RegionSelectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controls\RegionSelectionControl.Designer.cs">
+      <DependentUpon>RegionSelectionControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\CertificationForm.resx">
+      <DependentUpon>CertificationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CoefficientValueSetControl.resx">
+      <DependentUpon>CoefficientValueSetControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\CoefficientValueControl.resx">
+      <DependentUpon>CoefficientValueControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AreaForm.resx">
+      <DependentUpon>AreaForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\ProfileControl.resx">
+      <DependentUpon>ProfileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\EditedListView.resx">
+      <DependentUpon>EditedListView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ConfigurationForm.resx">
+      <DependentUpon>ConfigurationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DocumentForm.resx">
+      <DependentUpon>DocumentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FunctionalUsageCoefficientsForm.resx">
+      <DependentUpon>FunctionalUsageCoefficientsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FunctionalUsageForm.resx">
+      <DependentUpon>FunctionalUsageForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LocalCoefficientForm.resx">
+      <DependentUpon>LocalCoefficientForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SearchForm.resx">
+      <DependentUpon>SearchForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\LocalCoefficientValueForm.resx">
+      <DependentUpon>LocalCoefficientValueForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ProgressForm.resx">
+      <DependentUpon>ProgressForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Forms\RegionForm.resx">
+      <DependentUpon>RegionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SelectPolygonForm.resx">
+      <DependentUpon>SelectPolygonForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\RegionSelectionControl.resx">
+      <DependentUpon>RegionSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GMap.NET.Core\GMap.NET.Core.csproj">
+      <Project>{D0C39D9D-BED0-418B-9A5E-713176CAF40C}</Project>
+      <Name>GMap.NET.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GMap.NET.WindowsForms\GMap.NET.WindowsForms.csproj">
+      <Project>{E06DEF77-F933-42FB-AFD7-DB2D0D8D6A98}</Project>
+      <Name>GMap.NET.WindowsForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LandCost.Entities\LandCost.Entities.csproj">
+      <Project>{7E65EC51-E63C-4B68-9C84-AFBCCE884D9B}</Project>
+      <Name>LandCost.Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Splash.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
