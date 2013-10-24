@@ -1,0 +1,11 @@
+D:\Programming\LandCost\Dxf\netDxf\bin\Debug\netDxf.xml
+D:\Programming\LandCost\Dxf\netDxf\bin\Debug\netDxf.dll
+D:\Programming\LandCost\Dxf\netDxf\bin\Debug\netDxf.pdb
+D:\Programming\LandCost\Dxf\netDxf\obj\Debug\ResolveAssemblyReference.cache
+D:\Programming\LandCost\Dxf\netDxf\obj\Debug\netDxf.dll
+D:\Programming\LandCost\Dxf\netDxf\obj\Debug\netDxf.pdb
+D:\Programming\LandCost\netDxf\bin\Debug\netDxf.dll
+D:\Programming\LandCost\netDxf\bin\Debug\netDxf.pdb
+D:\Programming\LandCost\netDxf\obj\Debug\ResolveAssemblyReference.cache
+D:\Programming\LandCost\netDxf\obj\Debug\netDxf.dll
+D:\Programming\LandCost\netDxf\obj\Debug\netDxf.pdb
