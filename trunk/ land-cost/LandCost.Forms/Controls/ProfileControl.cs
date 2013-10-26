@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using LandCost.Entities;
 using System.IO;
+using LandCost.Entities.Helpers;
 
 namespace LandCost.Forms
 {
@@ -534,6 +535,15 @@ namespace LandCost.Forms
                 this.OnValidated(null);
                 OnModified(this, null);
             }
+        }
+
+        private void loadXlsBtn_Click(object sender, EventArgs e)
+        {
+            if (xlsDialog.ShowDialog() == DialogResult.OK)
+            {
+                ((Profile)Entity).LoadXls(xlsDialog.FileName);
+            }
+            this.Entity = Entity;
         }
        
     }

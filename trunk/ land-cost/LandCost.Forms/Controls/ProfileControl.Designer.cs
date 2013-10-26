@@ -61,6 +61,8 @@ namespace LandCost.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.loadMapDlg = new System.Windows.Forms.OpenFileDialog();
+            this.loadXlsBtn = new System.Windows.Forms.Button();
+            this.xlsDialog = new System.Windows.Forms.OpenFileDialog();
             this.settingsTabControl.SuspendLayout();
             this.generalTab.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -89,6 +91,7 @@ namespace LandCost.Forms
             // 
             // generalTab
             // 
+            this.generalTab.Controls.Add(this.loadXlsBtn);
             this.generalTab.Controls.Add(this.groupBox4);
             this.generalTab.Controls.Add(this.groupBox3);
             this.generalTab.Controls.Add(this.groupBox2);
@@ -399,6 +402,22 @@ namespace LandCost.Forms
             this.loadMapDlg.Filter = "DXF Files | *.dxf";
             this.loadMapDlg.Title = "Завантажити карту";
             // 
+            // loadXlsBtn
+            // 
+            this.loadXlsBtn.Location = new System.Drawing.Point(664, 282);
+            this.loadXlsBtn.Name = "loadXlsBtn";
+            this.loadXlsBtn.Size = new System.Drawing.Size(112, 23);
+            this.loadXlsBtn.TabIndex = 10;
+            this.loadXlsBtn.Text = "Завантажити XLS";
+            this.loadXlsBtn.UseVisualStyleBackColor = true;
+            this.loadXlsBtn.Click += new System.EventHandler(this.loadXlsBtn_Click);
+            // 
+            // xlsDialog
+            // 
+            this.xlsDialog.DefaultExt = "xls";
+            this.xlsDialog.Filter = "файли XLS|*.xls";
+            this.xlsDialog.Title = "Завантажити XLS";
+            // 
             // ProfileControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,5 +478,7 @@ namespace LandCost.Forms
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox chiefBox;
         private System.Windows.Forms.TabPage areaTab;
+        private System.Windows.Forms.Button loadXlsBtn;
+        private System.Windows.Forms.OpenFileDialog xlsDialog;
     }
 }

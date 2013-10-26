@@ -236,59 +236,23 @@ namespace LandCost.Entities
 
         #region Methods
 
-        /// <summary>
-        /// Unbinds the polygon from the LandRegion
-        /// </summary>
-        /// <param name="polygon">The polygon to unbind</param>
-        public void UnbindPolygon(LandPolygon polygon)
+        public bool LoadXls(string path)
         {
-            if (polygon != null)
+            bool bRet = true;
+
+            bRet = ExcelHelper.Init(path);
+            if (bRet)
             {
-                foreach (LandRegion region in m_aRegions)
-                {
-                    if (region.Polygon != null && region.Polygon.Equals(polygon))
-                    {
-                        region.Polygon = null;
-                    }
-                }
+                string val = ExcelHelper.GetValue("A1");
             }
-        }
+            bRet = ExcelHelper.Close();
 
+            return bRet;
+        }
         /// <summary>
-        /// Get the region which contains the specified LandPolygon
+        /// Deletes all the references of the item
         /// </summary>
-        /// <param name="polygon">required LandPolygon</param>
-        /// <returns></returns>
-        public LandRegion GetRegionByPolygon(LandPolygon polygon)
-        {
-            LandRegion res = null;
-            if (polygon != null)
-            {
-                foreach (LandRegion reg in m_aRegions)
-                {
-                    if (reg.Polygon != null && reg.Polygon.Equals(polygon))
-                    {
-                        res = reg;
-                        break;
-                    }
-                }
-            }
-            return res;
-        }
-
-        /// <summary>
-        /// Get the region which contains the specified GMapPolygon
-        /// </summary>
-        /// <param name="polygon">required GMapPolygon</param>
-        /// <returns></returns>
-        public LandRegion GetRegionByPolygon(GMapPolygon polygon)
-        {
-            LandPolygon pol = PolygonHelper.FindPolygon(polygon, RegionPolygons);
-            return GetRegionByPolygon(pol);
-        }
-
-        #endregion Methods
-
+        /// <param name="item">the item that will be removed</param>
         public void PrepareRemoval(object item)
         {
             if (item != null)
@@ -345,5 +309,58 @@ namespace LandCost.Entities
                 }
             }
         }
+
+        /// <summary>
+        /// Unbinds the polygon from the LandRegion
+        /// </summary>
+        /// <param name="polygon">The polygon to unbind</param>
+        public void UnbindPolygon(LandPolygon polygon)
+        {
+            if (polygon != null)
+            {
+                foreach (LandRegion region in m_aRegions)
+                {
+                    if (region.Polygon != null && region.Polygon.Equals(polygon))
+                    {
+                        region.Polygon = null;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Get the region which contains the specified LandPolygon
+        /// </summary>
+        /// <param name="polygon">required LandPolygon</param>
+        /// <returns></returns>
+        public LandRegion GetRegionByPolygon(LandPolygon polygon)
+        {
+            LandRegion res = null;
+            if (polygon != null)
+            {
+                foreach (LandRegion reg in m_aRegions)
+                {
+                    if (reg.Polygon != null && reg.Polygon.Equals(polygon))
+                    {
+                        res = reg;
+                        break;
+                    }
+                }
+            }
+            return res;
+        }
+
+        /// <summary>
+        /// Get the region which contains the specified GMapPolygon
+        /// </summary>
+        /// <param name="polygon">required GMapPolygon</param>
+        /// <returns></returns>
+        public LandRegion GetRegionByPolygon(GMapPolygon polygon)
+        {
+            LandPolygon pol = PolygonHelper.FindPolygon(polygon, RegionPolygons);
+            return GetRegionByPolygon(pol);
+        }
+
+        #endregion Methods
     }
 }
