@@ -419,7 +419,18 @@ namespace GMap.NET.WindowsForms
             Core.lastInvalidation = DateTime.Now;
          }
 
-         base.Refresh();
+         if (this.InvokeRequired)
+         {
+             this.Invoke(new MethodInvoker(delegate()
+             {
+                 base.Refresh();
+             }
+             ));
+         }
+         else
+         {
+             base.Refresh();
+         }
       }
 
 #if !DESIGN
