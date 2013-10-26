@@ -85,7 +85,7 @@ namespace LandCost
         private void DrawRegions()
         {
             regions.Polygons.Clear();
-            if (m_DB!= null &&
+            if (m_DB != null &&
                 m_DB.Config != null &&
                 m_DB.Config.CurrentProfile != null)
             {
@@ -106,6 +106,10 @@ namespace LandCost
                     gpol.Fill = PolygonHelper.MainBrush;
                     regions.Polygons.Add(gpol);
                 }
+            }
+            else
+            {
+                map.SetPositionByKeywords("Ковель");
             }
         }
 
@@ -331,13 +335,25 @@ namespace LandCost
 
         private void ReloadWorkingArea(object sender, DoWorkEventArgs e)
         {
+
+            if (evalBtn.InvokeRequired)
+            {
+                evalBtn.Invoke(new MethodInvoker(delegate()
+                {
+                    evalBtn.Enabled = false;
+                }));
+            }
+            else
+            {
+                evalBtn.Enabled = false;
+            }
+
             if (this.InvokeRequired)
             {
                 this.Invoke(new MethodInvoker(delegate(){
                     ShowInfo(null);
                     DrawRegions();
                     ReloadRegionSelCtl();
-                    evalBtn.Enabled = false;
                     addressBox.Text = string.Empty;
                     m_CurrentPoint = new PointLatLng();
                     markers.Markers.Clear();
@@ -348,7 +364,6 @@ namespace LandCost
                 ShowInfo(null);
                 DrawRegions();
                 ReloadRegionSelCtl();
-                evalBtn.Enabled = false;
                 addressBox.Text = string.Empty;
                 m_CurrentPoint = new PointLatLng();
                 markers.Markers.Clear();
