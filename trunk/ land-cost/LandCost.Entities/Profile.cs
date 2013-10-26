@@ -238,16 +238,160 @@ namespace LandCost.Entities
 
         public bool LoadXls(string path)
         {
+            string[] cols = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R" };
+
             bool bRet = true;
 
             bRet = ExcelHelper.Init(path);
             if (bRet)
             {
-                string val = ExcelHelper.GetValue("A1");
+                // Local coefficients
+                LocalCoefficients.Clear();
+
+                for (int i = 6; i < cols.Length; i++)
+                {
+                    string lcName = ExcelHelper.GetValue(cols[i] + "2");
+                    LocalCoefficient coef = new LocalCoefficient(lcName);
+                    LocalCoefficients.Add(coef);
+                }
+
+                // Go through the table
+                int cnt = 3;
+                while (true)
+                {
+                    string s = ExcelHelper.GetValue(string.Format("A{0}", cnt));
+                    if (s.Contains("_____"))
+                    {
+                        break;
+                    }
+
+                    // Area
+                    int areaNum = -1;
+                    int.TryParse(ExcelHelper.GetValue(string.Format("A{0}", cnt)), out areaNum);
+                    Area curArea = null;
+                    if (areaNum > 0)
+                    {
+                        curArea = GetAreaByNumber(areaNum);
+
+                        if (curArea == null)
+                        {
+                            double km2 = -1;
+                            double price = -1;
+
+                            double.TryParse(ExcelHelper.GetValue(string.Format("B{0}", cnt)), out km2);
+                            double.TryParse(ExcelHelper.GetValue(string.Format("C{0}", cnt)), out price);
+
+                            if (km2 >= 0 && price >= 0)
+                            {
+                                curArea = new Area(areaNum, price, km2);
+                                Areas.Add(curArea);
+                            }
+                        }
+                    }
+
+                    // LandRegion
+                    int regNum = -1;
+                    int.TryParse(ExcelHelper.GetValue(string.Format("D{0}", cnt)), out regNum);
+                    LandRegion curReg = 0;
+                    if (regNum > 0)
+                    {
+                        curReg = GetRegionByNumber(regNum);
+
+                        if (curReg == null)
+                        {
+                            curReg = new LandRegion(regNum);
+                            Regions.Add(curReg);
+                            if (curArea != null)
+                            {
+                                curArea.AddRegion(curReg);
+                            }
+                        }
+                    }
+
+                    // The rest is possible only when the region is not null
+                    if (curReg != null)
+                    {
+                        string funcUsage = ExcelHelper.GetValue(string.Format("E{0}", cnt));
+                        FunctionalUsage curFU = GetFunctionalUsageByName(funcUsage);
+                        if (curFU == null)
+                        {
+                            double kf = -1;
+                            double.TryParse(ExcelHelper.GetValue(string.Format("F{0}", cnt)), out kf);
+                            if (kf >= 0)
+                            {
+                                curFU = new FunctionalUsage(funcUsage, kf);
+                                FunctionalUsages.Add(curFU);
+                            }
+                        }
+
+                        // If a functional usage exists - create FunctionalUsageCoefficients
+                        if (curFU != null)
+                        {
+                            
+                        }
+                    }
+                }
             }
             bRet = ExcelHelper.Close();
 
             return bRet;
+        }
+
+        /// <summary>
+        /// Get the functional usage by its name
+        /// </summary>
+        /// <param name="number">required number</param>
+        /// <returns></returns>
+        private FunctionalUsage GetFunctionalUsageByName(string name)
+        {
+            FunctionalUsage ret = null;
+            foreach (FunctionalUsage u in FunctionalUsages)
+            {
+                if (u.Name == name)
+                {
+                    ret = u;
+                    break;
+                }
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// Get the area by its number
+        /// </summary>
+        /// <param name="number">required number</param>
+        /// <returns></returns>
+        private Area GetAreaByNumber(int number)
+        {
+            Area ret = null;
+            foreach (Area a in Areas)
+            {
+                if (a.Number == number)
+                {
+                    ret = a;
+                    break;
+                }
+            }
+            return ret;
+        }
+
+        /// <summary>
+        /// Get the region by its number
+        /// </summary>
+        /// <param name="number">required number</param>
+        /// <returns></returns>
+        private LandRegion GetRegionByNumber(int number)
+        {
+            LandRegion ret = null;
+            foreach (LandRegion r in Regions)
+            {
+                if (r.Number == number)
+                {
+                    ret = r;
+                    break;
+                }
+            }
+            return ret;
         }
         /// <summary>
         /// Deletes all the references of the item

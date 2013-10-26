@@ -348,9 +348,9 @@ namespace LandCost
                 evalBtn.Enabled = false;
             }
 
-            if (this.InvokeRequired)
+            if (map.InvokeRequired)
             {
-                this.Invoke(new MethodInvoker(delegate(){
+                map.Invoke(new MethodInvoker(delegate(){
                     ShowInfo(null);
                     DrawRegions();
                     ReloadRegionSelCtl();
@@ -494,6 +494,10 @@ namespace LandCost
                 {
                     MessageBox.Show(this, "Не можу знайти вказану адресу в межах завантаженої карти", "Невдача :(", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+            else
+            {
+                MessageBox.Show(this, "Не можу здійснити пошук! Обраний профіль не містить карти!", "Невдача :(", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
