@@ -75,7 +75,7 @@
             // 
             this.coefPanel.Location = new System.Drawing.Point(311, 76);
             this.coefPanel.Name = "coefPanel";
-            this.coefPanel.Size = new System.Drawing.Size(375, 288);
+            this.coefPanel.Size = new System.Drawing.Size(393, 288);
             this.coefPanel.TabIndex = 7;
             this.coefPanel.TabStop = false;
             this.coefPanel.Text = "Значення локальних коефіцієнтів";
@@ -92,7 +92,7 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(531, 370);
+            this.saveBtn.Location = new System.Drawing.Point(548, 370);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(75, 23);
             this.saveBtn.TabIndex = 9;
@@ -103,7 +103,7 @@
             // cancelBtn
             // 
             this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelBtn.Location = new System.Drawing.Point(611, 370);
+            this.cancelBtn.Location = new System.Drawing.Point(629, 370);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelBtn.TabIndex = 10;
@@ -169,7 +169,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelBtn;
-            this.ClientSize = new System.Drawing.Size(698, 405);
+            this.ClientSize = new System.Drawing.Size(716, 405);
             this.Controls.Add(this.usagePanel);
             this.Controls.Add(this.priceBox);
             this.Controls.Add(this.label4);

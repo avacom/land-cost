@@ -32,6 +32,15 @@ namespace LandCost.Entities
             m_dValue = value;
         }
 
+        /// <summary>
+        /// Creates the instance of a LocalCoefficientValue
+        /// </summary>
+        public LocalCoefficientValue()
+        {
+            m_oCoef = null;
+            m_dValue = 0;
+        }
+
         #endregion Constructors
 
         #region Properties

@@ -27,6 +27,14 @@ namespace LandCost.Entities
             m_sName = name;
         }
 
+        /// <summary>
+        /// Create the instance of a LoalCoefficient
+        /// </summary>
+        public LocalCoefficient()
+        {
+            m_sName = string.Empty;
+        }
+
         #endregion Constructors
 
         #region Properties
