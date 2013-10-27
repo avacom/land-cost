@@ -238,6 +238,14 @@ namespace LandCost.Entities
 
         public bool LoadXls(string path)
         {
+            LocalCoefficients.Clear();
+            Areas.Clear();
+            FunctionalUsages.Clear();
+            Documents.Clear();
+            Executors.Clear();
+            Chiefs.Clear();
+            Regions.Clear();
+
             string[] cols = { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R" };
 
             bool bRet = true;
@@ -245,29 +253,28 @@ namespace LandCost.Entities
             bRet = ExcelHelper.Init(path);
             if (bRet)
             {
+                // Sheet 1
                 // Local coefficients
-                LocalCoefficients.Clear();
-
                 for (int i = 6; i < cols.Length; i++)
                 {
-                    string lcName = ExcelHelper.GetValue(cols[i] + "2");
+                    string lcName = ExcelHelper.GetValue(1, cols[i] + "1").Trim();
                     LocalCoefficient coef = new LocalCoefficient(lcName);
                     LocalCoefficients.Add(coef);
                 }
 
                 // Go through the table
-                int cnt = 3;
+                int cnt = 2;
                 while (true)
                 {
-                    string s = ExcelHelper.GetValue(string.Format("A{0}", cnt));
-                    if (s.Contains("_____"))
+                    string s = ExcelHelper.GetValue(1, string.Format("A{0}", cnt)).Trim();
+                    if (string.IsNullOrEmpty(s))
                     {
                         break;
                     }
 
                     // Area
                     int areaNum = -1;
-                    int.TryParse(ExcelHelper.GetValue(string.Format("A{0}", cnt)), out areaNum);
+                    int.TryParse(ExcelHelper.GetValue(1, string.Format("A{0}", cnt)).Trim(), out areaNum);
                     Area curArea = null;
                     if (areaNum > 0)
                     {
@@ -278,8 +285,8 @@ namespace LandCost.Entities
                             double km2 = -1;
                             double price = -1;
 
-                            double.TryParse(ExcelHelper.GetValue(string.Format("B{0}", cnt)), out km2);
-                            double.TryParse(ExcelHelper.GetValue(string.Format("C{0}", cnt)), out price);
+                            double.TryParse(ExcelHelper.GetValue(1, string.Format("B{0}", cnt)).Trim(), out km2);
+                            double.TryParse(ExcelHelper.GetValue(1, string.Format("C{0}", cnt)).Trim(), out price);
 
                             if (km2 >= 0 && price >= 0)
                             {
@@ -291,8 +298,8 @@ namespace LandCost.Entities
 
                     // LandRegion
                     int regNum = -1;
-                    int.TryParse(ExcelHelper.GetValue(string.Format("D{0}", cnt)), out regNum);
-                    LandRegion curReg = 0;
+                    int.TryParse(ExcelHelper.GetValue(1, string.Format("D{0}", cnt)).Trim(), out regNum);
+                    LandRegion curReg = null;
                     if (regNum > 0)
                     {
                         curReg = GetRegionByNumber(regNum);
@@ -311,12 +318,12 @@ namespace LandCost.Entities
                     // The rest is possible only when the region is not null
                     if (curReg != null)
                     {
-                        string funcUsage = ExcelHelper.GetValue(string.Format("E{0}", cnt));
+                        string funcUsage = ExcelHelper.GetValue(1, string.Format("E{0}", cnt)).Trim();
                         FunctionalUsage curFU = GetFunctionalUsageByName(funcUsage);
                         if (curFU == null)
                         {
                             double kf = -1;
-                            double.TryParse(ExcelHelper.GetValue(string.Format("F{0}", cnt)), out kf);
+                            double.TryParse(ExcelHelper.GetValue(1, string.Format("F{0}", cnt)).Trim(), out kf);
                             if (kf >= 0)
                             {
                                 curFU = new FunctionalUsage(funcUsage, kf);
@@ -327,14 +334,130 @@ namespace LandCost.Entities
                         // If a functional usage exists - create FunctionalUsageCoefficients
                         if (curFU != null)
                         {
-                            
+                            FunctionalUsageCoefficients fuc = new FunctionalUsageCoefficients(curFU);
+                            for (int i = 6; i < cols.Length; i++)
+                            {
+                                double val = -1;
+                                double.TryParse(ExcelHelper.GetValue(1, string.Format("{0}{1}", cols[i], cnt)).Trim(), out val);
+                                if (val >= 0)
+                                {
+                                    LocalCoefficientValue lcv = new LocalCoefficientValue(LocalCoefficients[i - 6], val);
+                                    fuc.AddCoefficientValue(lcv);
+                                }
+                            }
+                            if (fuc.LocalCoefficientValues.Count > 0)
+                            {
+                                curReg.AddFunctionalUsageCoefficients(fuc);
+                            }
                         }
                     }
+                    cnt++;
+                }
+
+                // Sheet 2
+                string sAgency = ExcelHelper.GetValue(2, "B1").Trim();
+                string sAddress = ExcelHelper.GetValue(2, "B2").Trim();
+
+                double dIndCoef = -1;
+                double.TryParse(ExcelHelper.GetValue(2, "B3").Trim(), out dIndCoef);
+
+                this.AgencyName = sAgency;
+                this.AgencyAddress = sAddress;
+                this.IndexCoefficient = dIndCoef;
+
+                // Sheet 3
+                cnt = 1;
+                while (true)
+                {
+                    string s = ExcelHelper.GetValue(3, string.Format("A{0}", cnt)).Trim();
+                    if (string.IsNullOrEmpty(s))
+                    {
+                        break;
+                    }
+
+                    if (!Executors.Contains(s))
+                    {
+                        Executors.Add(s);
+                    }
+                    cnt++;
+                }
+
+                // Sheet 4
+                cnt = 1;
+                while (true)
+                {
+                    string s = ExcelHelper.GetValue(4, string.Format("A{0}", cnt)).Trim();
+                    if (string.IsNullOrEmpty(s))
+                    {
+                        break;
+                    }
+
+                    if (!Chiefs.Contains(s))
+                    {
+                        Chiefs.Add(s);
+                    }
+                    cnt++;
+                }
+
+                // Sheet 5
+                cnt = 1;
+                while (true)
+                {
+                    string s = ExcelHelper.GetValue(5, string.Format("A{0}", cnt)).Trim();
+                    if (string.IsNullOrEmpty(s))
+                    {
+                        break;
+                    }
+
+                    Document d = GetDocumentByName(s);
+                    if (d == null)
+                    {
+                        d = new Document(s, string.Empty);
+                        Documents.Add(d);
+                    }
+                    cnt++;
                 }
             }
+
             bRet = ExcelHelper.Close();
 
+            // Several retries to close Excel
+            int reties = 0;
+            if (!bRet)
+            {
+                bool b = false;
+                while (!b)
+                {
+                    if (reties >= 10)
+                    {
+                        break;
+                    }
+                    b = ExcelHelper.Close();
+                    reties++;
+                }
+                bRet = b;
+            }
+
             return bRet;
+        }
+
+        /// <summary>
+        /// Get the document by its name
+        /// </summary>
+        /// <param name="number">required number</param>
+        /// <returns></returns>
+        private Document GetDocumentByName(string name)
+        {
+            Document ret = null;
+            foreach (Document d in Documents)
+            {
+                if (d.Name == name)
+                {
+                    ret = d;
+                    break;
+                }
+            }
+            return ret;
         }
 
         /// <summary>

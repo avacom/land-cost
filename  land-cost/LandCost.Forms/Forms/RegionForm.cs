@@ -365,17 +365,28 @@ namespace LandCost.Forms
         private void RegionForm_Shown(object sender, EventArgs e)
         {
             numberBox.Focus();
+            numberBox.SelectAll();
             ReinitCoefsControl();
         }
 
         private void polyBtn_Click(object sender, EventArgs e)
         {
-            polForm.CurrentProfile = m_ParentObject as Profile;
-            polForm.CurrentPolygon = polygon;
-            if (polForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            Profile p = m_ParentObject as Profile;
+            if (p != null &&
+                p.RegionMap != null &&
+                p.RegionMap.Polygons.Count > 0)
             {
-                polygon = polForm.CurrentPolygon;
-                UpdateRegionStatusLbl();
+                polForm.CurrentProfile = p;
+                polForm.CurrentPolygon = polygon;
+                if (polForm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    polygon = polForm.CurrentPolygon;
+                    UpdateRegionStatusLbl();
+                }
+            }
+            else
+            {
+                MessageBox.Show(this, "Карта не завантажена!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -152,6 +152,7 @@ namespace LandCost.Forms
         private void FunctionalUsageForm_Shown(object sender, EventArgs e)
         {
             nameBox.Focus();
+            nameBox.SelectAll();
         }
     }
 }

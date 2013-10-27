@@ -14,6 +14,8 @@ namespace LandCost.Forms
 {
     public partial class ProfileControl : UserControl, IEditor<Profile>, IModificationAnnouncer
     {
+        ProgressForm m_ProgressForm;
+
         Profile m_Profile;
         List<Profile> m_aList;
         object m_ParentObject;
@@ -38,6 +40,7 @@ namespace LandCost.Forms
         {
             m_ParentObject = null;
             InitializeComponent();
+            m_ProgressForm = new ProgressForm();
             //InitializeInternal();
             //InitializeControls();
         }
@@ -318,15 +321,15 @@ namespace LandCost.Forms
             this.regionList.EditButtonText = "Редагувати район";
             this.regionList.Name = "regionList";
             this.regionList.TabIndex = 0;
-            if (m_Profile != null &&
-                m_Profile.RegionMap != null)
-            {
-                this.regionList.Enabled = true;
-            }
-            else
-            {
-                this.regionList.Enabled = false;
-            }
+            //if (m_Profile != null &&
+            //    m_Profile.RegionMap != null)
+            //{
+            //    this.regionList.Enabled = true;
+            //}
+            //else
+            //{
+            //    this.regionList.Enabled = false;
+            //}
             this.regionPanel.Controls.Add(this.regionList);
             ColumnHeader reg_numberHeader = new ColumnHeader();
             reg_numberHeader.Width = 100;
@@ -412,7 +415,7 @@ namespace LandCost.Forms
             mapFileLabel.Text = Path.GetFileName(m_Profile.RegionMap.FileName);
             mapRegLabel.Text = m_Profile.RegionMap.Polygons.Count.ToString();
             mapUnboundRegLabel.Text = m_Profile.UnboundPolygons.Count.ToString();
-            regionList.Enabled = true;
+            //regionList.Enabled = true;
             OnModified(this, null);
         }
 
@@ -539,11 +542,40 @@ namespace LandCost.Forms
 
         private void loadXlsBtn_Click(object sender, EventArgs e)
         {
+            LoadXlsAsync();
+        }
+
+        private void LoadXlsAsync()
+        {
             if (xlsDialog.ShowDialog() == DialogResult.OK)
             {
-                ((Profile)Entity).LoadXls(xlsDialog.FileName);
+                BackgroundWorker bg = new BackgroundWorker();
+                bg.DoWork += new DoWorkEventHandler(LoadXls);
+                bg.RunWorkerCompleted += new RunWorkerCompletedEventHandler(LoadXlsCompleted);
+
+                // Start the worker.
+                bg.RunWorkerAsync();
+
+                // Display the progress form.
+                m_ProgressForm.StartPosition = FormStartPosition.CenterParent;
+                m_ProgressForm.Text = "Завантажую...";
+                m_ProgressForm.ShowDialog(this);
             }
             this.Entity = Entity;
+            OnModified(this, null);
+        }
+
+        private void LoadXls(object sender, DoWorkEventArgs e)
+        {
+            ((Profile)Entity).LoadXls(xlsDialog.FileName);
+        }
+
+        public void LoadXlsCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            object result = e.Result;
+
+            // Close the loading form.
+            m_ProgressForm.Hide();
         }
        
     }

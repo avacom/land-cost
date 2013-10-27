@@ -191,6 +191,7 @@ namespace LandCost.Forms
         private void AreaForm_Shown(object sender, EventArgs e)
         {
             numberBox.Focus();
+            numberBox.SelectAll();
         }
 
         private void AreaForm_Load(object sender, EventArgs e)
