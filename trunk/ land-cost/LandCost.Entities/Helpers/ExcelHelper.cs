@@ -49,6 +49,23 @@ namespace LandCost.Entities.Helpers
             return value;
         }
 
+        //Method to get value; cellname is A1,A2, or B1,B2 etc...in excel.
+        public static string GetValue(int sheetNo, string cellname)
+        {
+            string value = string.Empty;
+            try
+            {
+
+                value = ((_Worksheet)appExcel.ActiveWorkbook.Sheets[sheetNo]).get_Range(cellname).get_Value().ToString();
+            }
+            catch
+            {
+                value = "";
+            }
+
+            return value;
+        }
+
         //Method to close excel connection
         public static bool Close()
         {

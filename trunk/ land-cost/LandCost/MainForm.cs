@@ -336,17 +336,7 @@ namespace LandCost
         private void ReloadWorkingArea(object sender, DoWorkEventArgs e)
         {
 
-            if (evalBtn.InvokeRequired)
-            {
-                evalBtn.Invoke(new MethodInvoker(delegate()
-                {
-                    evalBtn.Enabled = false;
-                }));
-            }
-            else
-            {
-                evalBtn.Enabled = false;
-            }
+            SetCtlEnabled(evalBtn, false);
 
             if (map.InvokeRequired)
             {
@@ -450,11 +440,26 @@ namespace LandCost
             if (regionSelCtl.CurrentRegion != null &&
                 regionSelCtl.CurrentFunctionalUsageCoefficients != null)
             {
-                evalBtn.Enabled = true;
+                SetCtlEnabled(evalBtn, true);
             }
             else
             {
-                evalBtn.Enabled = false;
+                SetCtlEnabled(evalBtn, false);
+            }
+        }
+
+        void SetCtlEnabled(Control ctl, bool enabled)
+        {
+            if (ctl.InvokeRequired)
+            {
+                ctl.Invoke(new MethodInvoker(delegate()
+                {
+                    ctl.Enabled = enabled;
+                }));
+            }
+            else
+            {
+                ctl.Enabled = enabled;
             }
         }
 

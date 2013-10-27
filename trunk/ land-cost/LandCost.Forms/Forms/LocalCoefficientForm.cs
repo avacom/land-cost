@@ -149,6 +149,7 @@ namespace LandCost.Forms
         private void LocalCoefficientForm_Shown(object sender, EventArgs e)
         {
             nameBox.Focus();
+            nameBox.SelectAll();
         }
     }
 }
