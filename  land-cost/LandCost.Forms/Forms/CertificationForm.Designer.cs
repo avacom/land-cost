@@ -279,9 +279,9 @@
             this.oneMoreCheck.AutoSize = true;
             this.oneMoreCheck.Location = new System.Drawing.Point(422, 262);
             this.oneMoreCheck.Name = "oneMoreCheck";
-            this.oneMoreCheck.Size = new System.Drawing.Size(368, 17);
+            this.oneMoreCheck.Size = new System.Drawing.Size(367, 17);
             this.oneMoreCheck.TabIndex = 26;
-            this.oneMoreCheck.Text = "Ділянка зайнята поточним або відведена під майбетнє будівництво";
+            this.oneMoreCheck.Text = "Ділянка зайнята поточним або відведена під майбутнє будівництво";
             this.oneMoreCheck.UseVisualStyleBackColor = true;
             this.oneMoreCheck.CheckedChanged += new System.EventHandler(this.oneMoreCheck_CheckedChanged);
             // 
