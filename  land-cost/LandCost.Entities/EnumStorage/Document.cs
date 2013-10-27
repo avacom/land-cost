@@ -61,5 +61,14 @@ namespace LandCost.Entities
         }
 
         #endregion Properties
+
+        #region Methods
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
+
+        #endregion Methods
     }
 }

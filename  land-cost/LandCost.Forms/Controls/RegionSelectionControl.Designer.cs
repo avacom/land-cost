@@ -52,7 +52,7 @@
             this.regionBox.FormattingEnabled = true;
             this.regionBox.Location = new System.Drawing.Point(162, 7);
             this.regionBox.Name = "regionBox";
-            this.regionBox.Size = new System.Drawing.Size(202, 21);
+            this.regionBox.Size = new System.Drawing.Size(225, 21);
             this.regionBox.TabIndex = 2;
             this.regionBox.SelectedIndexChanged += new System.EventHandler(this.regionBox_SelectedIndexChanged);
             // 
@@ -71,7 +71,7 @@
             this.usageBox.FormattingEnabled = true;
             this.usageBox.Location = new System.Drawing.Point(162, 34);
             this.usageBox.Name = "usageBox";
-            this.usageBox.Size = new System.Drawing.Size(202, 21);
+            this.usageBox.Size = new System.Drawing.Size(225, 21);
             this.usageBox.TabIndex = 4;
             this.usageBox.SelectedIndexChanged += new System.EventHandler(this.usageBox_SelectedIndexChanged);
             // 
@@ -80,7 +80,7 @@
             this.coefPanel.Controls.Add(this.coefValsCtl);
             this.coefPanel.Location = new System.Drawing.Point(0, 72);
             this.coefPanel.Name = "coefPanel";
-            this.coefPanel.Size = new System.Drawing.Size(375, 259);
+            this.coefPanel.Size = new System.Drawing.Size(390, 272);
             this.coefPanel.TabIndex = 5;
             this.coefPanel.TabStop = false;
             this.coefPanel.Text = "Локальні коефіцієнти";
@@ -92,7 +92,7 @@
             this.coefValsCtl.Location = new System.Drawing.Point(3, 16);
             this.coefValsCtl.Name = "coefValsCtl";
             this.coefValsCtl.ReadOnly = false;
-            this.coefValsCtl.Size = new System.Drawing.Size(369, 240);
+            this.coefValsCtl.Size = new System.Drawing.Size(384, 253);
             this.coefValsCtl.TabIndex = 0;
             // 
             // RegionSelectionControl
@@ -105,7 +105,7 @@
             this.Controls.Add(this.regionBox);
             this.Controls.Add(this.label1);
             this.Name = "RegionSelectionControl";
-            this.Size = new System.Drawing.Size(375, 334);
+            this.Size = new System.Drawing.Size(390, 347);
             this.coefPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

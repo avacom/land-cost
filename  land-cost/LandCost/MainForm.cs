@@ -566,5 +566,28 @@ namespace LandCost
             certForm.SetValues(regionSelCtl.CurrentRegion, regionSelCtl.CurrentFunctionalUsageCoefficients, addressBox.Text);
             certForm.ShowDialog();
         }
+
+        private void exitMenu_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void openMenu_Click(object sender, EventArgs e)
+        {
+            if (openDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                try
+                {
+                    certForm.StartPosition = FormStartPosition.CenterScreen;
+                    certForm.SetProfile(m_DB.Config.CurrentProfile);
+                    certForm.LoadFromFile(openDialog.FileName);
+                    certForm.ShowDialog();
+                }
+                catch
+                {
+                    MessageBox.Show(this, "Не можу завантажити довідку!", "Горечко :(", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+        }
     }
 }

@@ -38,8 +38,9 @@
             this.panel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.panel.Location = new System.Drawing.Point(0, 0);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(365, 150);
+            this.panel.Size = new System.Drawing.Size(375, 150);
             this.panel.TabIndex = 0;
+            this.panel.WrapContents = false;
             // 
             // CoefficientValueSetControl
             // 
@@ -47,7 +48,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel);
             this.Name = "CoefficientValueSetControl";
-            this.Size = new System.Drawing.Size(365, 150);
+            this.Size = new System.Drawing.Size(375, 150);
             this.ResumeLayout(false);
 
         }

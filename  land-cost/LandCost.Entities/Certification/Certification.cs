@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel;
+using System.Xml.Serialization;
+using System.IO;
 
 namespace LandCost.Entities
 {
@@ -78,6 +80,7 @@ namespace LandCost.Entities
             {
                 m_sAgency = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Agency"));
+                OnChanged(this, null);
             }
         }
 
@@ -91,6 +94,7 @@ namespace LandCost.Entities
             {
                 m_sAgencyAddress = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("AgencyAddress"));
+                OnChanged(this, null);
             }
         }
 
@@ -104,6 +108,7 @@ namespace LandCost.Entities
             {
                 m_sNumber = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Number"));
+                OnChanged(this, null);
             }
         }
 
@@ -117,6 +122,7 @@ namespace LandCost.Entities
             {
                 m_dtDate = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Date"));
+                OnChanged(this, null);
             }
         }
 
@@ -130,6 +136,7 @@ namespace LandCost.Entities
             {
                 m_sOwner = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Owner"));
+                OnChanged(this, null);
             }
         }
 
@@ -143,6 +150,7 @@ namespace LandCost.Entities
             {
                 m_sOwnerLocation = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("OwnerLocation"));
+                OnChanged(this, null);
             }
         }
 
@@ -156,6 +164,7 @@ namespace LandCost.Entities
             {
                 m_sAddress = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Address"));
+                OnChanged(this, null);
             }
         }
 
@@ -169,6 +178,7 @@ namespace LandCost.Entities
             {
                 m_sLandName = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("LandName"));
+                OnChanged(this, null);
             }
         }
 
@@ -182,6 +192,7 @@ namespace LandCost.Entities
             {
                 m_sDocument = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Document"));
+                OnChanged(this, null);
             }
         }
 
@@ -195,6 +206,7 @@ namespace LandCost.Entities
             {
                 m_sDocumentDetails = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("DocumentDetails"));
+                OnChanged(this, null);
             }
         }
 
@@ -209,6 +221,7 @@ namespace LandCost.Entities
                 m_dSquare = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Square"));
                 Recalculate();
+                OnChanged(this, null);
             }
         }
 
@@ -222,6 +235,7 @@ namespace LandCost.Entities
             {
                 m_sArea = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Area"));
+                OnChanged(this, null);
             }
         }
 
@@ -235,6 +249,7 @@ namespace LandCost.Entities
             {
                 m_dKm2 = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Km2"));
+                OnChanged(this, null);
             }
         }
 
@@ -249,6 +264,7 @@ namespace LandCost.Entities
                 m_dPrice = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Price"));
                 Recalculate();
+                OnChanged(this, null);
             }
         }
 
@@ -262,6 +278,7 @@ namespace LandCost.Entities
             {
                 m_aCoefVals = value;
                 Recalculate();
+                OnChanged(this, null);
             }
         }
 
@@ -275,6 +292,7 @@ namespace LandCost.Entities
             {
                 m_dKm3 = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Km3"));
+                OnChanged(this, null);
             }
         }
 
@@ -289,6 +307,7 @@ namespace LandCost.Entities
                 m_dKf_main = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("KfMain"));
                 Recalculate();
+                OnChanged(this, null);
             }
         }
 
@@ -302,6 +321,7 @@ namespace LandCost.Entities
             {
                 m_sKfName_main = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("KfNameMain"));
+                OnChanged(this, null);
             }
         }
 
@@ -316,6 +336,7 @@ namespace LandCost.Entities
                 m_dKf_side = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("KfSide"));
                 Recalculate();
+                OnChanged(this, null);
             }
         }
 
@@ -329,6 +350,7 @@ namespace LandCost.Entities
             {
                 m_sKfName_side = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("KfNameSide"));
+                OnChanged(this, null);
             }
         }
 
@@ -342,6 +364,7 @@ namespace LandCost.Entities
             {
                 m_dKi = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("IndexCoefficient"));
+                OnChanged(this, null);
             }
         }
 
@@ -355,6 +378,7 @@ namespace LandCost.Entities
             {
                 m_dNormEvalM2_main = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("NormEvalM2Main"));
+                OnChanged(this, null);
             }
         }
 
@@ -368,6 +392,7 @@ namespace LandCost.Entities
             {
                 m_dNormEvalM2_side = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("NormEvalM2Side"));
+                OnChanged(this, null);
             }
         }
 
@@ -381,6 +406,7 @@ namespace LandCost.Entities
             {
                 m_dTotalNormEval_main = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("TotalNormEvalMain"));
+                OnChanged(this, null);
             }
         }
 
@@ -394,6 +420,7 @@ namespace LandCost.Entities
             {
                 m_dTotalNormEval_side = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("TotalNormEvalSide"));
+                OnChanged(this, null);
             }
         }
 
@@ -407,6 +434,7 @@ namespace LandCost.Entities
             {
                 m_bSideActive = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("SideActive"));
+                OnChanged(this, null);
             }
         }
 
@@ -420,6 +448,7 @@ namespace LandCost.Entities
             {
                 m_sExecutor = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Executor"));
+                OnChanged(this, null);
             }
         }
 
@@ -433,12 +462,21 @@ namespace LandCost.Entities
             {
                 m_sChief = value;
                 OnPropertyChanged(new PropertyChangedEventArgs("Chief"));
+                OnChanged(this, null);
             }
         }
 
         #endregion Properties
 
         #region Methods
+
+        public void Save(string filename)
+        {
+            XmlSerializer serializer = new XmlSerializer(typeof(Certification));
+            TextWriter tw = new StreamWriter(filename);
+            serializer.Serialize(tw, this);
+            tw.Close(); 
+        }
 
         public void Recalculate()
         {
@@ -453,15 +491,17 @@ namespace LandCost.Entities
                         dKm3 *= lcv.Value;
                     }
                 }
-                Km3 = dKm3;
+                Km3 = Math.Round(dKm3, 4);
 
                 // Calculate NormEvalM2
-                NormEvalM2Main = Price * Km3 * KfMain * IndexCoefficient;
-                NormEvalM2Side = Price * Km3 * KfSide * IndexCoefficient;
+                double dEvalM2Main = Price * dKm3 * KfMain * IndexCoefficient;
+                double dEvalM2Side = Price * dKm3 * KfSide * IndexCoefficient;
+                NormEvalM2Main = Math.Round(dEvalM2Main, 2);
+                NormEvalM2Side = Math.Round(dEvalM2Side, 2);
 
                 // Calculate TotalNormEval
-                TotalNormEvalMain = NormEvalM2Main * Square;
-                TotalNormEvalSide = NormEvalM2Side * Square;
+                TotalNormEvalMain = Math.Round(dEvalM2Main * Square, 2);
+                TotalNormEvalSide = Math.Round(dEvalM2Side * Square, 2);
             }
         }
 
@@ -499,11 +539,22 @@ namespace LandCost.Entities
 
         #endregion Methods
 
+        #region Events
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged(PropertyChangedEventArgs e)
         {
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, e);
         }
+
+        public event EventHandler Changed;
+        public void OnChanged(object sender, EventArgs e)
+        {
+            if (Changed != null)
+            {
+                Changed(sender, e);
+            }
+        }
+        #endregion Events
     }
 }

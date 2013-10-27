@@ -39,7 +39,6 @@
             this.cancelBtn = new System.Windows.Forms.Button();
             this.evalBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.searchBtn = new System.Windows.Forms.Button();
             this.addressBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.infoPanel = new System.Windows.Forms.Panel();
@@ -48,6 +47,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.openMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.openDialog = new System.Windows.Forms.OpenFileDialog();
             this.regionSelCtl = new LandCost.Forms.RegionSelectionControl();
             this.priceBox = new LandCost.Forms.DecimalTextBox();
             this.regionBox = new LandCost.Forms.DecimalTextBox();
@@ -63,6 +68,7 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenu,
             this.settingsMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -98,7 +104,7 @@
             this.mainTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.mainTable.ColumnCount = 2;
             this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 390F));
+            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 405F));
             this.mainTable.Controls.Add(this.map, 0, 0);
             this.mainTable.Controls.Add(this.toolPanel, 1, 0);
             this.mainTable.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -131,7 +137,7 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(606, 654);
+            this.map.Size = new System.Drawing.Size(591, 654);
             this.map.TabIndex = 2;
             this.map.Zoom = 0D;
             this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
@@ -145,9 +151,9 @@
             this.toolPanel.Controls.Add(this.panel1);
             this.toolPanel.Controls.Add(this.infoPanel);
             this.toolPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolPanel.Location = new System.Drawing.Point(619, 5);
+            this.toolPanel.Location = new System.Drawing.Point(604, 5);
             this.toolPanel.Name = "toolPanel";
-            this.toolPanel.Size = new System.Drawing.Size(384, 654);
+            this.toolPanel.Size = new System.Drawing.Size(399, 654);
             this.toolPanel.TabIndex = 3;
             // 
             // buttonPanel
@@ -157,12 +163,12 @@
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonPanel.Location = new System.Drawing.Point(0, 619);
             this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(384, 35);
+            this.buttonPanel.Size = new System.Drawing.Size(399, 35);
             this.buttonPanel.TabIndex = 7;
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(292, 9);
+            this.cancelBtn.Location = new System.Drawing.Point(100, 5);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(75, 23);
             this.cancelBtn.TabIndex = 1;
@@ -172,7 +178,7 @@
             // 
             // evalBtn
             // 
-            this.evalBtn.Location = new System.Drawing.Point(211, 9);
+            this.evalBtn.Location = new System.Drawing.Point(13, 5);
             this.evalBtn.Name = "evalBtn";
             this.evalBtn.Size = new System.Drawing.Size(75, 23);
             this.evalBtn.TabIndex = 0;
@@ -189,24 +195,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 141);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(384, 61);
+            this.panel1.Size = new System.Drawing.Size(399, 61);
             this.panel1.TabIndex = 5;
-            // 
-            // searchBtn
-            // 
-            this.searchBtn.Image = global::LandCost.Properties.Resources.search;
-            this.searchBtn.Location = new System.Drawing.Point(304, 25);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(55, 23);
-            this.searchBtn.TabIndex = 10;
-            this.searchBtn.UseVisualStyleBackColor = true;
-            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // addressBox
             // 
             this.addressBox.Location = new System.Drawing.Point(21, 27);
             this.addressBox.Name = "addressBox";
-            this.addressBox.Size = new System.Drawing.Size(277, 20);
+            this.addressBox.Size = new System.Drawing.Size(300, 20);
             this.addressBox.TabIndex = 9;
             this.addressBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.addressBox_KeyDown);
             // 
@@ -233,7 +229,7 @@
             this.infoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.infoPanel.Location = new System.Drawing.Point(0, 0);
             this.infoPanel.Name = "infoPanel";
-            this.infoPanel.Size = new System.Drawing.Size(384, 141);
+            this.infoPanel.Size = new System.Drawing.Size(399, 141);
             this.infoPanel.TabIndex = 4;
             // 
             // areaBox
@@ -241,7 +237,7 @@
             this.areaBox.Location = new System.Drawing.Point(244, 18);
             this.areaBox.Name = "areaBox";
             this.areaBox.ReadOnly = true;
-            this.areaBox.Size = new System.Drawing.Size(115, 20);
+            this.areaBox.Size = new System.Drawing.Size(138, 20);
             this.areaBox.TabIndex = 8;
             this.areaBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -281,6 +277,55 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Економіко-планувальна зона";
             // 
+            // fileMenu
+            // 
+            this.fileMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openMenu,
+            this.toolStripMenuItem1,
+            this.exitMenu});
+            this.fileMenu.Name = "fileMenu";
+            this.fileMenu.Size = new System.Drawing.Size(48, 20);
+            this.fileMenu.Text = "Файл";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(205, 6);
+            // 
+            // exitMenu
+            // 
+            this.exitMenu.Image = global::LandCost.Properties.Resources.exit;
+            this.exitMenu.Name = "exitMenu";
+            this.exitMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.exitMenu.Size = new System.Drawing.Size(208, 22);
+            this.exitMenu.Text = "Вихід";
+            this.exitMenu.Click += new System.EventHandler(this.exitMenu_Click);
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.Image = global::LandCost.Properties.Resources.search;
+            this.searchBtn.Location = new System.Drawing.Point(327, 25);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(55, 23);
+            this.searchBtn.TabIndex = 10;
+            this.searchBtn.UseVisualStyleBackColor = true;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // openMenu
+            // 
+            this.openMenu.Image = global::LandCost.Properties.Resources.open;
+            this.openMenu.Name = "openMenu";
+            this.openMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openMenu.Size = new System.Drawing.Size(208, 22);
+            this.openMenu.Text = "Відкрити довідку";
+            this.openMenu.Click += new System.EventHandler(this.openMenu_Click);
+            // 
+            // openDialog
+            // 
+            this.openDialog.DefaultExt = "lcc";
+            this.openDialog.Filter = "Довідки про грошову оцінку|*.lcc";
+            this.openDialog.Title = "Відкрити довідку про грошову оцінку";
+            // 
             // regionSelCtl
             // 
             this.regionSelCtl.CurrentRegion = null;
@@ -288,7 +333,7 @@
             this.regionSelCtl.Location = new System.Drawing.Point(0, 202);
             this.regionSelCtl.Name = "regionSelCtl";
             this.regionSelCtl.RegionList = null;
-            this.regionSelCtl.Size = new System.Drawing.Size(384, 334);
+            this.regionSelCtl.Size = new System.Drawing.Size(399, 344);
             this.regionSelCtl.TabIndex = 6;
             this.regionSelCtl.Visible = false;
             this.regionSelCtl.SelectionMade += new System.EventHandler(this.regionSelCtl_SelectionMade);
@@ -299,7 +344,7 @@
             this.priceBox.Name = "priceBox";
             this.priceBox.Precision = 2;
             this.priceBox.ReadOnly = true;
-            this.priceBox.Size = new System.Drawing.Size(115, 20);
+            this.priceBox.Size = new System.Drawing.Size(138, 20);
             this.priceBox.TabIndex = 5;
             this.priceBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -309,7 +354,7 @@
             this.regionBox.Name = "regionBox";
             this.regionBox.Precision = 0;
             this.regionBox.ReadOnly = true;
-            this.regionBox.Size = new System.Drawing.Size(115, 20);
+            this.regionBox.Size = new System.Drawing.Size(138, 20);
             this.regionBox.TabIndex = 2;
             this.regionBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -319,7 +364,7 @@
             this.km2Box.Name = "km2Box";
             this.km2Box.Precision = 3;
             this.km2Box.ReadOnly = true;
-            this.km2Box.Size = new System.Drawing.Size(115, 20);
+            this.km2Box.Size = new System.Drawing.Size(138, 20);
             this.km2Box.TabIndex = 3;
             this.km2Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -376,5 +421,10 @@
         private System.Windows.Forms.TextBox addressBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.ToolStripMenuItem fileMenu;
+        private System.Windows.Forms.ToolStripMenuItem openMenu;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem exitMenu;
+        private System.Windows.Forms.OpenFileDialog openDialog;
     }
 }
