@@ -626,6 +626,7 @@
             this.printMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.printMenu.Size = new System.Drawing.Size(172, 22);
             this.printMenu.Text = "Друкувати";
+            this.printMenu.Click += new System.EventHandler(this.printMenu_Click);
             // 
             // toolStripMenuItem1
             // 

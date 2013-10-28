@@ -9,11 +9,13 @@ using System.Windows.Forms;
 using LandCost.Entities;
 using System.Xml.Serialization;
 using System.IO;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace LandCost.Forms
 {
     public partial class CertificationForm : Form
     {
+        Profile m_Profile;
         Certification cert;
         string m_sFileName;
         bool m_bChanged;
@@ -110,6 +112,7 @@ namespace LandCost.Forms
             docBox.Items.Clear();
             chiefBox.Items.Clear();
             executorBox.Items.Clear();
+            m_Profile = profile;
             if (profile != null)
             {
                 docBox.Items.Add("Відсутній");
@@ -260,8 +263,29 @@ namespace LandCost.Forms
             return bRet;
         }
 
+        bool Print()
+        {
+            bool bRet = true;
+            try
+            {
+                ReportDocument myDataReport = new ReportDocument();
+                myDataReport.Load(@"Reports\Certification.rpt");
+                myDataReport.SetParameterValue("txtAgencyName", m_Profile.AgencyName.ToUpper());
+                myDataReport.SetParameterValue("txtAgencyAddress", m_Profile.AgencyAddress);
+                myDataReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, "C:\\Certification.pdf");
+                myDataReport.Close();
+            }
+            catch
+            {
+                bRet = false;
+            }
+
+            return bRet;
+        }
+
         private void saveMenu_Click(object sender, EventArgs e)
         {
+            this.ValidateChildren();
             if (ValidateValues())
             {
                 if (!string.IsNullOrEmpty(m_sFileName))
@@ -277,6 +301,7 @@ namespace LandCost.Forms
 
         private void saveAsMenu_Click(object sender, EventArgs e)
         {
+            this.ValidateChildren();
             if (ValidateValues())
             {
                 SaveAs();
@@ -367,6 +392,7 @@ namespace LandCost.Forms
 
         private void CertificationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            this.ValidateChildren();
             if (m_bChanged)
             {
                 DialogResult res = MessageBox.Show(this, "Бажаєте зберегти зміни?", "Запитання", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -396,6 +422,12 @@ namespace LandCost.Forms
                     e.Cancel = true;
                 }
             }
+        }
+
+        private void printMenu_Click(object sender, EventArgs e)
+        {
+            this.ValidateChildren();
+            Print();
         }
     }
 }

@@ -14,9 +14,6 @@ namespace LandCost.Entities
         #region Members
         bool m_bLoaded;
 
-        string m_sAgency;
-        string m_sAgencyAddress;
-
         string m_sNumber;
         DateTime m_dtDate;
 
@@ -69,34 +66,6 @@ namespace LandCost.Entities
         #endregion Constructors
 
         #region Properties
-
-        public string Agency
-        {
-            get
-            {
-                return m_sAgency;
-            }
-            set
-            {
-                m_sAgency = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Agency"));
-                OnChanged(this, null);
-            }
-        }
-
-        public string AgencyAddress
-        {
-            get
-            {
-                return m_sAgencyAddress;
-            }
-            set
-            {
-                m_sAgencyAddress = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("AgencyAddress"));
-                OnChanged(this, null);
-            }
-        }
 
         public string Number
         {
@@ -507,8 +476,6 @@ namespace LandCost.Entities
 
         public void SetZero()
         {
-            Agency = string.Empty;
-            AgencyAddress = string.Empty;
             Number = string.Empty;
             Date = DateTime.Now;
             Owner = string.Empty;

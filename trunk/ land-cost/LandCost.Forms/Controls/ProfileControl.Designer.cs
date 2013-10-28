@@ -31,6 +31,7 @@ namespace LandCost.Forms
         {
             this.settingsTabControl = new System.Windows.Forms.TabControl();
             this.generalTab = new System.Windows.Forms.TabPage();
+            this.loadXlsBtn = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.executorBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -61,7 +62,6 @@ namespace LandCost.Forms
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.loadMapDlg = new System.Windows.Forms.OpenFileDialog();
-            this.loadXlsBtn = new System.Windows.Forms.Button();
             this.xlsDialog = new System.Windows.Forms.OpenFileDialog();
             this.settingsTabControl.SuspendLayout();
             this.generalTab.SuspendLayout();
@@ -103,6 +103,16 @@ namespace LandCost.Forms
             this.generalTab.TabIndex = 0;
             this.generalTab.Text = "Загальне";
             this.generalTab.UseVisualStyleBackColor = true;
+            // 
+            // loadXlsBtn
+            // 
+            this.loadXlsBtn.Location = new System.Drawing.Point(664, 282);
+            this.loadXlsBtn.Name = "loadXlsBtn";
+            this.loadXlsBtn.Size = new System.Drawing.Size(112, 23);
+            this.loadXlsBtn.TabIndex = 10;
+            this.loadXlsBtn.Text = "Завантажити XLS";
+            this.loadXlsBtn.UseVisualStyleBackColor = true;
+            this.loadXlsBtn.Click += new System.EventHandler(this.loadXlsBtn_Click);
             // 
             // groupBox4
             // 
@@ -402,16 +412,6 @@ namespace LandCost.Forms
             this.loadMapDlg.Filter = "DXF Files | *.dxf";
             this.loadMapDlg.Title = "Завантажити карту";
             // 
-            // loadXlsBtn
-            // 
-            this.loadXlsBtn.Location = new System.Drawing.Point(664, 282);
-            this.loadXlsBtn.Name = "loadXlsBtn";
-            this.loadXlsBtn.Size = new System.Drawing.Size(112, 23);
-            this.loadXlsBtn.TabIndex = 10;
-            this.loadXlsBtn.Text = "Завантажити XLS";
-            this.loadXlsBtn.UseVisualStyleBackColor = true;
-            this.loadXlsBtn.Click += new System.EventHandler(this.loadXlsBtn_Click);
-            // 
             // xlsDialog
             // 
             this.xlsDialog.DefaultExt = "xls";
@@ -426,6 +426,7 @@ namespace LandCost.Forms
             this.MinimumSize = new System.Drawing.Size(865, 315);
             this.Name = "ProfileControl";
             this.Size = new System.Drawing.Size(865, 474);
+            this.Validated += new System.EventHandler(this.ProfileControl_Validated);
             this.settingsTabControl.ResumeLayout(false);
             this.generalTab.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);

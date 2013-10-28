@@ -577,6 +577,11 @@ namespace LandCost.Forms
             // Close the loading form.
             m_ProgressForm.Hide();
         }
+
+        private void ProfileControl_Validated(object sender, EventArgs e)
+        {
+            
+        }
        
     }
 }
