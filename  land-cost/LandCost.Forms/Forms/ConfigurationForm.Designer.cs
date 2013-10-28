@@ -75,6 +75,7 @@
             this.Name = "ConfigurationForm";
             this.ShowInTaskbar = false;
             this.Text = "Профілі";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ConfigurationForm_FormClosing);
             this.Shown += new System.EventHandler(this.ConfigurationForm_Shown);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

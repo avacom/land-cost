@@ -82,5 +82,10 @@ namespace LandCost.Forms
                 InitializeControls();
             }
         }
+
+        private void ConfigurationForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            
+        }
     }
 }
