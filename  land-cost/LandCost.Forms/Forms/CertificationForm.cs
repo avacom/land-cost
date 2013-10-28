@@ -10,11 +10,13 @@ using LandCost.Entities;
 using System.Xml.Serialization;
 using System.IO;
 using CrystalDecisions.CrystalReports.Engine;
+using System.Globalization;
 
 namespace LandCost.Forms
 {
     public partial class CertificationForm : Form
     {
+        DateTimeFormatInfo dateTimeFormat;
         Profile m_Profile;
         Certification cert;
         string m_sFileName;
@@ -23,6 +25,7 @@ namespace LandCost.Forms
         public CertificationForm()
         {
             InitializeComponent();
+            dateTimeFormat = (new CultureInfo("uk-UA")).DateTimeFormat;
             dateBox.Value = DateTime.Now;
             m_sFileName = string.Empty;
             fileLabel.Text = "Нова довідка";
@@ -272,6 +275,24 @@ namespace LandCost.Forms
                 myDataReport.Load(@"Reports\Certification.rpt");
                 myDataReport.SetParameterValue("txtAgencyName", m_Profile.AgencyName.ToUpper());
                 myDataReport.SetParameterValue("txtAgencyAddress", m_Profile.AgencyAddress);
+                myDataReport.SetParameterValue("txtNumber", cert.Number);
+                myDataReport.SetParameterValue("txtDate", cert.Date.ToString("D", dateTimeFormat));
+                myDataReport.SetParameterValue("txtOwner", cert.Owner);
+                myDataReport.SetParameterValue("txtOwnerLocation", cert.OwnerLocation);
+                myDataReport.SetParameterValue("txtAddress", cert.Address);
+                myDataReport.SetParameterValue("txtName", cert.LandName);
+                myDataReport.SetParameterValue("txtSquare", cert.Square);
+
+                string sDocument = cert.Document;
+                if (docBox.SelectedIndex > 0)
+                {
+                    sDocument += " " + cert.DocumentDetails;
+                }
+                myDataReport.SetParameterValue("txtDocument", sDocument);
+                myDataReport.SetParameterValue("txtArea", cert.Area);
+                myDataReport.SetParameterValue("txtKm2", cert.Km2);
+                myDataReport.SetParameterValue("txtPrice", cert.Price);
+
                 myDataReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, "C:\\Certification.pdf");
                 myDataReport.Close();
             }
