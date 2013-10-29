@@ -48,6 +48,7 @@
     <Compile Include="EnumStorage\LocalCoefficient.cs" />
     <Compile Include="EnumStorage\FunctionalUsage.cs" />
     <Compile Include="Helpers\ExcelHelper.cs" />
+    <Compile Include="Helpers\MoneyByWords.cs" />
     <Compile Include="Helpers\PolygonHelper.cs" />
     <Compile Include="IControlledRemover.cs" />
     <Compile Include="LandPolygon.cs" />
