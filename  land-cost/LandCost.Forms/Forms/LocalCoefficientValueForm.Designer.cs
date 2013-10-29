@@ -67,7 +67,7 @@
             // 
             this.valBox.Location = new System.Drawing.Point(137, 33);
             this.valBox.Name = "valBox";
-            this.valBox.Precision = 3;
+            this.valBox.Precision = 2;
             this.valBox.Size = new System.Drawing.Size(75, 20);
             this.valBox.TabIndex = 4;
             this.valBox.Text = "1";

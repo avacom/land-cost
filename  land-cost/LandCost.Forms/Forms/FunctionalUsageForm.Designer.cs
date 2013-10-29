@@ -86,7 +86,7 @@
             // 
             this.coefBox.Location = new System.Drawing.Point(169, 33);
             this.coefBox.Name = "coefBox";
-            this.coefBox.Precision = 3;
+            this.coefBox.Precision = 2;
             this.coefBox.Size = new System.Drawing.Size(196, 20);
             this.coefBox.TabIndex = 8;
             this.coefBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

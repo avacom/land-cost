@@ -5,6 +5,7 @@ using System.Text;
 using System.ComponentModel;
 using System.Xml.Serialization;
 using System.IO;
+using LandCost.Entities.Helpers;
 
 namespace LandCost.Entities
 {
@@ -460,17 +461,17 @@ namespace LandCost.Entities
                         dKm3 *= lcv.Value;
                     }
                 }
-                Km3 = Math.Round(dKm3, 4);
+                Km3 = Math.Round(dKm3, 2);
 
                 // Calculate NormEvalM2
-                double dEvalM2Main = Price * dKm3 * KfMain * IndexCoefficient;
-                double dEvalM2Side = Price * dKm3 * KfSide * IndexCoefficient;
+                double dEvalM2Main = Price * Km3 * KfMain * IndexCoefficient;
+                double dEvalM2Side = Price * Km3 * KfSide * IndexCoefficient;
                 NormEvalM2Main = Math.Round(dEvalM2Main, 2);
                 NormEvalM2Side = Math.Round(dEvalM2Side, 2);
 
                 // Calculate TotalNormEval
-                TotalNormEvalMain = Math.Round(dEvalM2Main * Square, 2);
-                TotalNormEvalSide = Math.Round(dEvalM2Side * Square, 2);
+                TotalNormEvalMain = Math.Round(NormEvalM2Main * Square, 2);
+                TotalNormEvalSide = Math.Round(NormEvalM2Side * Square, 2);
             }
         }
 
@@ -502,6 +503,22 @@ namespace LandCost.Entities
             TotalNormEvalSide = 0;
             Executor = string.Empty;
             Chief = string.Empty;
+        }
+
+        public string TotalEvalMainLetters
+        {
+            get
+            {
+                return MoneyByWords.UAHPhrase((decimal)TotalNormEvalMain);
+            }
+        }
+
+        public string TotalEvalSideLetters
+        {
+            get
+            {
+                return MoneyByWords.UAHPhrase((decimal)TotalNormEvalSide);
+            }
         }
 
         #endregion Methods

@@ -46,7 +46,6 @@
             this.areaBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.coefBox = new System.Windows.Forms.GroupBox();
-            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
             this.label11 = new System.Windows.Forms.Label();
             this.oneMoreCheck = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -70,15 +69,6 @@
             this.dateBox = new System.Windows.Forms.DateTimePicker();
             this.docBox = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.totalSquareBox = new LandCost.Forms.DecimalTextBox();
-            this.buildSquareBox = new LandCost.Forms.DecimalTextBox();
-            this.indexCoefBox = new LandCost.Forms.DecimalTextBox();
-            this.kfBox2 = new LandCost.Forms.DecimalTextBox();
-            this.kfBox = new LandCost.Forms.DecimalTextBox();
-            this.km3Box = new LandCost.Forms.DecimalTextBox();
-            this.priceBox = new LandCost.Forms.DecimalTextBox();
-            this.km2Box = new LandCost.Forms.DecimalTextBox();
-            this.squareBox = new LandCost.Forms.DecimalTextBox();
             this.evalM2Box = new System.Windows.Forms.TextBox();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.довідкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +80,16 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.fileLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.saveDialog = new System.Windows.Forms.SaveFileDialog();
+            this.totalSquareBox = new LandCost.Forms.DecimalTextBox();
+            this.buildSquareBox = new LandCost.Forms.DecimalTextBox();
+            this.indexCoefBox = new LandCost.Forms.DecimalTextBox();
+            this.kfBox2 = new LandCost.Forms.DecimalTextBox();
+            this.kfBox = new LandCost.Forms.DecimalTextBox();
+            this.km3Box = new LandCost.Forms.DecimalTextBox();
+            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
+            this.priceBox = new LandCost.Forms.DecimalTextBox();
+            this.km2Box = new LandCost.Forms.DecimalTextBox();
+            this.squareBox = new LandCost.Forms.DecimalTextBox();
             this.coefBox.SuspendLayout();
             this.menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -255,16 +255,6 @@
             this.coefBox.TabStop = false;
             this.coefBox.Text = "Локальні коефіцієнти";
             // 
-            // coefValSetCtl
-            // 
-            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.coefValSetCtl.List = null;
-            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
-            this.coefValSetCtl.Name = "coefValSetCtl";
-            this.coefValSetCtl.ReadOnly = false;
-            this.coefValSetCtl.Size = new System.Drawing.Size(391, 186);
-            this.coefValSetCtl.TabIndex = 0;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -416,7 +406,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(16, 623);
+            this.label19.Location = new System.Drawing.Point(12, 623);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(104, 13);
             this.label19.TabIndex = 47;
@@ -475,102 +465,6 @@
             this.label21.Size = new System.Drawing.Size(110, 13);
             this.label21.TabIndex = 56;
             this.label21.Text = "Атрибути документа";
-            // 
-            // totalSquareBox
-            // 
-            this.totalSquareBox.BackColor = System.Drawing.SystemColors.Control;
-            this.totalSquareBox.Location = new System.Drawing.Point(579, 403);
-            this.totalSquareBox.Name = "totalSquareBox";
-            this.totalSquareBox.Precision = 3;
-            this.totalSquareBox.ReadOnly = true;
-            this.totalSquareBox.Size = new System.Drawing.Size(84, 20);
-            this.totalSquareBox.TabIndex = 38;
-            this.totalSquareBox.Text = "0";
-            this.totalSquareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // buildSquareBox
-            // 
-            this.buildSquareBox.BackColor = System.Drawing.SystemColors.Control;
-            this.buildSquareBox.Location = new System.Drawing.Point(579, 362);
-            this.buildSquareBox.Name = "buildSquareBox";
-            this.buildSquareBox.Precision = 3;
-            this.buildSquareBox.ReadOnly = true;
-            this.buildSquareBox.Size = new System.Drawing.Size(84, 20);
-            this.buildSquareBox.TabIndex = 36;
-            this.buildSquareBox.Text = "0";
-            this.buildSquareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // indexCoefBox
-            // 
-            this.indexCoefBox.Location = new System.Drawing.Point(579, 312);
-            this.indexCoefBox.Name = "indexCoefBox";
-            this.indexCoefBox.Precision = 4;
-            this.indexCoefBox.ReadOnly = true;
-            this.indexCoefBox.Size = new System.Drawing.Size(84, 20);
-            this.indexCoefBox.TabIndex = 33;
-            this.indexCoefBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // kfBox2
-            // 
-            this.kfBox2.Enabled = false;
-            this.kfBox2.Location = new System.Drawing.Point(501, 446);
-            this.kfBox2.Name = "kfBox2";
-            this.kfBox2.Precision = 3;
-            this.kfBox2.ReadOnly = true;
-            this.kfBox2.Size = new System.Drawing.Size(72, 20);
-            this.kfBox2.TabIndex = 30;
-            this.kfBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // kfBox
-            // 
-            this.kfBox.Location = new System.Drawing.Point(167, 442);
-            this.kfBox.Name = "kfBox";
-            this.kfBox.Precision = 3;
-            this.kfBox.ReadOnly = true;
-            this.kfBox.Size = new System.Drawing.Size(72, 20);
-            this.kfBox.TabIndex = 28;
-            this.kfBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // km3Box
-            // 
-            this.km3Box.Location = new System.Drawing.Point(579, 211);
-            this.km3Box.Name = "km3Box";
-            this.km3Box.Precision = 4;
-            this.km3Box.ReadOnly = true;
-            this.km3Box.Size = new System.Drawing.Size(84, 20);
-            this.km3Box.TabIndex = 24;
-            this.km3Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // priceBox
-            // 
-            this.priceBox.Location = new System.Drawing.Point(185, 172);
-            this.priceBox.Name = "priceBox";
-            this.priceBox.Precision = 2;
-            this.priceBox.ReadOnly = true;
-            this.priceBox.Size = new System.Drawing.Size(99, 20);
-            this.priceBox.TabIndex = 21;
-            this.priceBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // km2Box
-            // 
-            this.km2Box.Location = new System.Drawing.Point(579, 172);
-            this.km2Box.Name = "km2Box";
-            this.km2Box.Precision = 3;
-            this.km2Box.ReadOnly = true;
-            this.km2Box.Size = new System.Drawing.Size(84, 20);
-            this.km2Box.TabIndex = 19;
-            this.km2Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // squareBox
-            // 
-            this.squareBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.squareBox.Location = new System.Drawing.Point(185, 113);
-            this.squareBox.Name = "squareBox";
-            this.squareBox.Precision = 3;
-            this.squareBox.Size = new System.Drawing.Size(99, 20);
-            this.squareBox.TabIndex = 12;
-            this.squareBox.Text = "0";
-            this.squareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // evalM2Box
             // 
@@ -664,6 +558,112 @@
             this.saveDialog.DefaultExt = "lcc";
             this.saveDialog.Filter = "Довідки про грошову оцінку|*.lcc";
             this.saveDialog.Title = "Зберегти довідку про грошову оцінку";
+            // 
+            // totalSquareBox
+            // 
+            this.totalSquareBox.BackColor = System.Drawing.SystemColors.Control;
+            this.totalSquareBox.Location = new System.Drawing.Point(579, 403);
+            this.totalSquareBox.Name = "totalSquareBox";
+            this.totalSquareBox.Precision = 3;
+            this.totalSquareBox.ReadOnly = true;
+            this.totalSquareBox.Size = new System.Drawing.Size(84, 20);
+            this.totalSquareBox.TabIndex = 38;
+            this.totalSquareBox.Text = "0";
+            this.totalSquareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // buildSquareBox
+            // 
+            this.buildSquareBox.BackColor = System.Drawing.SystemColors.Control;
+            this.buildSquareBox.Location = new System.Drawing.Point(579, 362);
+            this.buildSquareBox.Name = "buildSquareBox";
+            this.buildSquareBox.Precision = 3;
+            this.buildSquareBox.ReadOnly = true;
+            this.buildSquareBox.Size = new System.Drawing.Size(84, 20);
+            this.buildSquareBox.TabIndex = 36;
+            this.buildSquareBox.Text = "0";
+            this.buildSquareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // indexCoefBox
+            // 
+            this.indexCoefBox.Location = new System.Drawing.Point(579, 312);
+            this.indexCoefBox.Name = "indexCoefBox";
+            this.indexCoefBox.Precision = 4;
+            this.indexCoefBox.ReadOnly = true;
+            this.indexCoefBox.Size = new System.Drawing.Size(84, 20);
+            this.indexCoefBox.TabIndex = 33;
+            this.indexCoefBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // kfBox2
+            // 
+            this.kfBox2.Enabled = false;
+            this.kfBox2.Location = new System.Drawing.Point(501, 446);
+            this.kfBox2.Name = "kfBox2";
+            this.kfBox2.Precision = 3;
+            this.kfBox2.ReadOnly = true;
+            this.kfBox2.Size = new System.Drawing.Size(72, 20);
+            this.kfBox2.TabIndex = 30;
+            this.kfBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // kfBox
+            // 
+            this.kfBox.Location = new System.Drawing.Point(167, 442);
+            this.kfBox.Name = "kfBox";
+            this.kfBox.Precision = 3;
+            this.kfBox.ReadOnly = true;
+            this.kfBox.Size = new System.Drawing.Size(72, 20);
+            this.kfBox.TabIndex = 28;
+            this.kfBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // km3Box
+            // 
+            this.km3Box.Location = new System.Drawing.Point(579, 211);
+            this.km3Box.Name = "km3Box";
+            this.km3Box.Precision = 4;
+            this.km3Box.ReadOnly = true;
+            this.km3Box.Size = new System.Drawing.Size(84, 20);
+            this.km3Box.TabIndex = 24;
+            this.km3Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // coefValSetCtl
+            // 
+            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coefValSetCtl.List = null;
+            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
+            this.coefValSetCtl.Name = "coefValSetCtl";
+            this.coefValSetCtl.ReadOnly = false;
+            this.coefValSetCtl.Size = new System.Drawing.Size(391, 186);
+            this.coefValSetCtl.TabIndex = 0;
+            // 
+            // priceBox
+            // 
+            this.priceBox.Location = new System.Drawing.Point(185, 172);
+            this.priceBox.Name = "priceBox";
+            this.priceBox.Precision = 2;
+            this.priceBox.ReadOnly = true;
+            this.priceBox.Size = new System.Drawing.Size(99, 20);
+            this.priceBox.TabIndex = 21;
+            this.priceBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // km2Box
+            // 
+            this.km2Box.Location = new System.Drawing.Point(579, 172);
+            this.km2Box.Name = "km2Box";
+            this.km2Box.Precision = 3;
+            this.km2Box.ReadOnly = true;
+            this.km2Box.Size = new System.Drawing.Size(84, 20);
+            this.km2Box.TabIndex = 19;
+            this.km2Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // squareBox
+            // 
+            this.squareBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.squareBox.Location = new System.Drawing.Point(185, 113);
+            this.squareBox.Name = "squareBox";
+            this.squareBox.Precision = 2;
+            this.squareBox.Size = new System.Drawing.Size(99, 20);
+            this.squareBox.TabIndex = 12;
+            this.squareBox.Text = "0";
+            this.squareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // CertificationForm
             // 

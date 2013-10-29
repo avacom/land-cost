@@ -44,7 +44,7 @@
             // 
             this.valueBox.Location = new System.Drawing.Point(298, 0);
             this.valueBox.Name = "valueBox";
-            this.valueBox.Precision = 3;
+            this.valueBox.Precision = 2;
             this.valueBox.Size = new System.Drawing.Size(59, 20);
             this.valueBox.TabIndex = 1;
             this.valueBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;

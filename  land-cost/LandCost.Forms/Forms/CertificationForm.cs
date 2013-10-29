@@ -11,6 +11,7 @@ using System.Xml.Serialization;
 using System.IO;
 using CrystalDecisions.CrystalReports.Engine;
 using System.Globalization;
+using CrystalDecisions.Shared;
 
 namespace LandCost.Forms
 {
@@ -271,8 +272,37 @@ namespace LandCost.Forms
             bool bRet = true;
             try
             {
-                ReportDocument myDataReport = new ReportDocument();
-                myDataReport.Load(@"Reports\Certification.rpt");
+                ReportDocument doc = GetReport();
+                doc.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, "C:\\Certification.pdf");
+                doc.Close();
+            }
+            catch
+            {
+                bRet = false;
+            }
+
+            return bRet;
+        }
+
+        ReportDocument GetReport()
+        {
+            ReportDocument myDataReport = new ReportDocument();
+            if (cert != null)
+            {
+                if (cert.SideActive)
+                {
+                    myDataReport.Load(@"Reports\CertificationExt.rpt");
+
+                    myDataReport.SetParameterValue("txtKfSide", cert.KfSide);
+                    myDataReport.SetParameterValue("txtKfNameSide", cert.KfNameSide);
+                    myDataReport.SetParameterValue("txtEvalM2Side", cert.NormEvalM2Side);
+                    myDataReport.SetParameterValue("txtEvalSide", cert.TotalNormEvalSide);
+                    myDataReport.SetParameterValue("txtSideLetters", cert.TotalEvalSideLetters + " - Кф = " + cert.KfSide);
+                }
+                else
+                {
+                    myDataReport.Load(@"Reports\Certification.rpt");
+                }
                 myDataReport.SetParameterValue("txtAgencyName", m_Profile.AgencyName.ToUpper());
                 myDataReport.SetParameterValue("txtAgencyAddress", m_Profile.AgencyAddress);
                 myDataReport.SetParameterValue("txtNumber", cert.Number);
@@ -292,16 +322,34 @@ namespace LandCost.Forms
                 myDataReport.SetParameterValue("txtArea", cert.Area);
                 myDataReport.SetParameterValue("txtKm2", cert.Km2);
                 myDataReport.SetParameterValue("txtPrice", cert.Price);
+                int number = 0;
+                for (int i = 0; i < cert.CoefficientValues.Count; i++)
+                {
+                    number++;
+                    myDataReport.SetParameterValue(string.Format("txtC{0}Name", number), cert.CoefficientValues[i].Coefficient.Name);
+                    myDataReport.SetParameterValue(string.Format("txtC{0}Value", number), cert.CoefficientValues[i].Value);
+                }
 
-                myDataReport.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, "C:\\Certification.pdf");
-                myDataReport.Close();
-            }
-            catch
-            {
-                bRet = false;
-            }
+                while (number < 12)
+                {
+                    number++;
+                    myDataReport.SetParameterValue(string.Format("txtC{0}Name", number), "Не задано");
+                    myDataReport.SetParameterValue(string.Format("txtC{0}Value", number), 1);
+                }
+                myDataReport.SetParameterValue("txtKm3", cert.Km3);
 
-            return bRet;
+                myDataReport.SetParameterValue("txtKfMain", cert.KfMain);
+                myDataReport.SetParameterValue("txtKfNameMain", cert.KfNameMain);
+                myDataReport.SetParameterValue("txtEvalM2Main", cert.NormEvalM2Main);
+                myDataReport.SetParameterValue("txtEvalMain", cert.TotalNormEvalMain);
+                myDataReport.SetParameterValue("txtMainLetters", cert.TotalEvalMainLetters + " - Кф = " + cert.KfMain);
+
+
+                myDataReport.SetParameterValue("txtIndexCoef", cert.IndexCoefficient);
+                myDataReport.SetParameterValue("txtExecutor", cert.Executor);
+                myDataReport.SetParameterValue("txtChief", cert.Chief);
+            }
+            return myDataReport;
         }
 
         private void saveMenu_Click(object sender, EventArgs e)
