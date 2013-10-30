@@ -343,7 +343,7 @@ namespace LandCost.Forms
 
             ColumnHeader reg_priceHeader = new ColumnHeader();
             reg_priceHeader.Width = -2;
-            reg_priceHeader.Text = "Середня вартість земельної ділянки, грн/м2";
+            reg_priceHeader.Text = "Середня вартість ділянки, грн/м2";
             reg_priceHeader.Tag = "Price";
 
             this.regionList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {

@@ -91,7 +91,7 @@ namespace LandCost.Forms
             priceBox.DataBindings.Add("Text", cert, "Price");
             km2Box.DataBindings.Add("Text", cert, "Km2");
             km3Box.DataBindings.Add("Text", cert, "Km3");
-            oneMoreCheck.DataBindings.Add("Checked", cert, "SideActive");
+            oneMoreCheck.DataBindings.Add("Checked", cert, "SideActive", false, DataSourceUpdateMode.OnPropertyChanged);
             indexCoefBox.DataBindings.Add("Text", cert, "IndexCoefficient");
             buildSquareBox.DataBindings.Add("Text", cert, "Square");
             totalSquareBox.DataBindings.Add("Text", cert, "Square");
@@ -267,21 +267,42 @@ namespace LandCost.Forms
             return bRet;
         }
 
-        bool Print()
+        void Print()
         {
-            bool bRet = true;
             try
             {
                 ReportDocument doc = GetReport();
-                doc.ExportToDisk(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat, "C:\\Certification.pdf");
+                if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    System.Drawing.Printing.PageSettings pSets = new System.Drawing.Printing.PageSettings(printDialog.PrinterSettings);
+                    PrintLayoutSettings pLs = new PrintLayoutSettings();
+                    pLs.Scaling = PrintLayoutSettings.PrintScaling.Scale;
+                    pLs.Centered = true;
+                    doc.PrintToPrinter(printDialog.PrinterSettings, pSets, false, pLs);
+                }
                 doc.Close();
             }
             catch
             {
-                bRet = false;
+                MessageBox.Show(this, "Не вдалося надрукувати довідку!", "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
 
-            return bRet;
+        void ExportPDF()
+        {
+            try
+            {
+                ReportDocument doc = GetReport();
+                if (exportPDFDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    doc.ExportToDisk(ExportFormatType.PortableDocFormat, exportPDFDialog.FileName);
+                }
+                doc.Close();
+            }
+            catch
+            {
+                MessageBox.Show(this, "Не вдалося експортувати довідку!", "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         ReportDocument GetReport()
@@ -298,10 +319,12 @@ namespace LandCost.Forms
                     myDataReport.SetParameterValue("txtEvalM2Side", cert.NormEvalM2Side);
                     myDataReport.SetParameterValue("txtEvalSide", cert.TotalNormEvalSide);
                     myDataReport.SetParameterValue("txtSideLetters", cert.TotalEvalSideLetters + " - Кф = " + cert.KfSide);
+                    myDataReport.SetParameterValue("txtMainLetters", cert.TotalEvalMainLetters + " - Кф = " + cert.KfMain);
                 }
                 else
                 {
                     myDataReport.Load(@"Reports\Certification.rpt");
+                    myDataReport.SetParameterValue("txtMainLetters", cert.TotalEvalMainLetters);
                 }
                 myDataReport.SetParameterValue("txtAgencyName", m_Profile.AgencyName.ToUpper());
                 myDataReport.SetParameterValue("txtAgencyAddress", m_Profile.AgencyAddress);
@@ -342,7 +365,6 @@ namespace LandCost.Forms
                 myDataReport.SetParameterValue("txtKfNameMain", cert.KfNameMain);
                 myDataReport.SetParameterValue("txtEvalM2Main", cert.NormEvalM2Main);
                 myDataReport.SetParameterValue("txtEvalMain", cert.TotalNormEvalMain);
-                myDataReport.SetParameterValue("txtMainLetters", cert.TotalEvalMainLetters + " - Кф = " + cert.KfMain);
 
 
                 myDataReport.SetParameterValue("txtIndexCoef", cert.IndexCoefficient);
@@ -497,6 +519,12 @@ namespace LandCost.Forms
         {
             this.ValidateChildren();
             Print();
+        }
+
+        private void pdfMenu_Click(object sender, EventArgs e)
+        {
+            this.ValidateChildren();
+            ExportPDF();
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,12 +37,15 @@
             this.settingsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.profilesMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.curProfileMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTable = new System.Windows.Forms.TableLayoutPanel();
             this.map = new GMap.NET.WindowsForms.GMapControl();
             this.toolPanel = new System.Windows.Forms.Panel();
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.evalBtn = new System.Windows.Forms.Button();
+            this.regionSelCtl = new LandCost.Forms.RegionSelectionControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.searchBtn = new System.Windows.Forms.Button();
             this.addressBox = new System.Windows.Forms.TextBox();
@@ -50,13 +54,12 @@
             this.areaBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.openDialog = new System.Windows.Forms.OpenFileDialog();
-            this.regionSelCtl = new LandCost.Forms.RegionSelectionControl();
             this.priceBox = new LandCost.Forms.DecimalTextBox();
             this.regionBox = new LandCost.Forms.DecimalTextBox();
             this.km2Box = new LandCost.Forms.DecimalTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.openDialog = new System.Windows.Forms.OpenFileDialog();
             this.menuStrip1.SuspendLayout();
             this.mainTable.SuspendLayout();
             this.toolPanel.SuspendLayout();
@@ -69,7 +72,8 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
-            this.settingsMenu});
+            this.settingsMenu,
+            this.helpMenu});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
@@ -131,6 +135,21 @@
             this.curProfileMenu.Name = "curProfileMenu";
             this.curProfileMenu.Size = new System.Drawing.Size(179, 22);
             this.curProfileMenu.Text = "Поточний профіль";
+            // 
+            // helpMenu
+            // 
+            this.helpMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutMenu});
+            this.helpMenu.Name = "helpMenu";
+            this.helpMenu.Size = new System.Drawing.Size(75, 20);
+            this.helpMenu.Text = "Допомога";
+            // 
+            // aboutMenu
+            // 
+            this.aboutMenu.Name = "aboutMenu";
+            this.aboutMenu.Size = new System.Drawing.Size(154, 22);
+            this.aboutMenu.Text = "Про програму";
+            this.aboutMenu.Click += new System.EventHandler(this.aboutMenu_Click);
             // 
             // mainTable
             // 
@@ -219,6 +238,18 @@
             this.evalBtn.UseVisualStyleBackColor = true;
             this.evalBtn.Click += new System.EventHandler(this.evalBtn_Click);
             // 
+            // regionSelCtl
+            // 
+            this.regionSelCtl.CurrentRegion = null;
+            this.regionSelCtl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.regionSelCtl.Location = new System.Drawing.Point(0, 202);
+            this.regionSelCtl.Name = "regionSelCtl";
+            this.regionSelCtl.RegionList = null;
+            this.regionSelCtl.Size = new System.Drawing.Size(415, 344);
+            this.regionSelCtl.TabIndex = 6;
+            this.regionSelCtl.Visible = false;
+            this.regionSelCtl.SelectionMade += new System.EventHandler(this.regionSelCtl_SelectionMade);
+            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -302,42 +333,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Коефіцієнт Км2";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Район";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Економіко-планувальна зона";
-            // 
-            // openDialog
-            // 
-            this.openDialog.DefaultExt = "lcc";
-            this.openDialog.Filter = "Довідки про грошову оцінку|*.lcc";
-            this.openDialog.Title = "Відкрити довідку про грошову оцінку";
-            // 
-            // regionSelCtl
-            // 
-            this.regionSelCtl.CurrentRegion = null;
-            this.regionSelCtl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.regionSelCtl.Location = new System.Drawing.Point(0, 202);
-            this.regionSelCtl.Name = "regionSelCtl";
-            this.regionSelCtl.RegionList = null;
-            this.regionSelCtl.Size = new System.Drawing.Size(415, 344);
-            this.regionSelCtl.TabIndex = 6;
-            this.regionSelCtl.Visible = false;
-            this.regionSelCtl.SelectionMade += new System.EventHandler(this.regionSelCtl_SelectionMade);
-            // 
             // priceBox
             // 
             this.priceBox.Location = new System.Drawing.Point(244, 96);
@@ -368,6 +363,30 @@
             this.km2Box.TabIndex = 3;
             this.km2Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Район";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Економіко-планувальна зона";
+            // 
+            // openDialog
+            // 
+            this.openDialog.DefaultExt = "lcc";
+            this.openDialog.Filter = "Довідки про грошову оцінку|*.lcc";
+            this.openDialog.Title = "Відкрити довідку про грошову оцінку";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -375,6 +394,7 @@
             this.ClientSize = new System.Drawing.Size(1008, 688);
             this.Controls.Add(this.mainTable);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(1024, 726);
             this.Name = "MainForm";
@@ -426,5 +446,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitMenu;
         private System.Windows.Forms.OpenFileDialog openDialog;
+        private System.Windows.Forms.ToolStripMenuItem helpMenu;
+        private System.Windows.Forms.ToolStripMenuItem aboutMenu;
     }
 }
