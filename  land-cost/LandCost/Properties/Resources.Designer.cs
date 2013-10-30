@@ -60,6 +60,13 @@ namespace LandCost.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap coins {
+            get {
+                object obj = ResourceManager.GetObject("coins", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap exit {
             get {
                 object obj = ResourceManager.GetObject("exit", resourceCulture);
@@ -77,6 +84,13 @@ namespace LandCost.Properties {
         internal static System.Drawing.Bitmap search {
             get {
                 object obj = ResourceManager.GetObject("search", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        internal static System.Drawing.Bitmap Splash {
+            get {
+                object obj = ResourceManager.GetObject("Splash", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

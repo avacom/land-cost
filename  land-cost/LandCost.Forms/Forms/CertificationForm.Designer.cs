@@ -80,6 +80,9 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.fileLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.saveDialog = new System.Windows.Forms.SaveFileDialog();
+            this.printDialog = new System.Windows.Forms.PrintDialog();
+            this.pdfMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportPDFDialog = new System.Windows.Forms.SaveFileDialog();
             this.totalSquareBox = new LandCost.Forms.DecimalTextBox();
             this.buildSquareBox = new LandCost.Forms.DecimalTextBox();
             this.indexCoefBox = new LandCost.Forms.DecimalTextBox();
@@ -490,6 +493,7 @@
             this.довідкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.saveMenu,
             this.saveAsMenu,
+            this.pdfMenu,
             this.printMenu,
             this.toolStripMenuItem1,
             this.closeMenu});
@@ -502,14 +506,14 @@
             this.saveMenu.Image = global::LandCost.Forms.Properties.Resources.save;
             this.saveMenu.Name = "saveMenu";
             this.saveMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMenu.Size = new System.Drawing.Size(172, 22);
+            this.saveMenu.Size = new System.Drawing.Size(181, 22);
             this.saveMenu.Text = "Зберегти";
             this.saveMenu.Click += new System.EventHandler(this.saveMenu_Click);
             // 
             // saveAsMenu
             // 
             this.saveAsMenu.Name = "saveAsMenu";
-            this.saveAsMenu.Size = new System.Drawing.Size(172, 22);
+            this.saveAsMenu.Size = new System.Drawing.Size(181, 22);
             this.saveAsMenu.Text = "Зберегти як...";
             this.saveAsMenu.Click += new System.EventHandler(this.saveAsMenu_Click);
             // 
@@ -518,21 +522,21 @@
             this.printMenu.Image = global::LandCost.Forms.Properties.Resources.print;
             this.printMenu.Name = "printMenu";
             this.printMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.printMenu.Size = new System.Drawing.Size(172, 22);
+            this.printMenu.Size = new System.Drawing.Size(181, 22);
             this.printMenu.Text = "Друкувати";
             this.printMenu.Click += new System.EventHandler(this.printMenu_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(169, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(178, 6);
             // 
             // closeMenu
             // 
             this.closeMenu.Image = global::LandCost.Forms.Properties.Resources.exit;
             this.closeMenu.Name = "closeMenu";
             this.closeMenu.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-            this.closeMenu.Size = new System.Drawing.Size(172, 22);
+            this.closeMenu.Size = new System.Drawing.Size(181, 22);
             this.closeMenu.Text = "Закрити";
             this.closeMenu.Click += new System.EventHandler(this.closeMenu_Click);
             // 
@@ -558,6 +562,23 @@
             this.saveDialog.DefaultExt = "lcc";
             this.saveDialog.Filter = "Довідки про грошову оцінку|*.lcc";
             this.saveDialog.Title = "Зберегти довідку про грошову оцінку";
+            // 
+            // printDialog
+            // 
+            this.printDialog.UseEXDialog = true;
+            // 
+            // pdfMenu
+            // 
+            this.pdfMenu.Name = "pdfMenu";
+            this.pdfMenu.Size = new System.Drawing.Size(181, 22);
+            this.pdfMenu.Text = "Експортувати в PDF";
+            this.pdfMenu.Click += new System.EventHandler(this.pdfMenu_Click);
+            // 
+            // exportPDFDialog
+            // 
+            this.exportPDFDialog.DefaultExt = "pdf";
+            this.exportPDFDialog.Filter = "Portable Doc Format|*.pdf";
+            this.exportPDFDialog.Title = "Експортувати довідку в PDF";
             // 
             // totalSquareBox
             // 
@@ -804,6 +825,9 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel fileLabel;
         private System.Windows.Forms.SaveFileDialog saveDialog;
+        private System.Windows.Forms.PrintDialog printDialog;
+        private System.Windows.Forms.ToolStripMenuItem pdfMenu;
+        private System.Windows.Forms.SaveFileDialog exportPDFDialog;
 
     }
 }

@@ -30,9 +30,9 @@
         {
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.btnPanel = new System.Windows.Forms.Panel();
-            this.listPanel = new System.Windows.Forms.Panel();
-            this.addBtn = new System.Windows.Forms.Button();
             this.cancelBtn = new System.Windows.Forms.Button();
+            this.addBtn = new System.Windows.Forms.Button();
+            this.listPanel = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1.SuspendLayout();
             this.btnPanel.SuspendLayout();
             this.SuspendLayout();
@@ -49,7 +49,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 33F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(279, 385);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(289, 395);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // btnPanel
@@ -57,18 +57,22 @@
             this.btnPanel.Controls.Add(this.cancelBtn);
             this.btnPanel.Controls.Add(this.addBtn);
             this.btnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnPanel.Location = new System.Drawing.Point(3, 355);
+            this.btnPanel.Location = new System.Drawing.Point(3, 365);
             this.btnPanel.Name = "btnPanel";
-            this.btnPanel.Size = new System.Drawing.Size(273, 27);
+            this.btnPanel.Size = new System.Drawing.Size(283, 27);
             this.btnPanel.TabIndex = 0;
             // 
-            // listPanel
+            // cancelBtn
             // 
-            this.listPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.listPanel.Location = new System.Drawing.Point(3, 3);
-            this.listPanel.Name = "listPanel";
-            this.listPanel.Size = new System.Drawing.Size(273, 346);
-            this.listPanel.TabIndex = 1;
+            this.cancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cancelBtn.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.cancelBtn.Location = new System.Drawing.Point(198, 3);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
+            this.cancelBtn.TabIndex = 1;
+            this.cancelBtn.Text = "Скасувати";
+            this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // addBtn
             // 
@@ -81,16 +85,13 @@
             this.addBtn.UseVisualStyleBackColor = true;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
-            // cancelBtn
+            // listPanel
             // 
-            this.cancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cancelBtn.Location = new System.Drawing.Point(188, 3);
-            this.cancelBtn.Name = "cancelBtn";
-            this.cancelBtn.Size = new System.Drawing.Size(75, 23);
-            this.cancelBtn.TabIndex = 1;
-            this.cancelBtn.Text = "Скасувати";
-            this.cancelBtn.UseVisualStyleBackColor = true;
-            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
+            this.listPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.listPanel.Location = new System.Drawing.Point(3, 3);
+            this.listPanel.Name = "listPanel";
+            this.listPanel.Size = new System.Drawing.Size(283, 356);
+            this.listPanel.TabIndex = 1;
             // 
             // SearchForm
             // 
@@ -100,8 +101,10 @@
             this.CancelButton = this.cancelBtn;
             this.ClientSize = new System.Drawing.Size(279, 385);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(295, 423);
             this.Name = "SearchForm";
             this.ShowInTaskbar = false;
             this.Text = "Пошук";

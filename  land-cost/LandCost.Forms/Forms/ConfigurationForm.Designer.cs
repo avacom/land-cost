@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ConfigurationForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.listPanel = new System.Windows.Forms.Panel();
             this.profilePanel = new System.Windows.Forms.Panel();
@@ -71,6 +72,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1049, 491);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1065, 360);
             this.Name = "ConfigurationForm";
             this.ShowInTaskbar = false;

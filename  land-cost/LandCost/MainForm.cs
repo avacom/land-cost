@@ -24,7 +24,6 @@ namespace LandCost
         LandDB m_DB;
 
         ConfigurationForm m_ConfigForm;
-        ProgressForm m_ProgressForm;
         SplashScreen m_Splash;
 
         GMapOverlay regions;
@@ -33,6 +32,8 @@ namespace LandCost
         PointLatLng m_CurrentPoint;
 
         CertificationForm certForm;
+        ProgressForm m_ProgressForm;
+        AboutForm aboutForm;
 
         public MainForm()
         {
@@ -63,6 +64,7 @@ namespace LandCost
             m_ConfigForm.Config = m_DB.Config;
             
             m_ProgressForm = new ProgressForm();
+            aboutForm = new AboutForm();
 
             UpdateMenu();
 
@@ -588,6 +590,11 @@ namespace LandCost
                     MessageBox.Show(this, "Не можу завантажити довідку!", "Горечко :(", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+        }
+
+        private void aboutMenu_Click(object sender, EventArgs e)
+        {
+            aboutForm.ShowDialog();
         }
     }
 }
