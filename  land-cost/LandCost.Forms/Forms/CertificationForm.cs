@@ -45,7 +45,6 @@ namespace LandCost.Forms
 
         private void ClearBindings()
         {
-            numberBox.DataBindings.Clear();
             dateBox.DataBindings.Clear();
             ownerBox.DataBindings.Clear();
             ownerLocationBox.DataBindings.Clear();
@@ -63,9 +62,7 @@ namespace LandCost.Forms
             buildSquareBox.DataBindings.Clear();
             totalSquareBox.DataBindings.Clear();
             kfBox.DataBindings.Clear();
-            kfNameBox.DataBindings.Clear();
             kfBox2.DataBindings.Clear();
-            kfNameBox2.DataBindings.Clear();
             evalM2Box.DataBindings.Clear();
             evalM2Box2.DataBindings.Clear();
             evalBox.DataBindings.Clear();
@@ -78,7 +75,6 @@ namespace LandCost.Forms
 
         private void SetBindings()
         {
-            numberBox.DataBindings.Add("Text", cert, "Number");
             dateBox.DataBindings.Add("Value", cert, "Date");
             ownerBox.DataBindings.Add("Text", cert, "Owner");
             ownerLocationBox.DataBindings.Add("Text", cert, "OwnerLocation");
@@ -96,9 +92,7 @@ namespace LandCost.Forms
             buildSquareBox.DataBindings.Add("Text", cert, "Square");
             totalSquareBox.DataBindings.Add("Text", cert, "Square");
             kfBox.DataBindings.Add("Text", cert, "KfMain");
-            kfNameBox.DataBindings.Add("Text", cert, "KfNameMain");
             kfBox2.DataBindings.Add("Text", cert, "KfSide");
-            kfNameBox2.DataBindings.Add("Text", cert, "KfNameSide");
             evalM2Box.DataBindings.Add("Text", cert, "NormEvalM2Main");
             evalM2Box2.DataBindings.Add("Text", cert, "NormEvalM2Side");
             evalBox.DataBindings.Add("Text", cert, "TotalNormEvalMain");
@@ -125,8 +119,6 @@ namespace LandCost.Forms
 
                 chiefBox.Items.AddRange(profile.Chiefs.ToArray());
                 executorBox.Items.AddRange(profile.Executors.ToArray());
-
-                cert.IndexCoefficient = profile.IndexCoefficient;
             }
         }
 
@@ -152,6 +144,14 @@ namespace LandCost.Forms
 
         public void SetValues(LandRegion selectedRegion, FunctionalUsageCoefficients selectedCoefs, string address)
         {
+            cert.Changed -= new EventHandler(cert_Changed);
+            ClearBindings();
+            cert = new Certification();
+            SetBindings();
+            cert.Changed += new EventHandler(cert_Changed);
+            cert.IndexCoefficient = m_Profile.IndexCoefficient;
+            m_sFileName = string.Empty;
+            fileLabel.Text = "Нова довідка";
             List<LocalCoefficientValue> coefsList = new List<LocalCoefficientValue>();
             if (selectedCoefs != null)
             {
@@ -221,18 +221,11 @@ namespace LandCost.Forms
         void SetSideEnabled(bool enabled)
         {
             kfBox2.Enabled = enabled;
-            kfNameBox2.Enabled = enabled;
-            if (enabled)
-            {
-                kfNameBox2.BackColor = Color.FromArgb(255, 255, 192);
-            }
-            else
-            {
-                kfNameBox2.BackColor = SystemColors.Control;
-            }
             evalM2Box2.Enabled = enabled;
             evalBox2.Enabled = enabled;
             evalTotalBox2.Enabled = enabled;
+            
+            kfBox.ReadOnly = enabled;
         }
 
         bool SaveAs()
@@ -274,6 +267,7 @@ namespace LandCost.Forms
                 ReportDocument doc = GetReport();
                 if (printDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    processLbl.Text = "Друкую...";
                     System.Drawing.Printing.PageSettings pSets = new System.Drawing.Printing.PageSettings(printDialog.PrinterSettings);
                     PrintLayoutSettings pLs = new PrintLayoutSettings();
                     pLs.Scaling = PrintLayoutSettings.PrintScaling.Scale;
@@ -286,6 +280,10 @@ namespace LandCost.Forms
             {
                 MessageBox.Show(this, "Не вдалося надрукувати довідку!", "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            finally
+            {
+                processLbl.Text = string.Empty;
+            }
         }
 
         void ExportPDF()
@@ -295,6 +293,7 @@ namespace LandCost.Forms
                 ReportDocument doc = GetReport();
                 if (exportPDFDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
+                    processLbl.Text = "Експортую...";
                     doc.ExportToDisk(ExportFormatType.PortableDocFormat, exportPDFDialog.FileName);
                 }
                 doc.Close();
@@ -303,10 +302,15 @@ namespace LandCost.Forms
             {
                 MessageBox.Show(this, "Не вдалося експортувати довідку!", "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+            finally
+            {
+                processLbl.Text = string.Empty;
+            }
         }
 
         ReportDocument GetReport()
         {
+            processLbl.Text = "Опрацьовую...";
             ReportDocument myDataReport = new ReportDocument();
             if (cert != null)
             {
@@ -320,6 +324,7 @@ namespace LandCost.Forms
                     myDataReport.SetParameterValue("txtEvalSide", cert.TotalNormEvalSide);
                     myDataReport.SetParameterValue("txtSideLetters", cert.TotalEvalSideLetters + " - Кф = " + cert.KfSide);
                     myDataReport.SetParameterValue("txtMainLetters", cert.TotalEvalMainLetters + " - Кф = " + cert.KfMain);
+                    myDataReport.SetParameterValue("txtKfNameMain", cert.KfNameMain);
                 }
                 else
                 {
@@ -328,7 +333,6 @@ namespace LandCost.Forms
                 }
                 myDataReport.SetParameterValue("txtAgencyName", m_Profile.AgencyName.ToUpper());
                 myDataReport.SetParameterValue("txtAgencyAddress", m_Profile.AgencyAddress);
-                myDataReport.SetParameterValue("txtNumber", cert.Number);
                 myDataReport.SetParameterValue("txtDate", cert.Date.ToString("D", dateTimeFormat));
                 myDataReport.SetParameterValue("txtOwner", cert.Owner);
                 myDataReport.SetParameterValue("txtOwnerLocation", cert.OwnerLocation);
@@ -362,15 +366,14 @@ namespace LandCost.Forms
                 myDataReport.SetParameterValue("txtKm3", cert.Km3);
 
                 myDataReport.SetParameterValue("txtKfMain", cert.KfMain);
-                myDataReport.SetParameterValue("txtKfNameMain", cert.KfNameMain);
                 myDataReport.SetParameterValue("txtEvalM2Main", cert.NormEvalM2Main);
                 myDataReport.SetParameterValue("txtEvalMain", cert.TotalNormEvalMain);
-
 
                 myDataReport.SetParameterValue("txtIndexCoef", cert.IndexCoefficient);
                 myDataReport.SetParameterValue("txtExecutor", cert.Executor);
                 myDataReport.SetParameterValue("txtChief", cert.Chief);
             }
+            processLbl.Text = string.Empty;
             return myDataReport;
         }
 
@@ -403,11 +406,6 @@ namespace LandCost.Forms
         {
             bool bRet = true;
             string sError = string.Empty;
-            // Number set
-            if (string.IsNullOrEmpty(numberBox.Text.Trim()))
-            {
-                sError += "Вкажіть номер довідки!" + Environment.NewLine;
-            }
 
             if (string.IsNullOrEmpty(ownerBox.Text.Trim()))
             {
@@ -444,18 +442,6 @@ namespace LandCost.Forms
                 sError += "Задайте атрибути правовстановлюючого документа" + Environment.NewLine;
             }
 
-            // Kf name set
-            if (string.IsNullOrEmpty(kfNameBox.Text.Trim()))
-            {
-                sError += "Деталізуйте функціональне призначення!" + Environment.NewLine;
-            }
-
-            // Kf name set
-            if (oneMoreCheck.Checked && string.IsNullOrEmpty(kfNameBox2.Text.Trim()))
-            {
-                sError += "Деталізуйте додаткове функціональне призначення!" + Environment.NewLine;
-            }
-
             // Executor set
             if (string.IsNullOrEmpty(executorBox.Text.Trim()))
             {
@@ -465,7 +451,7 @@ namespace LandCost.Forms
             // Chief set
             if (string.IsNullOrEmpty(chiefBox.Text.Trim()))
             {
-                sError += "Задайте начальника!" + Environment.NewLine;
+                sError += "Задайте керівника!" + Environment.NewLine;
             }
 
             if (!string.IsNullOrEmpty(sError))
