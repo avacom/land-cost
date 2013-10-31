@@ -362,6 +362,7 @@ namespace LandCost.Forms
         void regionList_ListChanged(object sender, EventArgs e)
         {
             SetMapData();
+            OnModified(this, null);
         }
 
         private void InitializeControls()
@@ -405,6 +406,7 @@ namespace LandCost.Forms
                         }
 
                         SetMapData();
+                        OnModified(this, null);
                     }
                 }
             }
@@ -416,7 +418,6 @@ namespace LandCost.Forms
             mapRegLabel.Text = m_Profile.RegionMap.Polygons.Count.ToString();
             mapUnboundRegLabel.Text = m_Profile.UnboundPolygons.Count.ToString();
             //regionList.Enabled = true;
-            OnModified(this, null);
         }
 
 

@@ -118,8 +118,11 @@ namespace LandCost
         void ShowConfigForm()
         {
             m_ConfigForm.ShowDialog();
-            UpdateMenu();
-            AsyncSave();
+            if (m_DB.Config.Changed)
+            {
+                UpdateMenu();
+                AsyncSave();
+            }
         }
 
         private void profilesMenu_Click(object sender, EventArgs e)

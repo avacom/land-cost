@@ -540,6 +540,7 @@ namespace LandCost.Forms
             set
             {
                 m_OutputControl = value;
+                m_OutputControl.Controls.Clear();
             }
         }
 

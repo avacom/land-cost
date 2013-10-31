@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.numberBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ownerBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,8 +47,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.oneMoreCheck = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.kfNameBox = new System.Windows.Forms.TextBox();
-            this.kfNameBox2 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -74,6 +70,7 @@
             this.довідкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.pdfMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.printMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,8 +78,8 @@
             this.fileLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.saveDialog = new System.Windows.Forms.SaveFileDialog();
             this.printDialog = new System.Windows.Forms.PrintDialog();
-            this.pdfMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.exportPDFDialog = new System.Windows.Forms.SaveFileDialog();
+            this.processLbl = new System.Windows.Forms.ToolStripStatusLabel();
             this.totalSquareBox = new LandCost.Forms.DecimalTextBox();
             this.buildSquareBox = new LandCost.Forms.DecimalTextBox();
             this.indexCoefBox = new LandCost.Forms.DecimalTextBox();
@@ -98,28 +95,10 @@
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(251, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(18, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "№";
-            // 
-            // numberBox
-            // 
-            this.numberBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.numberBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.numberBox.Location = new System.Drawing.Point(275, 19);
-            this.numberBox.Name = "numberBox";
-            this.numberBox.Size = new System.Drawing.Size(139, 20);
-            this.numberBox.TabIndex = 1;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 48);
+            this.label2.Location = new System.Drawing.Point(12, 62);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(116, 13);
             this.label2.TabIndex = 3;
@@ -129,7 +108,7 @@
             // 
             this.ownerBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ownerBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.ownerBox.Location = new System.Drawing.Point(185, 45);
+            this.ownerBox.Location = new System.Drawing.Point(185, 59);
             this.ownerBox.Name = "ownerBox";
             this.ownerBox.Size = new System.Drawing.Size(225, 20);
             this.ownerBox.TabIndex = 4;
@@ -137,7 +116,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(419, 48);
+            this.label3.Location = new System.Drawing.Point(419, 62);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(154, 26);
             this.label3.TabIndex = 5;
@@ -147,7 +126,7 @@
             // 
             this.ownerLocationBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ownerLocationBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.ownerLocationBox.Location = new System.Drawing.Point(579, 45);
+            this.ownerLocationBox.Location = new System.Drawing.Point(579, 59);
             this.ownerLocationBox.Name = "ownerLocationBox";
             this.ownerLocationBox.Size = new System.Drawing.Size(210, 20);
             this.ownerLocationBox.TabIndex = 6;
@@ -155,7 +134,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 81);
+            this.label4.Location = new System.Drawing.Point(12, 95);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(162, 26);
             this.label4.TabIndex = 7;
@@ -163,7 +142,7 @@
             // 
             // addressBox
             // 
-            this.addressBox.Location = new System.Drawing.Point(185, 78);
+            this.addressBox.Location = new System.Drawing.Point(185, 92);
             this.addressBox.Name = "addressBox";
             this.addressBox.Size = new System.Drawing.Size(225, 20);
             this.addressBox.TabIndex = 8;
@@ -171,7 +150,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(419, 81);
+            this.label5.Location = new System.Drawing.Point(419, 95);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(136, 13);
             this.label5.TabIndex = 9;
@@ -181,7 +160,7 @@
             // 
             this.landNameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.landNameBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.landNameBox.Location = new System.Drawing.Point(579, 78);
+            this.landNameBox.Location = new System.Drawing.Point(579, 92);
             this.landNameBox.Name = "landNameBox";
             this.landNameBox.Size = new System.Drawing.Size(210, 20);
             this.landNameBox.TabIndex = 10;
@@ -189,7 +168,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 116);
+            this.label6.Location = new System.Drawing.Point(12, 130);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(139, 13);
             this.label6.TabIndex = 11;
@@ -198,7 +177,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(419, 110);
+            this.label7.Location = new System.Drawing.Point(419, 124);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(146, 26);
             this.label7.TabIndex = 13;
@@ -207,7 +186,7 @@
             // docAttribBox
             // 
             this.docAttribBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.docAttribBox.Location = new System.Drawing.Point(579, 140);
+            this.docAttribBox.Location = new System.Drawing.Point(579, 154);
             this.docAttribBox.Name = "docAttribBox";
             this.docAttribBox.Size = new System.Drawing.Size(210, 20);
             this.docAttribBox.TabIndex = 14;
@@ -215,7 +194,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(12, 143);
+            this.label8.Location = new System.Drawing.Point(12, 157);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(155, 13);
             this.label8.TabIndex = 15;
@@ -224,7 +203,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(419, 175);
+            this.label9.Location = new System.Drawing.Point(419, 189);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(85, 13);
             this.label9.TabIndex = 17;
@@ -232,7 +211,7 @@
             // 
             // areaBox
             // 
-            this.areaBox.Location = new System.Drawing.Point(185, 140);
+            this.areaBox.Location = new System.Drawing.Point(185, 154);
             this.areaBox.Name = "areaBox";
             this.areaBox.ReadOnly = true;
             this.areaBox.Size = new System.Drawing.Size(99, 20);
@@ -242,7 +221,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 175);
+            this.label10.Location = new System.Drawing.Point(13, 189);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(154, 26);
             this.label10.TabIndex = 20;
@@ -251,7 +230,7 @@
             // coefBox
             // 
             this.coefBox.Controls.Add(this.coefValSetCtl);
-            this.coefBox.Location = new System.Drawing.Point(16, 214);
+            this.coefBox.Location = new System.Drawing.Point(16, 228);
             this.coefBox.Name = "coefBox";
             this.coefBox.Size = new System.Drawing.Size(397, 205);
             this.coefBox.TabIndex = 22;
@@ -261,7 +240,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(419, 214);
+            this.label11.Location = new System.Drawing.Point(419, 228);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(134, 13);
             this.label11.TabIndex = 23;
@@ -270,7 +249,7 @@
             // oneMoreCheck
             // 
             this.oneMoreCheck.AutoSize = true;
-            this.oneMoreCheck.Location = new System.Drawing.Point(422, 262);
+            this.oneMoreCheck.Location = new System.Drawing.Point(422, 276);
             this.oneMoreCheck.Name = "oneMoreCheck";
             this.oneMoreCheck.Size = new System.Drawing.Size(367, 17);
             this.oneMoreCheck.TabIndex = 26;
@@ -281,33 +260,16 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(12, 449);
+            this.label12.Location = new System.Drawing.Point(12, 454);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(79, 13);
             this.label12.TabIndex = 27;
             this.label12.Text = "Коефіцієнт Кф";
             // 
-            // kfNameBox
-            // 
-            this.kfNameBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.kfNameBox.Location = new System.Drawing.Point(245, 442);
-            this.kfNameBox.Name = "kfNameBox";
-            this.kfNameBox.Size = new System.Drawing.Size(210, 20);
-            this.kfNameBox.TabIndex = 29;
-            // 
-            // kfNameBox2
-            // 
-            this.kfNameBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.kfNameBox2.Enabled = false;
-            this.kfNameBox2.Location = new System.Drawing.Point(579, 446);
-            this.kfNameBox2.Name = "kfNameBox2";
-            this.kfNameBox2.Size = new System.Drawing.Size(210, 20);
-            this.kfNameBox2.TabIndex = 31;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(419, 315);
+            this.label13.Location = new System.Drawing.Point(419, 329);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(123, 39);
             this.label13.TabIndex = 32;
@@ -316,7 +278,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(13, 478);
+            this.label14.Location = new System.Drawing.Point(13, 483);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(151, 39);
             this.label14.TabIndex = 34;
@@ -325,7 +287,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(419, 365);
+            this.label15.Location = new System.Drawing.Point(419, 379);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(157, 13);
             this.label15.TabIndex = 35;
@@ -334,7 +296,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(419, 406);
+            this.label16.Location = new System.Drawing.Point(419, 420);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(152, 13);
             this.label16.TabIndex = 37;
@@ -343,7 +305,7 @@
             // evalM2Box2
             // 
             this.evalM2Box2.Enabled = false;
-            this.evalM2Box2.Location = new System.Drawing.Point(501, 478);
+            this.evalM2Box2.Location = new System.Drawing.Point(501, 483);
             this.evalM2Box2.Name = "evalM2Box2";
             this.evalM2Box2.ReadOnly = true;
             this.evalM2Box2.Size = new System.Drawing.Size(117, 20);
@@ -353,7 +315,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(12, 528);
+            this.label17.Location = new System.Drawing.Point(12, 533);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(151, 39);
             this.label17.TabIndex = 41;
@@ -362,7 +324,7 @@
             // evalBox2
             // 
             this.evalBox2.Enabled = false;
-            this.evalBox2.Location = new System.Drawing.Point(501, 525);
+            this.evalBox2.Location = new System.Drawing.Point(501, 530);
             this.evalBox2.Name = "evalBox2";
             this.evalBox2.ReadOnly = true;
             this.evalBox2.Size = new System.Drawing.Size(117, 20);
@@ -371,7 +333,7 @@
             // 
             // evalBox
             // 
-            this.evalBox.Location = new System.Drawing.Point(167, 525);
+            this.evalBox.Location = new System.Drawing.Point(167, 530);
             this.evalBox.Name = "evalBox";
             this.evalBox.ReadOnly = true;
             this.evalBox.Size = new System.Drawing.Size(117, 20);
@@ -381,7 +343,7 @@
             // evalTotalBox2
             // 
             this.evalTotalBox2.Enabled = false;
-            this.evalTotalBox2.Location = new System.Drawing.Point(501, 580);
+            this.evalTotalBox2.Location = new System.Drawing.Point(501, 585);
             this.evalTotalBox2.Name = "evalTotalBox2";
             this.evalTotalBox2.ReadOnly = true;
             this.evalTotalBox2.Size = new System.Drawing.Size(117, 20);
@@ -390,7 +352,7 @@
             // 
             // evalTotalBox
             // 
-            this.evalTotalBox.Location = new System.Drawing.Point(167, 580);
+            this.evalTotalBox.Location = new System.Drawing.Point(167, 585);
             this.evalTotalBox.Name = "evalTotalBox";
             this.evalTotalBox.ReadOnly = true;
             this.evalTotalBox.Size = new System.Drawing.Size(117, 20);
@@ -400,7 +362,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(13, 583);
+            this.label18.Location = new System.Drawing.Point(13, 588);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(151, 26);
             this.label18.TabIndex = 44;
@@ -409,7 +371,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(12, 623);
+            this.label19.Location = new System.Drawing.Point(12, 628);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(104, 13);
             this.label19.TabIndex = 47;
@@ -419,7 +381,7 @@
             // 
             this.executorBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.executorBox.FormattingEnabled = true;
-            this.executorBox.Location = new System.Drawing.Point(167, 620);
+            this.executorBox.Location = new System.Drawing.Point(167, 625);
             this.executorBox.Name = "executorBox";
             this.executorBox.Size = new System.Drawing.Size(213, 21);
             this.executorBox.TabIndex = 48;
@@ -428,7 +390,7 @@
             // 
             this.chiefBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.chiefBox.FormattingEnabled = true;
-            this.chiefBox.Location = new System.Drawing.Point(579, 620);
+            this.chiefBox.Location = new System.Drawing.Point(579, 625);
             this.chiefBox.Name = "chiefBox";
             this.chiefBox.Size = new System.Drawing.Size(211, 21);
             this.chiefBox.TabIndex = 50;
@@ -436,7 +398,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(419, 623);
+            this.label20.Location = new System.Drawing.Point(419, 628);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(124, 13);
             this.label20.TabIndex = 49;
@@ -444,7 +406,7 @@
             // 
             // dateBox
             // 
-            this.dateBox.Location = new System.Drawing.Point(422, 19);
+            this.dateBox.Location = new System.Drawing.Point(349, 33);
             this.dateBox.Name = "dateBox";
             this.dateBox.Size = new System.Drawing.Size(155, 20);
             this.dateBox.TabIndex = 54;
@@ -454,7 +416,7 @@
             this.docBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.docBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.docBox.FormattingEnabled = true;
-            this.docBox.Location = new System.Drawing.Point(579, 113);
+            this.docBox.Location = new System.Drawing.Point(579, 127);
             this.docBox.Name = "docBox";
             this.docBox.Size = new System.Drawing.Size(210, 21);
             this.docBox.TabIndex = 55;
@@ -463,7 +425,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(419, 143);
+            this.label21.Location = new System.Drawing.Point(419, 157);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(110, 13);
             this.label21.TabIndex = 56;
@@ -471,7 +433,7 @@
             // 
             // evalM2Box
             // 
-            this.evalM2Box.Location = new System.Drawing.Point(167, 478);
+            this.evalM2Box.Location = new System.Drawing.Point(167, 483);
             this.evalM2Box.Name = "evalM2Box";
             this.evalM2Box.ReadOnly = true;
             this.evalM2Box.Size = new System.Drawing.Size(117, 20);
@@ -517,6 +479,13 @@
             this.saveAsMenu.Text = "Зберегти як...";
             this.saveAsMenu.Click += new System.EventHandler(this.saveAsMenu_Click);
             // 
+            // pdfMenu
+            // 
+            this.pdfMenu.Name = "pdfMenu";
+            this.pdfMenu.Size = new System.Drawing.Size(181, 22);
+            this.pdfMenu.Text = "Експортувати в PDF";
+            this.pdfMenu.Click += new System.EventHandler(this.pdfMenu_Click);
+            // 
             // printMenu
             // 
             this.printMenu.Image = global::LandCost.Forms.Properties.Resources.print;
@@ -543,8 +512,9 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileLabel});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 657);
+            this.fileLabel,
+            this.processLbl});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 662);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(804, 22);
             this.statusStrip1.Stretch = false;
@@ -553,9 +523,11 @@
             // 
             // fileLabel
             // 
+            this.fileLabel.AutoSize = false;
             this.fileLabel.Name = "fileLabel";
-            this.fileLabel.Size = new System.Drawing.Size(78, 17);
+            this.fileLabel.Size = new System.Drawing.Size(670, 17);
             this.fileLabel.Text = "Нова довідка";
+            this.fileLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // saveDialog
             // 
@@ -567,23 +539,23 @@
             // 
             this.printDialog.UseEXDialog = true;
             // 
-            // pdfMenu
-            // 
-            this.pdfMenu.Name = "pdfMenu";
-            this.pdfMenu.Size = new System.Drawing.Size(181, 22);
-            this.pdfMenu.Text = "Експортувати в PDF";
-            this.pdfMenu.Click += new System.EventHandler(this.pdfMenu_Click);
-            // 
             // exportPDFDialog
             // 
             this.exportPDFDialog.DefaultExt = "pdf";
             this.exportPDFDialog.Filter = "Portable Doc Format|*.pdf";
             this.exportPDFDialog.Title = "Експортувати довідку в PDF";
             // 
+            // processLbl
+            // 
+            this.processLbl.AutoSize = false;
+            this.processLbl.Name = "processLbl";
+            this.processLbl.Size = new System.Drawing.Size(115, 17);
+            this.processLbl.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // totalSquareBox
             // 
             this.totalSquareBox.BackColor = System.Drawing.SystemColors.Control;
-            this.totalSquareBox.Location = new System.Drawing.Point(579, 403);
+            this.totalSquareBox.Location = new System.Drawing.Point(579, 417);
             this.totalSquareBox.Name = "totalSquareBox";
             this.totalSquareBox.Precision = 3;
             this.totalSquareBox.ReadOnly = true;
@@ -595,7 +567,7 @@
             // buildSquareBox
             // 
             this.buildSquareBox.BackColor = System.Drawing.SystemColors.Control;
-            this.buildSquareBox.Location = new System.Drawing.Point(579, 362);
+            this.buildSquareBox.Location = new System.Drawing.Point(579, 376);
             this.buildSquareBox.Name = "buildSquareBox";
             this.buildSquareBox.Precision = 3;
             this.buildSquareBox.ReadOnly = true;
@@ -606,7 +578,7 @@
             // 
             // indexCoefBox
             // 
-            this.indexCoefBox.Location = new System.Drawing.Point(579, 312);
+            this.indexCoefBox.Location = new System.Drawing.Point(579, 326);
             this.indexCoefBox.Name = "indexCoefBox";
             this.indexCoefBox.Precision = 4;
             this.indexCoefBox.ReadOnly = true;
@@ -617,27 +589,26 @@
             // kfBox2
             // 
             this.kfBox2.Enabled = false;
-            this.kfBox2.Location = new System.Drawing.Point(501, 446);
+            this.kfBox2.Location = new System.Drawing.Point(501, 451);
             this.kfBox2.Name = "kfBox2";
             this.kfBox2.Precision = 3;
             this.kfBox2.ReadOnly = true;
-            this.kfBox2.Size = new System.Drawing.Size(72, 20);
+            this.kfBox2.Size = new System.Drawing.Size(117, 20);
             this.kfBox2.TabIndex = 30;
             this.kfBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // kfBox
             // 
-            this.kfBox.Location = new System.Drawing.Point(167, 442);
+            this.kfBox.Location = new System.Drawing.Point(167, 447);
             this.kfBox.Name = "kfBox";
-            this.kfBox.Precision = 3;
-            this.kfBox.ReadOnly = true;
-            this.kfBox.Size = new System.Drawing.Size(72, 20);
+            this.kfBox.Precision = 2;
+            this.kfBox.Size = new System.Drawing.Size(117, 20);
             this.kfBox.TabIndex = 28;
             this.kfBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // km3Box
             // 
-            this.km3Box.Location = new System.Drawing.Point(579, 211);
+            this.km3Box.Location = new System.Drawing.Point(579, 225);
             this.km3Box.Name = "km3Box";
             this.km3Box.Precision = 4;
             this.km3Box.ReadOnly = true;
@@ -657,7 +628,7 @@
             // 
             // priceBox
             // 
-            this.priceBox.Location = new System.Drawing.Point(185, 172);
+            this.priceBox.Location = new System.Drawing.Point(185, 186);
             this.priceBox.Name = "priceBox";
             this.priceBox.Precision = 2;
             this.priceBox.ReadOnly = true;
@@ -667,7 +638,7 @@
             // 
             // km2Box
             // 
-            this.km2Box.Location = new System.Drawing.Point(579, 172);
+            this.km2Box.Location = new System.Drawing.Point(579, 186);
             this.km2Box.Name = "km2Box";
             this.km2Box.Precision = 3;
             this.km2Box.ReadOnly = true;
@@ -678,9 +649,9 @@
             // squareBox
             // 
             this.squareBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.squareBox.Location = new System.Drawing.Point(185, 113);
+            this.squareBox.Location = new System.Drawing.Point(185, 127);
             this.squareBox.Name = "squareBox";
-            this.squareBox.Precision = 2;
+            this.squareBox.Precision = 0;
             this.squareBox.Size = new System.Drawing.Size(99, 20);
             this.squareBox.TabIndex = 12;
             this.squareBox.Text = "0";
@@ -690,7 +661,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 679);
+            this.ClientSize = new System.Drawing.Size(804, 684);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.docBox);
@@ -714,9 +685,7 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.indexCoefBox);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.kfNameBox2);
             this.Controls.Add(this.kfBox2);
-            this.Controls.Add(this.kfNameBox);
             this.Controls.Add(this.kfBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.oneMoreCheck);
@@ -741,8 +710,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ownerBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numberBox);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -763,8 +730,6 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox numberBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox ownerBox;
         private System.Windows.Forms.Label label3;
@@ -789,9 +754,7 @@
         private System.Windows.Forms.CheckBox oneMoreCheck;
         private System.Windows.Forms.Label label12;
         private DecimalTextBox kfBox;
-        private System.Windows.Forms.TextBox kfNameBox;
         private DecimalTextBox kfBox2;
-        private System.Windows.Forms.TextBox kfNameBox2;
         private System.Windows.Forms.Label label13;
         private DecimalTextBox indexCoefBox;
         private System.Windows.Forms.Label label14;
@@ -828,6 +791,7 @@
         private System.Windows.Forms.PrintDialog printDialog;
         private System.Windows.Forms.ToolStripMenuItem pdfMenu;
         private System.Windows.Forms.SaveFileDialog exportPDFDialog;
+        private System.Windows.Forms.ToolStripStatusLabel processLbl;
 
     }
 }

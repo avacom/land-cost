@@ -45,7 +45,6 @@
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.cancelBtn = new System.Windows.Forms.Button();
             this.evalBtn = new System.Windows.Forms.Button();
-            this.regionSelCtl = new LandCost.Forms.RegionSelectionControl();
             this.panel1 = new System.Windows.Forms.Panel();
             this.searchBtn = new System.Windows.Forms.Button();
             this.addressBox = new System.Windows.Forms.TextBox();
@@ -54,12 +53,13 @@
             this.areaBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.priceBox = new LandCost.Forms.DecimalTextBox();
-            this.regionBox = new LandCost.Forms.DecimalTextBox();
-            this.km2Box = new LandCost.Forms.DecimalTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.openDialog = new System.Windows.Forms.OpenFileDialog();
+            this.regionSelCtl = new LandCost.Forms.RegionSelectionControl();
+            this.priceBox = new LandCost.Forms.DecimalTextBox();
+            this.regionBox = new LandCost.Forms.DecimalTextBox();
+            this.km2Box = new LandCost.Forms.DecimalTextBox();
             this.menuStrip1.SuspendLayout();
             this.mainTable.SuspendLayout();
             this.toolPanel.SuspendLayout();
@@ -156,7 +156,7 @@
             this.mainTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.mainTable.ColumnCount = 2;
             this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 421F));
+            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 423F));
             this.mainTable.Controls.Add(this.map, 0, 0);
             this.mainTable.Controls.Add(this.toolPanel, 1, 0);
             this.mainTable.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -189,7 +189,7 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(575, 654);
+            this.map.Size = new System.Drawing.Size(573, 654);
             this.map.TabIndex = 2;
             this.map.Zoom = 0D;
             this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
@@ -203,9 +203,9 @@
             this.toolPanel.Controls.Add(this.panel1);
             this.toolPanel.Controls.Add(this.infoPanel);
             this.toolPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolPanel.Location = new System.Drawing.Point(588, 5);
+            this.toolPanel.Location = new System.Drawing.Point(586, 5);
             this.toolPanel.Name = "toolPanel";
-            this.toolPanel.Size = new System.Drawing.Size(415, 654);
+            this.toolPanel.Size = new System.Drawing.Size(417, 654);
             this.toolPanel.TabIndex = 3;
             // 
             // buttonPanel
@@ -215,7 +215,7 @@
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonPanel.Location = new System.Drawing.Point(0, 619);
             this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(415, 35);
+            this.buttonPanel.Size = new System.Drawing.Size(417, 35);
             this.buttonPanel.TabIndex = 7;
             // 
             // cancelBtn
@@ -238,18 +238,6 @@
             this.evalBtn.UseVisualStyleBackColor = true;
             this.evalBtn.Click += new System.EventHandler(this.evalBtn_Click);
             // 
-            // regionSelCtl
-            // 
-            this.regionSelCtl.CurrentRegion = null;
-            this.regionSelCtl.Dock = System.Windows.Forms.DockStyle.Top;
-            this.regionSelCtl.Location = new System.Drawing.Point(0, 202);
-            this.regionSelCtl.Name = "regionSelCtl";
-            this.regionSelCtl.RegionList = null;
-            this.regionSelCtl.Size = new System.Drawing.Size(415, 344);
-            this.regionSelCtl.TabIndex = 6;
-            this.regionSelCtl.Visible = false;
-            this.regionSelCtl.SelectionMade += new System.EventHandler(this.regionSelCtl_SelectionMade);
-            // 
             // panel1
             // 
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -259,7 +247,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 141);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(415, 61);
+            this.panel1.Size = new System.Drawing.Size(417, 61);
             this.panel1.TabIndex = 5;
             // 
             // searchBtn
@@ -303,7 +291,7 @@
             this.infoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.infoPanel.Location = new System.Drawing.Point(0, 0);
             this.infoPanel.Name = "infoPanel";
-            this.infoPanel.Size = new System.Drawing.Size(415, 141);
+            this.infoPanel.Size = new System.Drawing.Size(417, 141);
             this.infoPanel.TabIndex = 4;
             // 
             // areaBox
@@ -332,6 +320,42 @@
             this.label3.Size = new System.Drawing.Size(85, 13);
             this.label3.TabIndex = 6;
             this.label3.Text = "Коефіцієнт Км2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(18, 47);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "Район";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(18, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(155, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Економіко-планувальна зона";
+            // 
+            // openDialog
+            // 
+            this.openDialog.DefaultExt = "lcc";
+            this.openDialog.Filter = "Довідки про грошову оцінку|*.lcc";
+            this.openDialog.Title = "Відкрити довідку про грошову оцінку";
+            // 
+            // regionSelCtl
+            // 
+            this.regionSelCtl.CurrentRegion = null;
+            this.regionSelCtl.Dock = System.Windows.Forms.DockStyle.Top;
+            this.regionSelCtl.Location = new System.Drawing.Point(0, 202);
+            this.regionSelCtl.Name = "regionSelCtl";
+            this.regionSelCtl.RegionList = null;
+            this.regionSelCtl.Size = new System.Drawing.Size(417, 344);
+            this.regionSelCtl.TabIndex = 6;
+            this.regionSelCtl.Visible = false;
+            this.regionSelCtl.SelectionMade += new System.EventHandler(this.regionSelCtl_SelectionMade);
             // 
             // priceBox
             // 
@@ -362,30 +386,6 @@
             this.km2Box.Size = new System.Drawing.Size(138, 20);
             this.km2Box.TabIndex = 3;
             this.km2Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Район";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(155, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Економіко-планувальна зона";
-            // 
-            // openDialog
-            // 
-            this.openDialog.DefaultExt = "lcc";
-            this.openDialog.Filter = "Довідки про грошову оцінку|*.lcc";
-            this.openDialog.Title = "Відкрити довідку про грошову оцінку";
             // 
             // MainForm
             // 

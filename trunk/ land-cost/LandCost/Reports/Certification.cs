@@ -138,7 +138,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtNumber {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtDate {
             get {
                 return this.DataDefinition.ParameterFields[2];
             }
@@ -146,7 +146,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtDate {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtOwner {
             get {
                 return this.DataDefinition.ParameterFields[3];
             }
@@ -154,7 +154,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtOwner {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtOwnerLocation {
             get {
                 return this.DataDefinition.ParameterFields[4];
             }
@@ -162,7 +162,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtOwnerLocation {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtAddress {
             get {
                 return this.DataDefinition.ParameterFields[5];
             }
@@ -170,7 +170,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtAddress {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtName {
             get {
                 return this.DataDefinition.ParameterFields[6];
             }
@@ -178,7 +178,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtName {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtSquare {
             get {
                 return this.DataDefinition.ParameterFields[7];
             }
@@ -186,7 +186,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtSquare {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtDocument {
             get {
                 return this.DataDefinition.ParameterFields[8];
             }
@@ -194,7 +194,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtDocument {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtArea {
             get {
                 return this.DataDefinition.ParameterFields[9];
             }
@@ -202,7 +202,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtArea {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtKm2 {
             get {
                 return this.DataDefinition.ParameterFields[10];
             }
@@ -210,7 +210,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtKm2 {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtPrice {
             get {
                 return this.DataDefinition.ParameterFields[11];
             }
@@ -218,7 +218,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtPrice {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC1Name {
             get {
                 return this.DataDefinition.ParameterFields[12];
             }
@@ -226,7 +226,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC1Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC1Value {
             get {
                 return this.DataDefinition.ParameterFields[13];
             }
@@ -234,7 +234,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC1Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC2Name {
             get {
                 return this.DataDefinition.ParameterFields[14];
             }
@@ -242,7 +242,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC2Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC2Value {
             get {
                 return this.DataDefinition.ParameterFields[15];
             }
@@ -250,7 +250,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC2Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC3Name {
             get {
                 return this.DataDefinition.ParameterFields[16];
             }
@@ -258,7 +258,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC3Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC3Value {
             get {
                 return this.DataDefinition.ParameterFields[17];
             }
@@ -266,7 +266,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC3Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC4Name {
             get {
                 return this.DataDefinition.ParameterFields[18];
             }
@@ -274,7 +274,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC4Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC5Name {
             get {
                 return this.DataDefinition.ParameterFields[19];
             }
@@ -282,7 +282,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC5Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC6Name {
             get {
                 return this.DataDefinition.ParameterFields[20];
             }
@@ -290,7 +290,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC6Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC7Name {
             get {
                 return this.DataDefinition.ParameterFields[21];
             }
@@ -298,7 +298,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC7Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC8Name {
             get {
                 return this.DataDefinition.ParameterFields[22];
             }
@@ -306,7 +306,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC8Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC9Name {
             get {
                 return this.DataDefinition.ParameterFields[23];
             }
@@ -314,7 +314,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC9Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC10Name {
             get {
                 return this.DataDefinition.ParameterFields[24];
             }
@@ -322,7 +322,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC10Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC11Name {
             get {
                 return this.DataDefinition.ParameterFields[25];
             }
@@ -330,7 +330,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC11Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC12Name {
             get {
                 return this.DataDefinition.ParameterFields[26];
             }
@@ -338,7 +338,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC12Name {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC4Value {
             get {
                 return this.DataDefinition.ParameterFields[27];
             }
@@ -346,7 +346,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC4Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC5Value {
             get {
                 return this.DataDefinition.ParameterFields[28];
             }
@@ -354,7 +354,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC5Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC6Value {
             get {
                 return this.DataDefinition.ParameterFields[29];
             }
@@ -362,7 +362,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC6Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC7Value {
             get {
                 return this.DataDefinition.ParameterFields[30];
             }
@@ -370,7 +370,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC7Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC8Value {
             get {
                 return this.DataDefinition.ParameterFields[31];
             }
@@ -378,7 +378,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC8Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC9Value {
             get {
                 return this.DataDefinition.ParameterFields[32];
             }
@@ -386,7 +386,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC9Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC10Value {
             get {
                 return this.DataDefinition.ParameterFields[33];
             }
@@ -394,7 +394,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC10Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC11Value {
             get {
                 return this.DataDefinition.ParameterFields[34];
             }
@@ -402,7 +402,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC11Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtC12Value {
             get {
                 return this.DataDefinition.ParameterFields[35];
             }
@@ -410,7 +410,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtC12Value {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtKm3 {
             get {
                 return this.DataDefinition.ParameterFields[36];
             }
@@ -418,7 +418,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtKm3 {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtKfMain {
             get {
                 return this.DataDefinition.ParameterFields[37];
             }
@@ -426,7 +426,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtKfMain {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtIndexCoef {
             get {
                 return this.DataDefinition.ParameterFields[38];
             }
@@ -434,7 +434,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtKfNameMain {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtEvalM2Main {
             get {
                 return this.DataDefinition.ParameterFields[39];
             }
@@ -442,7 +442,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtKfSide {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtEvalMain {
             get {
                 return this.DataDefinition.ParameterFields[40];
             }
@@ -450,7 +450,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtKfNameSide {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtMainLetters {
             get {
                 return this.DataDefinition.ParameterFields[41];
             }
@@ -458,7 +458,7 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtIndexCoef {
+        public CrystalDecisions.Shared.IParameterField Parameter_txtExecutor {
             get {
                 return this.DataDefinition.ParameterFields[42];
             }
@@ -466,65 +466,9 @@ namespace LandCost.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtEvalM2Main {
-            get {
-                return this.DataDefinition.ParameterFields[43];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtEvalM2Side {
-            get {
-                return this.DataDefinition.ParameterFields[44];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtEvalMain {
-            get {
-                return this.DataDefinition.ParameterFields[45];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtEvalSide {
-            get {
-                return this.DataDefinition.ParameterFields[46];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtMainLetters {
-            get {
-                return this.DataDefinition.ParameterFields[47];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtSideLetters {
-            get {
-                return this.DataDefinition.ParameterFields[48];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_txtExecutor {
-            get {
-                return this.DataDefinition.ParameterFields[49];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.Shared.IParameterField Parameter_txtChief {
             get {
-                return this.DataDefinition.ParameterFields[50];
+                return this.DataDefinition.ParameterFields[43];
             }
         }
     }

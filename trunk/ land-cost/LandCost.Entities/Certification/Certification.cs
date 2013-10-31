@@ -15,7 +15,6 @@ namespace LandCost.Entities
         #region Members
         bool m_bLoaded;
 
-        string m_sNumber;
         DateTime m_dtDate;
 
         string m_sOwner;
@@ -67,20 +66,6 @@ namespace LandCost.Entities
         #endregion Constructors
 
         #region Properties
-
-        public string Number
-        {
-            get
-            {
-                return m_sNumber;
-            }
-            set
-            {
-                m_sNumber = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Number"));
-                OnChanged(this, null);
-            }
-        }
 
         public DateTime Date
         {
@@ -477,7 +462,6 @@ namespace LandCost.Entities
 
         public void SetZero()
         {
-            Number = string.Empty;
             Date = DateTime.Now;
             Owner = string.Empty;
             OwnerLocation = string.Empty;
@@ -493,9 +477,9 @@ namespace LandCost.Entities
             CoefficientValues = new List<LocalCoefficientValue>();
             Km3 = 0;
             KfMain = 0;
-            KfNameMain = string.Empty;
+            KfNameMain = "для земельної ділянки за цільовим призначенням згідно з проектом землеустрою";
             KfSide = 0;
-            KfNameSide = string.Empty;
+            KfNameSide = "для земельної ділянки, відведеної під майбутнє будівництво та зайнятої поточним будівництвом";
             IndexCoefficient = 0;
             NormEvalM2Main = 0;
             NormEvalM2Side = 0;
