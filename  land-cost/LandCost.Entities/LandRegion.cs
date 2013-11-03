@@ -152,6 +152,14 @@ namespace LandCost.Entities
             get { return m_nNumber.ToString(); }
         }
 
+        // Returns 'Yes' or 'No' string depending on whether a polygon is bound to the region
+        public string Bound
+        {
+            get
+            {
+                return m_oPolygon != null ? "Так" : "Ні";
+            }
+        }
         #endregion Properties
 
         #region Methods

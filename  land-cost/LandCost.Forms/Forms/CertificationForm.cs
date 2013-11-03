@@ -504,13 +504,20 @@ namespace LandCost.Forms
         private void printMenu_Click(object sender, EventArgs e)
         {
             this.ValidateChildren();
-            Print();
+            if (ValidateValues())
+            {
+                Print();
+            }
         }
 
         private void pdfMenu_Click(object sender, EventArgs e)
         {
             this.ValidateChildren();
-            ExportPDF();
+            if (ValidateValues())
+            {
+                ExportPDF();
+            }
         }
+
     }
 }

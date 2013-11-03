@@ -337,19 +337,25 @@ namespace LandCost.Forms
             reg_numberHeader.Tag = "Number";
 
             ColumnHeader reg_areaHeader = new ColumnHeader();
-            reg_areaHeader.Width = 200;
-            reg_areaHeader.Text = "Номер економіко-планувальної зони";
+            reg_areaHeader.Width = 100;
+            reg_areaHeader.Text = "Номер зони";
             reg_areaHeader.Tag = "ParentArea";
 
             ColumnHeader reg_priceHeader = new ColumnHeader();
-            reg_priceHeader.Width = -2;
-            reg_priceHeader.Text = "Середня вартість ділянки, грн/м2";
+            reg_priceHeader.Width = 200;
+            reg_priceHeader.Text = "Вартість ділянки, грн/м2";
             reg_priceHeader.Tag = "Price";
+
+            ColumnHeader reg_boundHeader = new ColumnHeader();
+            reg_boundHeader.Width = -2;
+            reg_boundHeader.Text = "Прив'язка до карти";
+            reg_boundHeader.Tag = "Bound";
 
             this.regionList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             reg_numberHeader,
             reg_areaHeader,
-            reg_priceHeader});
+            reg_priceHeader,
+            reg_boundHeader});
 
             this.regionList.FormType = typeof(RegionForm);
             this.regionList.EditorEvent = EditEvent.DoubleClick;
@@ -423,48 +429,33 @@ namespace LandCost.Forms
 
         private void profileNameEdit_Validating(object sender, CancelEventArgs e)
         {
-            if (m_Profile != null)
+            if (!FinalizeName())
             {
-                if (ValidateName())
-                {
-                    m_Profile.Name = profileNameEdit.Text;
-                    this.OnValidated(null);
-                    OnModified(this, null);
-                }
-                else
-                {
-                    e.Cancel = true;
-                }
+                e.Cancel = true;
             }
         }
 
         private void agencyNameEdit_Validating(object sender, CancelEventArgs e)
         {
-            if (m_Profile != null)
+            if (!FinalizeAgencyName())
             {
-                m_Profile.AgencyName = agencyNameEdit.Text;
-                this.OnValidated(null);
-                OnModified(this, null);
+                e.Cancel = true;
             }
         }
 
         private void agencyAddressEdit_Validating(object sender, CancelEventArgs e)
         {
-            if (m_Profile != null)
+            if (!FinalizeAgencyAddress())
             {
-                m_Profile.AgencyAddress = agencyAddressEdit.Text;
-                this.OnValidated(null);
-                OnModified(this, null);
+                e.Cancel = true;
             }
         }
 
         private void indexCoefEdit_Validating(object sender, CancelEventArgs e)
         {
-            if (m_Profile != null)
+            if (!FinalizeIndexCoef())
             {
-                m_Profile.IndexCoefficient = indexCoefEdit.Value;
-                this.OnValidated(null);
-                OnModified(this, null);
+                e.Cancel = true;
             }
         }
 
@@ -516,28 +507,165 @@ namespace LandCost.Forms
 
             return bRet;
         }
+
+        private bool FinalizeName()
+        {
+            bool bRet = true;
+
+            if (m_Profile != null)
+            {
+                if (ValidateName())
+                {
+                    if (m_Profile.Name != profileNameEdit.Text)
+                    {
+                        m_Profile.Name = profileNameEdit.Text;
+                        this.OnValidated(null);
+                        OnModified(this, null);
+                    }
+                }
+                else
+                {
+                    bRet = false;
+                }
+            }
+            else
+            {
+                bRet = false;
+            }
+            return bRet;
+        }
+
+        private bool FinalizeAgencyName()
+        {
+            bool bRet = true;
+
+            if (m_Profile != null)
+            {
+                if (m_Profile.AgencyName != agencyNameEdit.Text)
+                {
+                    m_Profile.AgencyName = agencyNameEdit.Text;
+                    this.OnValidated(null);
+                    OnModified(this, null);
+                }
+            }
+            else
+            {
+                bRet = false;
+            }
+
+            return bRet;
+        }
+
+        private bool FinalizeAgencyAddress()
+        {
+            bool bRet = true;
+            if (m_Profile != null)
+            {
+                if (m_Profile.AgencyAddress != agencyAddressEdit.Text)
+                {
+                    m_Profile.AgencyAddress = agencyAddressEdit.Text;
+                    this.OnValidated(null);
+                    OnModified(this, null);
+                }
+            }
+            else
+            {
+                bRet = false;
+            }
+
+            return bRet;
+        }
+
+        private bool FinalizeIndexCoef()
+        {
+            bool bRet = true;
+
+            if (m_Profile != null)
+            {
+                if (m_Profile.IndexCoefficient != indexCoefEdit.Value)
+                {
+                    m_Profile.IndexCoefficient = indexCoefEdit.Value;
+                    this.OnValidated(null);
+                    OnModified(this, null);
+                }
+            }
+            else
+            {
+                bRet = false;
+            }
+            return bRet;
+        }
+
+        private bool FinalizeExecutors()
+        {
+            bool bRet = true;
+
+            if (m_Profile != null)
+            {
+                if (m_Profile.Executors.Intersect(executorBox.Lines).ToArray<string>().Length != m_Profile.Executors.Count)
+                {
+                    m_Profile.Executors.Clear();
+                    m_Profile.Executors.AddRange(executorBox.Lines);
+                    this.OnValidated(null);
+                    OnModified(this, null);
+                }
+            }
+            else
+            {
+                bRet = false;
+            }
+            return bRet;
+        }
+
+        private bool FinalizeChiefs()
+        {
+            bool bRet = true;
+
+            if (m_Profile != null)
+            {
+                if (m_Profile.Chiefs.Intersect(chiefBox.Lines).ToArray<string>().Length != m_Profile.Chiefs.Count)
+                {
+                    m_Profile.Chiefs.Clear();
+                    m_Profile.Chiefs.AddRange(chiefBox.Lines);
+                    this.OnValidated(null);
+                    OnModified(this, null);
+                }
+            }
+            else
+            {
+                bRet = false;
+            }
+            return bRet;
+        }
+
+        public bool FinalizeAll()
+        {
+            bool bRet = true;
+            bRet &= FinalizeName() &&
+                FinalizeAgencyName() &&
+                FinalizeAgencyAddress() &&
+                FinalizeIndexCoef() &&
+                FinalizeExecutors() &&
+                FinalizeChiefs();
+            return bRet;
+        }
+
         #endregion Validations
 
 
         private void executorBox_Validating(object sender, CancelEventArgs e)
         {
-            if (m_Profile != null)
+            if (!FinalizeExecutors())
             {
-                m_Profile.Executors.Clear();
-                m_Profile.Executors.AddRange(executorBox.Lines);
-                this.OnValidated(null);
-                OnModified(this, null);
+                e.Cancel = true;
             }
         }
 
         private void chiefBox_Validating(object sender, CancelEventArgs e)
         {
-            if (m_Profile != null)
+            if (!FinalizeChiefs())
             {
-                m_Profile.Chiefs.Clear();
-                m_Profile.Chiefs.AddRange(chiefBox.Lines);
-                this.OnValidated(null);
-                OnModified(this, null);
+                e.Cancel = true;
             }
         }
 
