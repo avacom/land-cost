@@ -85,7 +85,16 @@ namespace LandCost.Forms
 
         private void ConfigurationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+            if (profilePanel.Controls.Count > 0)
+            {
+                if (profilePanel.Controls[0] is ProfileControl)
+                {
+                    if (!(profilePanel.Controls[0] as ProfileControl).FinalizeAll())
+                    {
+                        e.Cancel = true;
+                    }
+                }
+            }
         }
     }
 }

@@ -26,6 +26,7 @@ namespace LandCost
         ConfigurationForm m_ConfigForm;
         SplashScreen m_Splash;
 
+        GMapPolygon selPol;
         GMapOverlay regions;
         GMapOverlay markers;
 
@@ -374,6 +375,16 @@ namespace LandCost
 
         private void map_OnPolygonEnter(GMapPolygon item)
         {
+            if (selPol != null)
+            {
+                if (selPol.Tag != null)
+                {
+                    selPol.Fill = selPol.Tag as Brush;
+                }
+            }
+
+            selPol = item;
+
             item.Tag = item.Fill;
             item.Fill = PolygonHelper.SelectedBrush;
 
@@ -411,6 +422,11 @@ namespace LandCost
 
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
+            if (item != selPol && selPol != null)
+            {
+                item = selPol;
+            }
+
             if (m_DB != null &&
                 m_DB.Config != null &&
                 m_DB.Config.CurrentProfile != null)

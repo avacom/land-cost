@@ -16,6 +16,7 @@ namespace LandCost.Forms
 {
     public partial class SelectPolygonForm : Form
     {
+        GMapPolygon selPol;
         LandPolygon curPol;
         Profile profile;
 
@@ -133,6 +134,15 @@ namespace LandCost.Forms
 
         private void map_OnPolygonEnter(GMapPolygon item)
         {
+            if (selPol != null)
+            {
+                if (selPol.Tag != null)
+                {
+                    selPol.Fill = selPol.Tag as Brush;
+                }
+            }
+
+            selPol = item;
             item.Tag = item.Fill;
             item.Fill = PolygonHelper.SelectedBrush;
         }
@@ -147,6 +157,10 @@ namespace LandCost.Forms
 
         private void map_OnPolygonClick(GMapPolygon item, MouseEventArgs e)
         {
+            if (item != selPol && selPol != null)
+            {
+                item = selPol;
+            }
             if (!item.Equals(curPol))
             {
                 DialogResult res = DialogResult.Cancel;
