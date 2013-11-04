@@ -379,6 +379,7 @@ namespace LandCost.Forms
 
         private void saveMenu_Click(object sender, EventArgs e)
         {
+            ownerBox.Focus();
             this.ValidateChildren();
             if (ValidateValues())
             {
@@ -395,6 +396,7 @@ namespace LandCost.Forms
 
         private void saveAsMenu_Click(object sender, EventArgs e)
         {
+            ownerBox.Focus();
             this.ValidateChildren();
             if (ValidateValues())
             {
@@ -469,6 +471,7 @@ namespace LandCost.Forms
 
         private void CertificationForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            ownerBox.Focus();
             this.ValidateChildren();
             if (m_bChanged)
             {
@@ -503,6 +506,7 @@ namespace LandCost.Forms
 
         private void printMenu_Click(object sender, EventArgs e)
         {
+            ownerBox.Focus();
             this.ValidateChildren();
             if (ValidateValues())
             {
@@ -512,6 +516,7 @@ namespace LandCost.Forms
 
         private void pdfMenu_Click(object sender, EventArgs e)
         {
+            ownerBox.Focus();
             this.ValidateChildren();
             if (ValidateValues())
             {
