@@ -40,14 +40,23 @@ namespace LandCost.Forms
         {
             get
             {
-                double d = 0;
-                if (!string.IsNullOrEmpty(this.Text))
-                {
-                    string s = this.Text.Replace(',', '.');
-                    double.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out d);
-                }
-                return d;
+                return GetDouble(Text);
             }
+            set
+            {
+                Text = value.ToString();
+            }
+        }
+
+        private double GetDouble(string str)
+        {
+            double d = 0;
+            if (!string.IsNullOrEmpty(str))
+            {
+                string s = str.Replace(',', '.');
+                double.TryParse(s, NumberStyles.Float, CultureInfo.InvariantCulture, out d);
+            }
+            return d;
         }
 
         public DecimalTextBox()
@@ -116,7 +125,8 @@ namespace LandCost.Forms
             bool decimalSeparator = ((
                 e.KeyCode == Keys.Decimal ||
                 e.KeyValue == 190 ||
-                e.KeyValue == 188) &&
+                e.KeyValue == 188 ||
+                e.KeyValue == 191) &&
                 TextLength != 0 &&
                 SelectionLength == 0);
 
@@ -150,7 +160,13 @@ namespace LandCost.Forms
                     OnKeyRejected(new KeyRejectedEventArgs(e.KeyCode));
             }
             else
-                base.OnKeyDown(e);
+            {
+                if (decimalSeparator)
+                {
+                    e = new KeyEventArgs(Keys.Decimal);
+                    base.OnKeyDown(e);
+                }
+            }
         }
 
         protected override void OnKeyPress(KeyPressEventArgs e)
@@ -165,6 +181,21 @@ namespace LandCost.Forms
 
         protected override void OnTextChanged(EventArgs e)
         {
+            int selStart = this.SelectionStart;
+            int selLen = this.SelectionLength;
+
+            string s = Text.Replace('/', '.');
+            s = s.Replace('?', '.');
+            s = s.Replace(',', '.');
+            s = s.Replace('б','.');
+            s = s.Replace('Б', '.');
+            s = s.Replace('ю', '.');
+            s = s.Replace('Ю', '.');
+            Text = s;
+
+            this.SelectionStart = selStart;
+            this.SelectionLength = selLen;
+
             bool invalid = false;
             int i = 0;
             foreach (char c in Text) // Check for any non digit characters. 

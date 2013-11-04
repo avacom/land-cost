@@ -75,9 +75,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dtDate = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Date"));
-                OnChanged(this, null);
+                if (m_dtDate != value)
+                {
+                    m_dtDate = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Date"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -89,9 +92,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sOwner = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Owner"));
-                OnChanged(this, null);
+                if (m_sOwner != value)
+                {
+                    m_sOwner = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Owner"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -103,9 +109,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sOwnerLocation = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("OwnerLocation"));
-                OnChanged(this, null);
+                if (m_sOwnerLocation != value)
+                {
+                    m_sOwnerLocation = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("OwnerLocation"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -117,9 +126,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sAddress = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Address"));
-                OnChanged(this, null);
+                if (m_sAddress != value)
+                {
+                    m_sAddress = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Address"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -131,9 +143,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sLandName = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("LandName"));
-                OnChanged(this, null);
+                if (m_sLandName != value)
+                {
+                    m_sLandName = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("LandName"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -145,9 +160,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sDocument = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Document"));
-                OnChanged(this, null);
+                if (m_sDocument != value)
+                {
+                    m_sDocument = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Document"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -159,9 +177,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sDocumentDetails = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("DocumentDetails"));
-                OnChanged(this, null);
+                if (m_sDocumentDetails != value)
+                {
+                    m_sDocumentDetails = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("DocumentDetails"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -173,10 +194,13 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dSquare = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Square"));
-                Recalculate();
-                OnChanged(this, null);
+                if (m_dSquare != value)
+                {
+                    m_dSquare = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Square"));
+                    Recalculate();
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -188,9 +212,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sArea = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Area"));
-                OnChanged(this, null);
+                if (m_sArea != value)
+                {
+                    m_sArea = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Area"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -202,9 +229,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dKm2 = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Km2"));
-                OnChanged(this, null);
+                if (m_dKm2 != value)
+                {
+                    m_dKm2 = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Km2"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -216,10 +246,13 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dPrice = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Price"));
-                Recalculate();
-                OnChanged(this, null);
+                if (m_dPrice != value)
+                {
+                    m_dPrice = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Price"));
+                    Recalculate();
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -245,9 +278,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dKm3 = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Km3"));
-                OnChanged(this, null);
+                if (m_dKm3 != value)
+                {
+                    m_dKm3 = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Km3"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -259,10 +295,13 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dKf_main = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("KfMain"));
-                Recalculate();
-                OnChanged(this, null);
+                if (m_dKf_main != value)
+                {
+                    m_dKf_main = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("KfMain"));
+                    Recalculate();
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -274,9 +313,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sKfName_main = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("KfNameMain"));
-                OnChanged(this, null);
+                if (m_sKfName_main != value)
+                {
+                    m_sKfName_main = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("KfNameMain"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -288,10 +330,13 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dKf_side = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("KfSide"));
-                Recalculate();
-                OnChanged(this, null);
+                if (m_dKf_side != value)
+                {
+                    m_dKf_side = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("KfSide"));
+                    Recalculate();
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -303,9 +348,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sKfName_side = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("KfNameSide"));
-                OnChanged(this, null);
+                if (m_sKfName_side != value)
+                {
+                    m_sKfName_side = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("KfNameSide"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -317,9 +365,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dKi = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("IndexCoefficient"));
-                OnChanged(this, null);
+                if (m_dKi != value)
+                {
+                    m_dKi = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("IndexCoefficient"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -331,9 +382,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dNormEvalM2_main = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("NormEvalM2Main"));
-                OnChanged(this, null);
+                if (m_dNormEvalM2_main != value)
+                {
+                    m_dNormEvalM2_main = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("NormEvalM2Main"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -345,9 +399,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dNormEvalM2_side = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("NormEvalM2Side"));
-                OnChanged(this, null);
+                if (m_dNormEvalM2_side != value)
+                {
+                    m_dNormEvalM2_side = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("NormEvalM2Side"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -359,9 +416,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dTotalNormEval_main = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("TotalNormEvalMain"));
-                OnChanged(this, null);
+                if (m_dTotalNormEval_main != value)
+                {
+                    m_dTotalNormEval_main = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("TotalNormEvalMain"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -373,9 +433,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_dTotalNormEval_side = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("TotalNormEvalSide"));
-                OnChanged(this, null);
+                if (m_dTotalNormEval_side != value)
+                {
+                    m_dTotalNormEval_side = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("TotalNormEvalSide"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -387,9 +450,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_bSideActive = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("SideActive"));
-                OnChanged(this, null);
+                if (m_bSideActive != value)
+                {
+                    m_bSideActive = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("SideActive"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -401,9 +467,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sExecutor = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Executor"));
-                OnChanged(this, null);
+                if (m_sExecutor != value)
+                {
+                    m_sExecutor = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Executor"));
+                    OnChanged(this, null);
+                }
             }
         }
 
@@ -415,9 +484,12 @@ namespace LandCost.Entities
             }
             set
             {
-                m_sChief = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Chief"));
-                OnChanged(this, null);
+                if (m_sChief != value)
+                {
+                    m_sChief = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("Chief"));
+                    OnChanged(this, null);
+                }
             }
         }
 

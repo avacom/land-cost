@@ -44,7 +44,6 @@
             this.areaBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.coefBox = new System.Windows.Forms.GroupBox();
-            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
             this.label11 = new System.Windows.Forms.Label();
             this.oneMoreCheck = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -52,12 +51,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.evalM2Box2 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
-            this.evalBox2 = new System.Windows.Forms.TextBox();
-            this.evalBox = new System.Windows.Forms.TextBox();
-            this.evalTotalBox2 = new System.Windows.Forms.TextBox();
-            this.evalTotalBox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.executorBox = new System.Windows.Forms.ComboBox();
@@ -66,7 +60,6 @@
             this.dateBox = new System.Windows.Forms.DateTimePicker();
             this.docBox = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
-            this.evalM2Box = new System.Windows.Forms.TextBox();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.довідкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,15 +74,22 @@
             this.saveDialog = new System.Windows.Forms.SaveFileDialog();
             this.printDialog = new System.Windows.Forms.PrintDialog();
             this.exportPDFDialog = new System.Windows.Forms.SaveFileDialog();
+            this.evalM2Box = new LandCost.Forms.DecimalTextBox();
+            this.kfBox = new LandCost.Forms.DecimalTextBox();
             this.totalSquareBox = new LandCost.Forms.DecimalTextBox();
             this.buildSquareBox = new LandCost.Forms.DecimalTextBox();
             this.indexCoefBox = new LandCost.Forms.DecimalTextBox();
             this.kfBox2 = new LandCost.Forms.DecimalTextBox();
-            this.kfBox = new LandCost.Forms.DecimalTextBox();
             this.km3Box = new LandCost.Forms.DecimalTextBox();
+            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
             this.priceBox = new LandCost.Forms.DecimalTextBox();
             this.km2Box = new LandCost.Forms.DecimalTextBox();
             this.squareBox = new LandCost.Forms.DecimalTextBox();
+            this.evalM2Box2 = new LandCost.Forms.DecimalTextBox();
+            this.evalBox = new LandCost.Forms.DecimalTextBox();
+            this.evalBox2 = new LandCost.Forms.DecimalTextBox();
+            this.evalTotalBox = new LandCost.Forms.DecimalTextBox();
+            this.evalTotalBox2 = new LandCost.Forms.DecimalTextBox();
             this.coefBox.SuspendLayout();
             this.menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -237,16 +237,6 @@
             this.coefBox.TabStop = false;
             this.coefBox.Text = "Локальні коефіцієнти";
             // 
-            // coefValSetCtl
-            // 
-            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.coefValSetCtl.List = null;
-            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
-            this.coefValSetCtl.Name = "coefValSetCtl";
-            this.coefValSetCtl.ReadOnly = false;
-            this.coefValSetCtl.Size = new System.Drawing.Size(391, 186);
-            this.coefValSetCtl.TabIndex = 0;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -312,16 +302,6 @@
             this.label16.TabIndex = 37;
             this.label16.Text = "Загальна площа земель, м2";
             // 
-            // evalM2Box2
-            // 
-            this.evalM2Box2.Enabled = false;
-            this.evalM2Box2.Location = new System.Drawing.Point(501, 483);
-            this.evalM2Box2.Name = "evalM2Box2";
-            this.evalM2Box2.ReadOnly = true;
-            this.evalM2Box2.Size = new System.Drawing.Size(117, 20);
-            this.evalM2Box2.TabIndex = 40;
-            this.evalM2Box2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -330,44 +310,6 @@
             this.label17.Size = new System.Drawing.Size(151, 39);
             this.label17.TabIndex = 41;
             this.label17.Text = "Нормативна грошова оцінка\r\nземельної ділянки під\r\nзабудовою, грн";
-            // 
-            // evalBox2
-            // 
-            this.evalBox2.Enabled = false;
-            this.evalBox2.Location = new System.Drawing.Point(501, 530);
-            this.evalBox2.Name = "evalBox2";
-            this.evalBox2.ReadOnly = true;
-            this.evalBox2.Size = new System.Drawing.Size(117, 20);
-            this.evalBox2.TabIndex = 43;
-            this.evalBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // evalBox
-            // 
-            this.evalBox.Location = new System.Drawing.Point(167, 530);
-            this.evalBox.Name = "evalBox";
-            this.evalBox.ReadOnly = true;
-            this.evalBox.Size = new System.Drawing.Size(117, 20);
-            this.evalBox.TabIndex = 42;
-            this.evalBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // evalTotalBox2
-            // 
-            this.evalTotalBox2.Enabled = false;
-            this.evalTotalBox2.Location = new System.Drawing.Point(501, 585);
-            this.evalTotalBox2.Name = "evalTotalBox2";
-            this.evalTotalBox2.ReadOnly = true;
-            this.evalTotalBox2.Size = new System.Drawing.Size(117, 20);
-            this.evalTotalBox2.TabIndex = 46;
-            this.evalTotalBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // evalTotalBox
-            // 
-            this.evalTotalBox.Location = new System.Drawing.Point(167, 585);
-            this.evalTotalBox.Name = "evalTotalBox";
-            this.evalTotalBox.ReadOnly = true;
-            this.evalTotalBox.Size = new System.Drawing.Size(117, 20);
-            this.evalTotalBox.TabIndex = 45;
-            this.evalTotalBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // label18
             // 
@@ -440,15 +382,6 @@
             this.label21.Size = new System.Drawing.Size(110, 13);
             this.label21.TabIndex = 56;
             this.label21.Text = "Атрибути документа";
-            // 
-            // evalM2Box
-            // 
-            this.evalM2Box.Location = new System.Drawing.Point(167, 483);
-            this.evalM2Box.Name = "evalM2Box";
-            this.evalM2Box.ReadOnly = true;
-            this.evalM2Box.Size = new System.Drawing.Size(117, 20);
-            this.evalM2Box.TabIndex = 39;
-            this.evalM2Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // menu
             // 
@@ -562,6 +495,30 @@
             this.exportPDFDialog.Filter = "Portable Doc Format|*.pdf";
             this.exportPDFDialog.Title = "Експортувати довідку в PDF";
             // 
+            // evalM2Box
+            // 
+            this.evalM2Box.Location = new System.Drawing.Point(167, 483);
+            this.evalM2Box.Name = "evalM2Box";
+            this.evalM2Box.Precision = 2;
+            this.evalM2Box.ReadOnly = true;
+            this.evalM2Box.Size = new System.Drawing.Size(117, 20);
+            this.evalM2Box.TabIndex = 59;
+            this.evalM2Box.Text = "0";
+            this.evalM2Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.evalM2Box.Value = 0D;
+            // 
+            // kfBox
+            // 
+            this.kfBox.Location = new System.Drawing.Point(167, 447);
+            this.kfBox.Name = "kfBox";
+            this.kfBox.Precision = 2;
+            this.kfBox.Size = new System.Drawing.Size(117, 20);
+            this.kfBox.TabIndex = 28;
+            this.kfBox.Text = "0";
+            this.kfBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.kfBox.Value = 0D;
+            this.kfBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.kfBox_KeyUp);
+            // 
             // totalSquareBox
             // 
             this.totalSquareBox.BackColor = System.Drawing.SystemColors.Control;
@@ -573,6 +530,7 @@
             this.totalSquareBox.TabIndex = 38;
             this.totalSquareBox.Text = "0";
             this.totalSquareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.totalSquareBox.Value = 0D;
             // 
             // buildSquareBox
             // 
@@ -585,6 +543,7 @@
             this.buildSquareBox.TabIndex = 36;
             this.buildSquareBox.Text = "0";
             this.buildSquareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.buildSquareBox.Value = 0D;
             // 
             // indexCoefBox
             // 
@@ -594,7 +553,9 @@
             this.indexCoefBox.ReadOnly = true;
             this.indexCoefBox.Size = new System.Drawing.Size(84, 20);
             this.indexCoefBox.TabIndex = 33;
+            this.indexCoefBox.Text = "0";
             this.indexCoefBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.indexCoefBox.Value = 0D;
             // 
             // kfBox2
             // 
@@ -605,16 +566,10 @@
             this.kfBox2.ReadOnly = true;
             this.kfBox2.Size = new System.Drawing.Size(117, 20);
             this.kfBox2.TabIndex = 30;
+            this.kfBox2.Text = "0";
             this.kfBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // kfBox
-            // 
-            this.kfBox.Location = new System.Drawing.Point(167, 447);
-            this.kfBox.Name = "kfBox";
-            this.kfBox.Precision = 2;
-            this.kfBox.Size = new System.Drawing.Size(117, 20);
-            this.kfBox.TabIndex = 28;
-            this.kfBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.kfBox2.Value = 0D;
+            this.kfBox2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.kfBox2_KeyUp);
             // 
             // km3Box
             // 
@@ -624,7 +579,19 @@
             this.km3Box.ReadOnly = true;
             this.km3Box.Size = new System.Drawing.Size(84, 20);
             this.km3Box.TabIndex = 24;
+            this.km3Box.Text = "0";
             this.km3Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.km3Box.Value = 0D;
+            // 
+            // coefValSetCtl
+            // 
+            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coefValSetCtl.List = null;
+            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
+            this.coefValSetCtl.Name = "coefValSetCtl";
+            this.coefValSetCtl.ReadOnly = false;
+            this.coefValSetCtl.Size = new System.Drawing.Size(391, 186);
+            this.coefValSetCtl.TabIndex = 0;
             // 
             // priceBox
             // 
@@ -634,7 +601,9 @@
             this.priceBox.ReadOnly = true;
             this.priceBox.Size = new System.Drawing.Size(99, 20);
             this.priceBox.TabIndex = 21;
+            this.priceBox.Text = "0";
             this.priceBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.priceBox.Value = 0D;
             // 
             // km2Box
             // 
@@ -644,7 +613,9 @@
             this.km2Box.ReadOnly = true;
             this.km2Box.Size = new System.Drawing.Size(84, 20);
             this.km2Box.TabIndex = 19;
+            this.km2Box.Text = "0";
             this.km2Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.km2Box.Value = 0D;
             // 
             // squareBox
             // 
@@ -656,12 +627,81 @@
             this.squareBox.TabIndex = 12;
             this.squareBox.Text = "0";
             this.squareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.squareBox.Value = 0D;
+            this.squareBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.squareBox_KeyUp);
+            // 
+            // evalM2Box2
+            // 
+            this.evalM2Box2.Location = new System.Drawing.Point(501, 483);
+            this.evalM2Box2.Name = "evalM2Box2";
+            this.evalM2Box2.Precision = 2;
+            this.evalM2Box2.ReadOnly = true;
+            this.evalM2Box2.Size = new System.Drawing.Size(117, 20);
+            this.evalM2Box2.TabIndex = 60;
+            this.evalM2Box2.Text = "0";
+            this.evalM2Box2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.evalM2Box2.Value = 0D;
+            // 
+            // evalBox
+            // 
+            this.evalBox.Location = new System.Drawing.Point(167, 530);
+            this.evalBox.Name = "evalBox";
+            this.evalBox.Precision = 2;
+            this.evalBox.ReadOnly = true;
+            this.evalBox.Size = new System.Drawing.Size(117, 20);
+            this.evalBox.TabIndex = 61;
+            this.evalBox.Text = "0";
+            this.evalBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.evalBox.Value = 0D;
+            // 
+            // evalBox2
+            // 
+            this.evalBox2.Location = new System.Drawing.Point(501, 530);
+            this.evalBox2.Name = "evalBox2";
+            this.evalBox2.Precision = 2;
+            this.evalBox2.ReadOnly = true;
+            this.evalBox2.Size = new System.Drawing.Size(117, 20);
+            this.evalBox2.TabIndex = 62;
+            this.evalBox2.Text = "0";
+            this.evalBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.evalBox2.Value = 0D;
+            // 
+            // evalTotalBox
+            // 
+            this.evalTotalBox.Location = new System.Drawing.Point(170, 585);
+            this.evalTotalBox.Name = "evalTotalBox";
+            this.evalTotalBox.Precision = 2;
+            this.evalTotalBox.ReadOnly = true;
+            this.evalTotalBox.Size = new System.Drawing.Size(117, 20);
+            this.evalTotalBox.TabIndex = 63;
+            this.evalTotalBox.Text = "0";
+            this.evalTotalBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.evalTotalBox.Value = 0D;
+            // 
+            // evalTotalBox2
+            // 
+            this.evalTotalBox2.Location = new System.Drawing.Point(501, 585);
+            this.evalTotalBox2.Name = "evalTotalBox2";
+            this.evalTotalBox2.Precision = 2;
+            this.evalTotalBox2.ReadOnly = true;
+            this.evalTotalBox2.Size = new System.Drawing.Size(117, 20);
+            this.evalTotalBox2.TabIndex = 64;
+            this.evalTotalBox2.Text = "0";
+            this.evalTotalBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.evalTotalBox2.Value = 0D;
             // 
             // CertificationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 684);
+            this.Controls.Add(this.evalTotalBox2);
+            this.Controls.Add(this.evalTotalBox);
+            this.Controls.Add(this.evalBox2);
+            this.Controls.Add(this.evalBox);
+            this.Controls.Add(this.evalM2Box2);
+            this.Controls.Add(this.evalM2Box);
+            this.Controls.Add(this.kfBox);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.label21);
             this.Controls.Add(this.docBox);
@@ -670,14 +710,8 @@
             this.Controls.Add(this.label20);
             this.Controls.Add(this.executorBox);
             this.Controls.Add(this.label19);
-            this.Controls.Add(this.evalTotalBox2);
-            this.Controls.Add(this.evalTotalBox);
             this.Controls.Add(this.label18);
-            this.Controls.Add(this.evalBox2);
-            this.Controls.Add(this.evalBox);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.evalM2Box2);
-            this.Controls.Add(this.evalM2Box);
             this.Controls.Add(this.totalSquareBox);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.buildSquareBox);
@@ -686,7 +720,6 @@
             this.Controls.Add(this.indexCoefBox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.kfBox2);
-            this.Controls.Add(this.kfBox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.oneMoreCheck);
             this.Controls.Add(this.km3Box);
@@ -762,12 +795,7 @@
         private DecimalTextBox buildSquareBox;
         private DecimalTextBox totalSquareBox;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox evalM2Box2;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox evalBox2;
-        private System.Windows.Forms.TextBox evalBox;
-        private System.Windows.Forms.TextBox evalTotalBox2;
-        private System.Windows.Forms.TextBox evalTotalBox;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox executorBox;
@@ -777,7 +805,6 @@
         private CoefficientValueSetControl coefValSetCtl;
         private System.Windows.Forms.ComboBox docBox;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox evalM2Box;
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.ToolStripMenuItem довідкаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem saveMenu;
@@ -792,6 +819,12 @@
         private System.Windows.Forms.ToolStripMenuItem pdfMenu;
         private System.Windows.Forms.SaveFileDialog exportPDFDialog;
         private System.Windows.Forms.ToolStripStatusLabel processLbl;
+        private DecimalTextBox evalM2Box;
+        private DecimalTextBox evalM2Box2;
+        private DecimalTextBox evalBox;
+        private DecimalTextBox evalBox2;
+        private DecimalTextBox evalTotalBox;
+        private DecimalTextBox evalTotalBox2;
 
     }
 }
