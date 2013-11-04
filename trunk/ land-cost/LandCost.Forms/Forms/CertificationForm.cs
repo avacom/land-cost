@@ -75,32 +75,32 @@ namespace LandCost.Forms
 
         private void SetBindings()
         {
-            dateBox.DataBindings.Add("Value", cert, "Date");
-            ownerBox.DataBindings.Add("Text", cert, "Owner");
-            ownerLocationBox.DataBindings.Add("Text", cert, "OwnerLocation");
-            addressBox.DataBindings.Add("Text", cert, "Address");
-            landNameBox.DataBindings.Add("Text", cert, "LandName");
-            squareBox.DataBindings.Add("Text", cert, "Square");
-            docBox.DataBindings.Add("Text", cert, "Document");
-            docAttribBox.DataBindings.Add("Text", cert, "DocumentDetails");
+            dateBox.DataBindings.Add("Value", cert, "Date", false, DataSourceUpdateMode.OnPropertyChanged);
+            ownerBox.DataBindings.Add("Text", cert, "Owner", false, DataSourceUpdateMode.OnPropertyChanged);
+            ownerLocationBox.DataBindings.Add("Text", cert, "OwnerLocation", false, DataSourceUpdateMode.OnPropertyChanged);
+            addressBox.DataBindings.Add("Text", cert, "Address", false, DataSourceUpdateMode.OnPropertyChanged);
+            landNameBox.DataBindings.Add("Text", cert, "LandName", false, DataSourceUpdateMode.OnPropertyChanged);
+            squareBox.DataBindings.Add("Value", cert, "Square", false, DataSourceUpdateMode.OnPropertyChanged);
+            docBox.DataBindings.Add("Text", cert, "Document", false, DataSourceUpdateMode.OnPropertyChanged);
+            docAttribBox.DataBindings.Add("Text", cert, "DocumentDetails", false, DataSourceUpdateMode.OnPropertyChanged);
             areaBox.DataBindings.Add("Text", cert, "Area");
-            priceBox.DataBindings.Add("Text", cert, "Price");
-            km2Box.DataBindings.Add("Text", cert, "Km2");
-            km3Box.DataBindings.Add("Text", cert, "Km3");
+            priceBox.DataBindings.Add("Value", cert, "Price");
+            km2Box.DataBindings.Add("Value", cert, "Km2");
+            km3Box.DataBindings.Add("Value", cert, "Km3");
             oneMoreCheck.DataBindings.Add("Checked", cert, "SideActive", false, DataSourceUpdateMode.OnPropertyChanged);
-            indexCoefBox.DataBindings.Add("Text", cert, "IndexCoefficient");
-            buildSquareBox.DataBindings.Add("Text", cert, "Square");
-            totalSquareBox.DataBindings.Add("Text", cert, "Square");
-            kfBox.DataBindings.Add("Text", cert, "KfMain");
-            kfBox2.DataBindings.Add("Text", cert, "KfSide");
-            evalM2Box.DataBindings.Add("Text", cert, "NormEvalM2Main");
-            evalM2Box2.DataBindings.Add("Text", cert, "NormEvalM2Side");
-            evalBox.DataBindings.Add("Text", cert, "TotalNormEvalMain");
-            evalBox2.DataBindings.Add("Text", cert, "TotalNormEvalSide");
-            evalTotalBox.DataBindings.Add("Text", cert, "TotalNormEvalMain");
-            evalTotalBox2.DataBindings.Add("Text", cert, "TotalNormEvalSide");
-            executorBox.DataBindings.Add("Text", cert, "Executor");
-            chiefBox.DataBindings.Add("Text", cert, "Chief");
+            indexCoefBox.DataBindings.Add("Value", cert, "IndexCoefficient");
+            buildSquareBox.DataBindings.Add("Value", cert, "Square");
+            totalSquareBox.DataBindings.Add("Value", cert, "Square");
+            kfBox.DataBindings.Add("Value", cert, "KfMain", false, DataSourceUpdateMode.OnPropertyChanged);
+            kfBox2.DataBindings.Add("Value", cert, "KfSide", false, DataSourceUpdateMode.OnPropertyChanged);
+            evalM2Box.DataBindings.Add("Value", cert, "NormEvalM2Main");
+            evalM2Box2.DataBindings.Add("Value", cert, "NormEvalM2Side");
+            evalBox.DataBindings.Add("Value", cert, "TotalNormEvalMain");
+            evalBox2.DataBindings.Add("Value", cert, "TotalNormEvalSide");
+            evalTotalBox.DataBindings.Add("Value", cert, "TotalNormEvalMain");
+            evalTotalBox2.DataBindings.Add("Value", cert, "TotalNormEvalSide");
+            executorBox.DataBindings.Add("Text", cert, "Executor", false, DataSourceUpdateMode.OnPropertyChanged);
+            chiefBox.DataBindings.Add("Text", cert, "Chief", false, DataSourceUpdateMode.OnPropertyChanged);
         }
 
         public void SetProfile(Profile profile)
@@ -516,6 +516,33 @@ namespace LandCost.Forms
             if (ValidateValues())
             {
                 ExportPDF();
+            }
+        }
+
+        private void kfBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ownerBox.Focus();
+                kfBox.Focus();
+            }
+        }
+
+        private void squareBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ownerBox.Focus();
+                squareBox.Focus();
+            }
+        }
+
+        private void kfBox2_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                ownerBox.Focus();
+                kfBox2.Focus();
             }
         }
 
