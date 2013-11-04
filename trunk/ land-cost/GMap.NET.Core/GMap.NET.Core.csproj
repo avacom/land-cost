@@ -57,7 +57,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE;MONO_disabled; MySQL_disabled; PostgreSQL_disabled; SQLite</DefineConstants>
-    <DocumentationFile>bin\x86\Release\GMap.NET.Core.XML</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <Optimize>true</Optimize>
     <PlatformTarget>AnyCPU</PlatformTarget>
     <CodeAnalysisLogFile>bin\x86\Release\GMap.NET.Core.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
