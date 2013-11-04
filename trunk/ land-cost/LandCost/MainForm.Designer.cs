@@ -156,7 +156,7 @@
             this.mainTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.mainTable.ColumnCount = 2;
             this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 423F));
+            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 475F));
             this.mainTable.Controls.Add(this.map, 0, 0);
             this.mainTable.Controls.Add(this.toolPanel, 1, 0);
             this.mainTable.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -189,7 +189,7 @@
             this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
             this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(573, 654);
+            this.map.Size = new System.Drawing.Size(521, 654);
             this.map.TabIndex = 2;
             this.map.Zoom = 0D;
             this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
@@ -203,9 +203,9 @@
             this.toolPanel.Controls.Add(this.panel1);
             this.toolPanel.Controls.Add(this.infoPanel);
             this.toolPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolPanel.Location = new System.Drawing.Point(586, 5);
+            this.toolPanel.Location = new System.Drawing.Point(534, 5);
             this.toolPanel.Name = "toolPanel";
-            this.toolPanel.Size = new System.Drawing.Size(417, 654);
+            this.toolPanel.Size = new System.Drawing.Size(469, 654);
             this.toolPanel.TabIndex = 3;
             // 
             // buttonPanel
@@ -215,7 +215,7 @@
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonPanel.Location = new System.Drawing.Point(0, 619);
             this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(417, 35);
+            this.buttonPanel.Size = new System.Drawing.Size(469, 35);
             this.buttonPanel.TabIndex = 7;
             // 
             // cancelBtn
@@ -247,7 +247,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 141);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(417, 61);
+            this.panel1.Size = new System.Drawing.Size(469, 61);
             this.panel1.TabIndex = 5;
             // 
             // searchBtn
@@ -291,7 +291,7 @@
             this.infoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.infoPanel.Location = new System.Drawing.Point(0, 0);
             this.infoPanel.Name = "infoPanel";
-            this.infoPanel.Size = new System.Drawing.Size(417, 141);
+            this.infoPanel.Size = new System.Drawing.Size(469, 141);
             this.infoPanel.TabIndex = 4;
             // 
             // areaBox
@@ -352,7 +352,7 @@
             this.regionSelCtl.Location = new System.Drawing.Point(0, 202);
             this.regionSelCtl.Name = "regionSelCtl";
             this.regionSelCtl.RegionList = null;
-            this.regionSelCtl.Size = new System.Drawing.Size(417, 344);
+            this.regionSelCtl.Size = new System.Drawing.Size(469, 344);
             this.regionSelCtl.TabIndex = 6;
             this.regionSelCtl.Visible = false;
             this.regionSelCtl.SelectionMade += new System.EventHandler(this.regionSelCtl_SelectionMade);
@@ -365,7 +365,9 @@
             this.priceBox.ReadOnly = true;
             this.priceBox.Size = new System.Drawing.Size(138, 20);
             this.priceBox.TabIndex = 5;
+            this.priceBox.Text = "0";
             this.priceBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.priceBox.Value = 0D;
             // 
             // regionBox
             // 
@@ -375,7 +377,9 @@
             this.regionBox.ReadOnly = true;
             this.regionBox.Size = new System.Drawing.Size(138, 20);
             this.regionBox.TabIndex = 2;
+            this.regionBox.Text = "0";
             this.regionBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.regionBox.Value = 0D;
             // 
             // km2Box
             // 
@@ -385,7 +389,9 @@
             this.km2Box.ReadOnly = true;
             this.km2Box.Size = new System.Drawing.Size(138, 20);
             this.km2Box.TabIndex = 3;
+            this.km2Box.Text = "0";
             this.km2Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.km2Box.Value = 0D;
             // 
             // MainForm
             // 

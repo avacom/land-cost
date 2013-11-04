@@ -24,6 +24,7 @@ namespace LandCost.Forms
         private bool _DecimalSeparator = false;
         private int _Precision;
 
+
         public new HorizontalAlignment TextAlign
         {
             get { return base.TextAlign; }
