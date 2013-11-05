@@ -45,7 +45,7 @@ namespace LandCost
             get
             {
                 Version v = Assembly.GetExecutingAssembly().GetName().Version;
-                return string.Format("{0}.{1}", v.Major, v.Minor);
+                return string.Format("{0}.{1}.{2}", v.Major, v.Minor, v.Build);
             }
         }
 
