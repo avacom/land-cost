@@ -40,7 +40,6 @@
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.mainTable = new System.Windows.Forms.TableLayoutPanel();
-            this.map = new GMap.NET.WindowsForms.GMapControl();
             this.toolPanel = new System.Windows.Forms.Panel();
             this.buttonPanel = new System.Windows.Forms.Panel();
             this.cancelBtn = new System.Windows.Forms.Button();
@@ -56,6 +55,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.openDialog = new System.Windows.Forms.OpenFileDialog();
+            this.map = new GMap.NET.WindowsForms.GMapControl();
             this.regionSelCtl = new LandCost.Forms.RegionSelectionControl();
             this.priceBox = new LandCost.Forms.DecimalTextBox();
             this.regionBox = new LandCost.Forms.DecimalTextBox();
@@ -156,7 +156,7 @@
             this.mainTable.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Inset;
             this.mainTable.ColumnCount = 2;
             this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 475F));
+            this.mainTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 489F));
             this.mainTable.Controls.Add(this.map, 0, 0);
             this.mainTable.Controls.Add(this.toolPanel, 1, 0);
             this.mainTable.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -167,35 +167,6 @@
             this.mainTable.Size = new System.Drawing.Size(1008, 664);
             this.mainTable.TabIndex = 3;
             // 
-            // map
-            // 
-            this.map.Bearing = 0F;
-            this.map.CanDragMap = true;
-            this.map.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.map.EmptyTileColor = System.Drawing.Color.Navy;
-            this.map.GrayScaleMode = false;
-            this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
-            this.map.LevelsKeepInMemmory = 5;
-            this.map.Location = new System.Drawing.Point(5, 5);
-            this.map.MarkersEnabled = true;
-            this.map.MaxZoom = 17;
-            this.map.MinZoom = 3;
-            this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
-            this.map.Name = "map";
-            this.map.NegativeMode = false;
-            this.map.PolygonsEnabled = true;
-            this.map.RetryLoadTile = 0;
-            this.map.RoutesEnabled = true;
-            this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
-            this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
-            this.map.ShowTileGridLines = false;
-            this.map.Size = new System.Drawing.Size(521, 654);
-            this.map.TabIndex = 2;
-            this.map.Zoom = 0D;
-            this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
-            this.map.OnPolygonEnter += new GMap.NET.WindowsForms.PolygonEnter(this.map_OnPolygonEnter);
-            this.map.OnPolygonLeave += new GMap.NET.WindowsForms.PolygonLeave(this.map_OnPolygonLeave);
-            // 
             // toolPanel
             // 
             this.toolPanel.Controls.Add(this.buttonPanel);
@@ -203,9 +174,9 @@
             this.toolPanel.Controls.Add(this.panel1);
             this.toolPanel.Controls.Add(this.infoPanel);
             this.toolPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.toolPanel.Location = new System.Drawing.Point(534, 5);
+            this.toolPanel.Location = new System.Drawing.Point(520, 5);
             this.toolPanel.Name = "toolPanel";
-            this.toolPanel.Size = new System.Drawing.Size(469, 654);
+            this.toolPanel.Size = new System.Drawing.Size(483, 654);
             this.toolPanel.TabIndex = 3;
             // 
             // buttonPanel
@@ -215,7 +186,7 @@
             this.buttonPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.buttonPanel.Location = new System.Drawing.Point(0, 619);
             this.buttonPanel.Name = "buttonPanel";
-            this.buttonPanel.Size = new System.Drawing.Size(469, 35);
+            this.buttonPanel.Size = new System.Drawing.Size(483, 35);
             this.buttonPanel.TabIndex = 7;
             // 
             // cancelBtn
@@ -247,7 +218,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 141);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(469, 61);
+            this.panel1.Size = new System.Drawing.Size(483, 61);
             this.panel1.TabIndex = 5;
             // 
             // searchBtn
@@ -291,7 +262,7 @@
             this.infoPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.infoPanel.Location = new System.Drawing.Point(0, 0);
             this.infoPanel.Name = "infoPanel";
-            this.infoPanel.Size = new System.Drawing.Size(469, 141);
+            this.infoPanel.Size = new System.Drawing.Size(483, 141);
             this.infoPanel.TabIndex = 4;
             // 
             // areaBox
@@ -345,6 +316,35 @@
             this.openDialog.Filter = "Довідки про грошову оцінку|*.lcc";
             this.openDialog.Title = "Відкрити довідку про грошову оцінку";
             // 
+            // map
+            // 
+            this.map.Bearing = 0F;
+            this.map.CanDragMap = true;
+            this.map.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.map.EmptyTileColor = System.Drawing.Color.Navy;
+            this.map.GrayScaleMode = false;
+            this.map.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
+            this.map.LevelsKeepInMemmory = 5;
+            this.map.Location = new System.Drawing.Point(5, 5);
+            this.map.MarkersEnabled = true;
+            this.map.MaxZoom = 17;
+            this.map.MinZoom = 3;
+            this.map.MouseWheelZoomType = GMap.NET.MouseWheelZoomType.MousePositionAndCenter;
+            this.map.Name = "map";
+            this.map.NegativeMode = false;
+            this.map.PolygonsEnabled = true;
+            this.map.RetryLoadTile = 0;
+            this.map.RoutesEnabled = true;
+            this.map.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Fractional;
+            this.map.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
+            this.map.ShowTileGridLines = false;
+            this.map.Size = new System.Drawing.Size(507, 654);
+            this.map.TabIndex = 2;
+            this.map.Zoom = 0D;
+            this.map.OnPolygonClick += new GMap.NET.WindowsForms.PolygonClick(this.map_OnPolygonClick);
+            this.map.OnPolygonEnter += new GMap.NET.WindowsForms.PolygonEnter(this.map_OnPolygonEnter);
+            this.map.OnPolygonLeave += new GMap.NET.WindowsForms.PolygonLeave(this.map_OnPolygonLeave);
+            // 
             // regionSelCtl
             // 
             this.regionSelCtl.CurrentRegion = null;
@@ -352,7 +352,7 @@
             this.regionSelCtl.Location = new System.Drawing.Point(0, 202);
             this.regionSelCtl.Name = "regionSelCtl";
             this.regionSelCtl.RegionList = null;
-            this.regionSelCtl.Size = new System.Drawing.Size(469, 344);
+            this.regionSelCtl.Size = new System.Drawing.Size(483, 344);
             this.regionSelCtl.TabIndex = 6;
             this.regionSelCtl.Visible = false;
             this.regionSelCtl.SelectionMade += new System.EventHandler(this.regionSelCtl_SelectionMade);
