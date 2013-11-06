@@ -431,6 +431,7 @@ namespace LandCost
                 m_DB.Config != null &&
                 m_DB.Config.CurrentProfile != null)
             {
+                markers.Markers.Clear();
                 // Find the address
                 double lat = map.FromLocalToLatLng(e.X, e.Y).Lat;
                 double lng = map.FromLocalToLatLng(e.X, e.Y).Lng;
