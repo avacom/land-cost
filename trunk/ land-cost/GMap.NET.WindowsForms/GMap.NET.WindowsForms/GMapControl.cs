@@ -2217,7 +2217,7 @@ namespace GMap.NET.WindowsForms
                            }
                         }
 #endif
-
+                        GMapPolygon selPol = null;
                         foreach(GMapPolygon m in o.Polygons)
                         {
                            if(m.IsVisible && m.IsHitTestVisible)
@@ -2231,10 +2231,17 @@ namespace GMap.NET.WindowsForms
                                    rp.OffsetNegative(Core.renderOffset);
                                }
 
-                              if(m.IsInsideLocal((int)rp.X, (int)rp.Y))
+                              if(m.IsInsideLocal((int)rp.X, (int)rp.Y) && selPol == null)
+                              {
+                                  selPol = m;
+                              }
 #else
-                              if (m.IsInside(FromLocalToLatLng(e.X, e.Y)))
+                              if (m.IsInside(FromLocalToLatLng(e.X, e.Y)) && selPol == null)
+                              {
+                                  selPol = m;
+                              }
 #endif
+                              if (m == selPol)
                               {
                                  if(!m.IsMouseOver)
                                  {

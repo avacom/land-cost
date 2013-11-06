@@ -208,7 +208,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8E4B1600ABF064A04F5C31337EE7D2AB"
+        "OwnerKey" = "8:_30D349D2E9F8657C4B36A854200E636C"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -262,12 +262,6 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_30D349D2E9F8657C4B36A854200E636C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_0A0914113B16C398574E6EF15F098CD3"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -289,6 +283,12 @@
         "OwnerKey" = "8:_87348AE46A679A6063DEA0053577F3AC"
         "MsmSig" = "8:_UNDEFINED"
         }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_8E4B1600ABF064A04F5C31337EE7D2AB"
+        "MsmSig" = "8:_UNDEFINED"
+        }
     }
     "Configurations"
     {
@@ -307,6 +307,14 @@
         "PrivateKeyFile" = "8:"
         "TimeStampServer" = "8:"
         "InstallerBootstrapper" = "3:2"
+            "BootstrapperCfg:{63ACBE69-63AA-4F98-B2B6-99F9E24495F2}"
+            {
+            "Enabled" = "11:TRUE"
+            "PromptEnabled" = "11:TRUE"
+            "PrerequisitesLocation" = "2:1"
+            "Url" = "8:"
+            "ComponentsUrl" = "8:"
+            }
         }
         "Release"
         {
@@ -327,7 +335,7 @@
             {
             "Enabled" = "11:TRUE"
             "PromptEnabled" = "11:TRUE"
-            "PrerequisitesLocation" = "2:1"
+            "PrerequisitesLocation" = "2:2"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
                 "Items"
@@ -336,6 +344,11 @@
                     {
                     "Name" = "8:Microsoft .NET Framework 4 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.0"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Office.PIARedist.2007"
+                    {
+                    "Name" = "8:Microsoft Office 2007 Primary Interop Assemblies"
+                    "ProductCode" = "8:Microsoft.Office.PIARedist.2007"
                     }
                     "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
                     {
@@ -929,7 +942,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:LandCost"
         "ProductCode" = "8:{C220C004-60F1-4788-B235-55DFFF92C56E}"
-        "PackageCode" = "8:{9C3D3FD2-F223-4926-AC25-19EE1F1E421C}"
+        "PackageCode" = "8:{08DE2979-283E-4A77-92D5-5BFE608E8917}"
         "UpgradeCode" = "8:{25750C43-E8D9-4501-9FE8-AD830C114AD8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

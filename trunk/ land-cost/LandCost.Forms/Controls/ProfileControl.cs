@@ -410,8 +410,8 @@ namespace LandCost.Forms
                                 reg.Polygon = null;
                             }
                         }
-
                         SetMapData();
+                        InitRegionList();
                         OnModified(this, null);
                     }
                 }
