@@ -53,6 +53,7 @@
             this.regionBox.Location = new System.Drawing.Point(162, 7);
             this.regionBox.Name = "regionBox";
             this.regionBox.Size = new System.Drawing.Size(225, 21);
+            this.regionBox.Sorted = true;
             this.regionBox.TabIndex = 2;
             this.regionBox.SelectedIndexChanged += new System.EventHandler(this.regionBox_SelectedIndexChanged);
             // 
@@ -72,6 +73,7 @@
             this.usageBox.Location = new System.Drawing.Point(162, 34);
             this.usageBox.Name = "usageBox";
             this.usageBox.Size = new System.Drawing.Size(225, 21);
+            this.usageBox.Sorted = true;
             this.usageBox.TabIndex = 4;
             this.usageBox.SelectedIndexChanged += new System.EventHandler(this.usageBox_SelectedIndexChanged);
             // 

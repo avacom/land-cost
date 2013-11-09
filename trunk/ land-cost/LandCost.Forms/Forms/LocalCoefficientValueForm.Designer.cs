@@ -52,6 +52,7 @@
             this.coefBox.Location = new System.Drawing.Point(137, 6);
             this.coefBox.Name = "coefBox";
             this.coefBox.Size = new System.Drawing.Size(260, 21);
+            this.coefBox.Sorted = true;
             this.coefBox.TabIndex = 2;
             // 
             // label2
@@ -72,6 +73,7 @@
             this.valBox.TabIndex = 4;
             this.valBox.Text = "1";
             this.valBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.valBox.Value = 1D;
             // 
             // okButton
             // 
