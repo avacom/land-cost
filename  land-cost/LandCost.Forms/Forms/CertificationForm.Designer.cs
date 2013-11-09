@@ -44,6 +44,7 @@
             this.areaBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.coefBox = new System.Windows.Forms.GroupBox();
+            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
             this.label11 = new System.Windows.Forms.Label();
             this.oneMoreCheck = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@
             this.indexCoefBox = new LandCost.Forms.DecimalTextBox();
             this.kfBox2 = new LandCost.Forms.DecimalTextBox();
             this.km3Box = new LandCost.Forms.DecimalTextBox();
-            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
             this.priceBox = new LandCost.Forms.DecimalTextBox();
             this.km2Box = new LandCost.Forms.DecimalTextBox();
             this.squareBox = new LandCost.Forms.DecimalTextBox();
@@ -237,6 +237,16 @@
             this.coefBox.TabStop = false;
             this.coefBox.Text = "Локальні коефіцієнти";
             // 
+            // coefValSetCtl
+            // 
+            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coefValSetCtl.List = null;
+            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
+            this.coefValSetCtl.Name = "coefValSetCtl";
+            this.coefValSetCtl.ReadOnly = false;
+            this.coefValSetCtl.Size = new System.Drawing.Size(391, 186);
+            this.coefValSetCtl.TabIndex = 0;
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -336,6 +346,7 @@
             this.executorBox.Location = new System.Drawing.Point(167, 625);
             this.executorBox.Name = "executorBox";
             this.executorBox.Size = new System.Drawing.Size(213, 21);
+            this.executorBox.Sorted = true;
             this.executorBox.TabIndex = 48;
             // 
             // chiefBox
@@ -345,6 +356,7 @@
             this.chiefBox.Location = new System.Drawing.Point(579, 625);
             this.chiefBox.Name = "chiefBox";
             this.chiefBox.Size = new System.Drawing.Size(211, 21);
+            this.chiefBox.Sorted = true;
             this.chiefBox.TabIndex = 50;
             // 
             // label20
@@ -371,6 +383,7 @@
             this.docBox.Location = new System.Drawing.Point(579, 127);
             this.docBox.Name = "docBox";
             this.docBox.Size = new System.Drawing.Size(210, 21);
+            this.docBox.Sorted = true;
             this.docBox.TabIndex = 55;
             this.docBox.SelectedIndexChanged += new System.EventHandler(this.docBox_SelectedIndexChanged);
             // 
@@ -582,16 +595,6 @@
             this.km3Box.Text = "0";
             this.km3Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.km3Box.Value = 0D;
-            // 
-            // coefValSetCtl
-            // 
-            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.coefValSetCtl.List = null;
-            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
-            this.coefValSetCtl.Name = "coefValSetCtl";
-            this.coefValSetCtl.ReadOnly = false;
-            this.coefValSetCtl.Size = new System.Drawing.Size(391, 186);
-            this.coefValSetCtl.TabIndex = 0;
             // 
             // priceBox
             // 

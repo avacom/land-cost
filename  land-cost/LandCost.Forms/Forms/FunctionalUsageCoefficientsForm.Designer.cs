@@ -51,6 +51,7 @@
             this.usageBox.Location = new System.Drawing.Point(171, 6);
             this.usageBox.Name = "usageBox";
             this.usageBox.Size = new System.Drawing.Size(255, 21);
+            this.usageBox.Sorted = true;
             this.usageBox.TabIndex = 1;
             // 
             // coefPanel

@@ -68,6 +68,7 @@
             this.areaBox.Location = new System.Drawing.Point(469, 6);
             this.areaBox.Name = "areaBox";
             this.areaBox.Size = new System.Drawing.Size(137, 21);
+            this.areaBox.Sorted = true;
             this.areaBox.TabIndex = 5;
             this.areaBox.SelectedIndexChanged += new System.EventHandler(this.areaBox_SelectedIndexChanged);
             // 
@@ -152,7 +153,9 @@
             this.priceBox.ReadOnly = true;
             this.priceBox.Size = new System.Drawing.Size(137, 20);
             this.priceBox.TabIndex = 13;
+            this.priceBox.Text = "0";
             this.priceBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.priceBox.Value = 0D;
             // 
             // numberBox
             // 
@@ -161,7 +164,9 @@
             this.numberBox.Precision = 0;
             this.numberBox.Size = new System.Drawing.Size(148, 20);
             this.numberBox.TabIndex = 3;
+            this.numberBox.Text = "0";
             this.numberBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.numberBox.Value = 0D;
             // 
             // RegionForm
             // 
