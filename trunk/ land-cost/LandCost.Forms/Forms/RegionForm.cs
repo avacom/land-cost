@@ -43,7 +43,7 @@ namespace LandCost.Forms
         void InitAreaBox()
         {
             areaBox.Items.Clear();
-            areaBox.Items.Add("немає");
+            areaBox.Items.Add("(немає)");
 
             if (m_ParentObject != null &&
                 m_ParentObject is Profile)
