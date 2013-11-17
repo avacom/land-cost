@@ -298,9 +298,9 @@ namespace LandCost.Forms
                 }
                 doc.Close();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show(this, "Не вдалося експортувати довідку!", "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "Не вдалося експортувати довідку! " + ex.Message , "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             finally
             {
