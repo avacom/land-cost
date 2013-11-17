@@ -320,9 +320,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(18, 99);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(147, 13);
+            this.label4.Size = new System.Drawing.Size(192, 13);
             this.label4.TabIndex = 7;
-            this.label4.Text = "Вартість земельної ділянки";
+            this.label4.Text = "Вартість земельної ділянки, грн./м2";
             // 
             // label3
             // 
