@@ -10,7 +10,7 @@ namespace LandCost.Entities.Helpers
 {
     public static class PolygonHelper
     {
-        public static Pen GeneralPen = new Pen(Color.FromArgb(255, Color.DarkBlue), 2);
+        public static Pen GeneralPen = new Pen(Color.FromArgb(255, Color.DarkBlue), 1);
 
         public static Brush InactiveBrush = new SolidBrush(Color.FromArgb(100, Color.Red));
         public static Brush ActiveBrush = new SolidBrush(Color.FromArgb(100, Color.Green));
