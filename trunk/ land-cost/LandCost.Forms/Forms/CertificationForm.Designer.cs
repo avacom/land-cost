@@ -635,6 +635,7 @@
             // 
             // evalM2Box2
             // 
+            this.evalM2Box2.Enabled = false;
             this.evalM2Box2.Location = new System.Drawing.Point(501, 483);
             this.evalM2Box2.Name = "evalM2Box2";
             this.evalM2Box2.Precision = 2;
@@ -659,6 +660,7 @@
             // 
             // evalBox2
             // 
+            this.evalBox2.Enabled = false;
             this.evalBox2.Location = new System.Drawing.Point(501, 530);
             this.evalBox2.Name = "evalBox2";
             this.evalBox2.Precision = 2;
@@ -683,6 +685,7 @@
             // 
             // evalTotalBox2
             // 
+            this.evalTotalBox2.Enabled = false;
             this.evalTotalBox2.Location = new System.Drawing.Point(501, 585);
             this.evalTotalBox2.Name = "evalTotalBox2";
             this.evalTotalBox2.Precision = 2;
