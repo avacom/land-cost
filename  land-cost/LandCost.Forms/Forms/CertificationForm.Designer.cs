@@ -170,9 +170,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(12, 130);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(139, 13);
+            this.label6.Size = new System.Drawing.Size(159, 13);
             this.label6.TabIndex = 11;
-            this.label6.Text = "Площа земельної ділянки";
+            this.label6.Text = "Площа земельної ділянки, м2";
             // 
             // label7
             // 
@@ -225,7 +225,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(154, 26);
             this.label10.TabIndex = 20;
-            this.label10.Text = "Середня вартість земельної \r\nділянки";
+            this.label10.Text = "Середня вартість земельної \r\nділянки, грн./м2";
             // 
             // coefBox
             // 
