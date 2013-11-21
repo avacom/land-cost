@@ -113,7 +113,7 @@ namespace LandCost.Forms
             m_Profile = profile;
             if (profile != null)
             {
-                docBox.Items.Add("Відсутній");
+                docBox.Items.Add("(відсутній)");
                 docBox.Items.AddRange(profile.Documents.ToArray());
                 docBox.SelectedIndex = 0;
 
