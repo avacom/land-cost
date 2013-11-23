@@ -17,6 +17,7 @@ using System.Security;
 using System.Security.Cryptography;
 using System.Management;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace LandCost.Licensing
 {
@@ -450,7 +451,10 @@ namespace LandCost.Licensing
                                 int nLeft = terms.EndDate.Subtract(now).Days;
                                 if (nLeft <= 10)
                                 {
-                                    MessageBox.Show(string.Format("Термін дії ліцензії закінчується через {0} день (-ів)", nLeft), "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                    DateTimeFormatInfo dateTimeFormat;
+                                    dateTimeFormat = (new CultureInfo("uk-UA")).DateTimeFormat;
+                                    string sMessage = string.Format("Термін дії ліцензії закінчується {0}", terms.EndDate.ToString("F", dateTimeFormat));
+                                    MessageBox.Show(sMessage, "Повідомлення", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                                 }
 
                                 return;

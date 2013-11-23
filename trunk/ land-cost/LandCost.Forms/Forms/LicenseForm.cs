@@ -32,5 +32,13 @@ namespace LandCost.Forms
                 serialBox.Text = value;
             }
         }
+
+        public string MainMessage
+        {
+            set
+            {
+                mainMessageLbl.Text = value;
+            }
+        }
     }
 }
