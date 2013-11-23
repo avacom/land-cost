@@ -76,13 +76,13 @@
         "Entry"
         {
         "MsmKey" = "8:_341D210E566E8BFC03F93F2065CC23C2"
-        "OwnerKey" = "8:_09CC68156D7E1252F2AF253966071EA0"
+        "OwnerKey" = "8:_322BD9F405914EE29618515A38E4064E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_341D210E566E8BFC03F93F2065CC23C2"
-        "OwnerKey" = "8:_322BD9F405914EE29618515A38E4064E"
+        "OwnerKey" = "8:_09CC68156D7E1252F2AF253966071EA0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -112,13 +112,13 @@
         "Entry"
         {
         "MsmKey" = "8:_87348AE46A679A6063DEA0053577F3AC"
-        "OwnerKey" = "8:_322BD9F405914EE29618515A38E4064E"
+        "OwnerKey" = "8:_F3E8E05512ACAE58AAB8ABB61E5022FF"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_87348AE46A679A6063DEA0053577F3AC"
-        "OwnerKey" = "8:_F3E8E05512ACAE58AAB8ABB61E5022FF"
+        "OwnerKey" = "8:_322BD9F405914EE29618515A38E4064E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -142,13 +142,13 @@
         "Entry"
         {
         "MsmKey" = "8:_B46B065287B8DD14D16B826C3FAD5BD5"
-        "OwnerKey" = "8:_09CC68156D7E1252F2AF253966071EA0"
+        "OwnerKey" = "8:_341D210E566E8BFC03F93F2065CC23C2"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_B46B065287B8DD14D16B826C3FAD5BD5"
-        "OwnerKey" = "8:_341D210E566E8BFC03F93F2065CC23C2"
+        "OwnerKey" = "8:_09CC68156D7E1252F2AF253966071EA0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -178,7 +178,7 @@
         "Entry"
         {
         "MsmKey" = "8:_DEF77EEEF79FCB20A2E5125C6D0B9E05"
-        "OwnerKey" = "8:_09CC68156D7E1252F2AF253966071EA0"
+        "OwnerKey" = "8:_B46B065287B8DD14D16B826C3FAD5BD5"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -190,7 +190,7 @@
         "Entry"
         {
         "MsmKey" = "8:_DEF77EEEF79FCB20A2E5125C6D0B9E05"
-        "OwnerKey" = "8:_B46B065287B8DD14D16B826C3FAD5BD5"
+        "OwnerKey" = "8:_09CC68156D7E1252F2AF253966071EA0"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -238,67 +238,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_322BD9F405914EE29618515A38E4064E"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_09CC68156D7E1252F2AF253966071EA0"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DF5E46F000271B666F66566F92CE1723"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_341D210E566E8BFC03F93F2065CC23C2"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_EE3F5C3065B94B594EBF9C3E442ADF0B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B5A35AB42828300E1A0E062DB8A31EAE"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B46B065287B8DD14D16B826C3FAD5BD5"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DEF77EEEF79FCB20A2E5125C6D0B9E05"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_0A0914113B16C398574E6EF15F098CD3"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_F3E8E05512ACAE58AAB8ABB61E5022FF"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_2D85EE237AEDE390CEB44E85FA658CE2"
+        "OwnerKey" = "8:_8E4B1600ABF064A04F5C31337EE7D2AB"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -310,7 +250,67 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_8E4B1600ABF064A04F5C31337EE7D2AB"
+        "OwnerKey" = "8:_2D85EE237AEDE390CEB44E85FA658CE2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_F3E8E05512ACAE58AAB8ABB61E5022FF"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_0A0914113B16C398574E6EF15F098CD3"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DEF77EEEF79FCB20A2E5125C6D0B9E05"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B46B065287B8DD14D16B826C3FAD5BD5"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B5A35AB42828300E1A0E062DB8A31EAE"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_EE3F5C3065B94B594EBF9C3E442ADF0B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_341D210E566E8BFC03F93F2065CC23C2"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DF5E46F000271B666F66566F92CE1723"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_09CC68156D7E1252F2AF253966071EA0"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_322BD9F405914EE29618515A38E4064E"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -435,11 +435,6 @@
             "AssemblyAsmDisplayName" = "8:LandCost.Forms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_09CC68156D7E1252F2AF253966071EA0"
-                    {
-                    "Name" = "8:LandCost.Forms.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LandCost.Forms.dll"
             "TargetName" = "8:"
@@ -466,11 +461,6 @@
             "AssemblyAsmDisplayName" = "8:CrystalDecisions.ReportAppServer.Prompting, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_0A0914113B16C398574E6EF15F098CD3"
-                    {
-                    "Name" = "8:CrystalDecisions.ReportAppServer.Prompting.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:CrystalDecisions.ReportAppServer.Prompting.dll"
             "TargetName" = "8:"
@@ -557,11 +547,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Vbe.Interop, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_2D85EE237AEDE390CEB44E85FA658CE2"
-                    {
-                    "Name" = "8:Microsoft.Vbe.Interop.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Vbe.Interop.dll"
             "TargetName" = "8:"
@@ -619,11 +604,6 @@
             "AssemblyAsmDisplayName" = "8:LandCost.Entities, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_341D210E566E8BFC03F93F2065CC23C2"
-                    {
-                    "Name" = "8:LandCost.Entities.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LandCost.Entities.dll"
             "TargetName" = "8:"
@@ -710,11 +690,6 @@
             "AssemblyAsmDisplayName" = "8:office, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_87348AE46A679A6063DEA0053577F3AC"
-                    {
-                    "Name" = "8:office.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:office.dll"
             "TargetName" = "8:"
@@ -741,11 +716,6 @@
             "AssemblyAsmDisplayName" = "8:stdole, Version=7.0.3300.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_8E4B1600ABF064A04F5C31337EE7D2AB"
-                    {
-                    "Name" = "8:stdole.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:stdole.dll"
             "TargetName" = "8:"
@@ -772,11 +742,6 @@
             "AssemblyAsmDisplayName" = "8:GMap.NET.WindowsForms, Version=1.7.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B46B065287B8DD14D16B826C3FAD5BD5"
-                    {
-                    "Name" = "8:GMap.NET.WindowsForms.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:GMap.NET.WindowsForms.dll"
             "TargetName" = "8:"
@@ -803,11 +768,6 @@
             "AssemblyAsmDisplayName" = "8:Db4objects.Db4o, Version=8.0.249.16098, Culture=neutral, PublicKeyToken=6199cd4f203aa8eb, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_B5A35AB42828300E1A0E062DB8A31EAE"
-                    {
-                    "Name" = "8:Db4objects.Db4o.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Db4objects.Db4o.dll"
             "TargetName" = "8:"
@@ -854,11 +814,6 @@
             "AssemblyAsmDisplayName" = "8:GMap.NET.Core, Version=1.7.0.0, Culture=neutral, PublicKeyToken=b85b9027b614afef, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_DEF77EEEF79FCB20A2E5125C6D0B9E05"
-                    {
-                    "Name" = "8:GMap.NET.Core.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:GMap.NET.Core.dll"
             "TargetName" = "8:"
@@ -885,11 +840,6 @@
             "AssemblyAsmDisplayName" = "8:LandCost.Database, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_DF5E46F000271B666F66566F92CE1723"
-                    {
-                    "Name" = "8:LandCost.Database.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:LandCost.Database.dll"
             "TargetName" = "8:"
@@ -916,11 +866,6 @@
             "AssemblyAsmDisplayName" = "8:netDxf, Version=0.6.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_EE3F5C3065B94B594EBF9C3E442ADF0B"
-                    {
-                    "Name" = "8:netDxf.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:netDxf.dll"
             "TargetName" = "8:"
@@ -967,11 +912,6 @@
             "AssemblyAsmDisplayName" = "8:Microsoft.Office.Interop.Excel, Version=14.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_F3E8E05512ACAE58AAB8ABB61E5022FF"
-                    {
-                    "Name" = "8:Microsoft.Office.Interop.Excel.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:Microsoft.Office.Interop.Excel.dll"
             "TargetName" = "8:"
