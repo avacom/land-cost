@@ -29,25 +29,26 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LicenseForm));
-            this.label1 = new System.Windows.Forms.Label();
+            this.infoLbl = new System.Windows.Forms.Label();
             this.serialBox = new System.Windows.Forms.TextBox();
             this.exitButton = new System.Windows.Forms.Button();
+            this.mainMessageLbl = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // infoLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(537, 154);
-            this.label1.TabIndex = 0;
-            this.label1.Text = resources.GetString("label1.Text");
+            this.infoLbl.AutoSize = true;
+            this.infoLbl.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.infoLbl.Location = new System.Drawing.Point(9, 34);
+            this.infoLbl.Name = "infoLbl";
+            this.infoLbl.Size = new System.Drawing.Size(514, 140);
+            this.infoLbl.TabIndex = 0;
+            this.infoLbl.Text = resources.GetString("infoLbl.Text");
             // 
             // serialBox
             // 
             this.serialBox.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.serialBox.Location = new System.Drawing.Point(15, 175);
+            this.serialBox.Location = new System.Drawing.Point(12, 189);
             this.serialBox.Name = "serialBox";
             this.serialBox.ReadOnly = true;
             this.serialBox.Size = new System.Drawing.Size(529, 22);
@@ -56,7 +57,7 @@
             // 
             // exitButton
             // 
-            this.exitButton.Location = new System.Drawing.Point(469, 218);
+            this.exitButton.Location = new System.Drawing.Point(469, 217);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(75, 23);
             this.exitButton.TabIndex = 2;
@@ -64,15 +65,27 @@
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
+            // mainMessageLbl
+            // 
+            this.mainMessageLbl.AutoSize = true;
+            this.mainMessageLbl.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.mainMessageLbl.Location = new System.Drawing.Point(9, 9);
+            this.mainMessageLbl.Name = "mainMessageLbl";
+            this.mainMessageLbl.Size = new System.Drawing.Size(383, 14);
+            this.mainMessageLbl.TabIndex = 0;
+            this.mainMessageLbl.Text = "Дана копія продукту LandCost ще не була зареєстрована. ";
+            // 
             // LicenseForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 253);
+            this.ClientSize = new System.Drawing.Size(556, 255);
+            this.Controls.Add(this.mainMessageLbl);
             this.Controls.Add(this.exitButton);
             this.Controls.Add(this.serialBox);
-            this.Controls.Add(this.label1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Controls.Add(this.infoLbl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LicenseForm";
@@ -85,8 +98,9 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label infoLbl;
         private System.Windows.Forms.TextBox serialBox;
         private System.Windows.Forms.Button exitButton;
+        private System.Windows.Forms.Label mainMessageLbl;
     }
 }

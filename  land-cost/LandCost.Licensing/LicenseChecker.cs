@@ -31,11 +31,12 @@ namespace LandCost.Licensing
         public bool CheckLicense()
         {
             bool bRet = true;
+            licForm = new LicenseForm();
+            licForm.Serial = m_sID;
 
             if (!File.Exists(m_sFileName))
             {
-                licForm = new LicenseForm();
-                licForm.Serial = m_sID;
+                licForm.MainMessage = "Дана копія продукту LandCost ще не була зареєстрована.";
                 licForm.ShowDialog();
                 bRet = false;
             }
@@ -55,13 +56,16 @@ namespace LandCost.Licensing
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show(ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                        licForm.MainMessage = ex.Message;
+                        licForm.ShowDialog();
                         bRet = false;
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Некоректний файл ліцензії!", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    licForm.MainMessage = "Некоректний файл ліцензії!";
+                    licForm.ShowDialog();
                     bRet = false;
                 }
             }
@@ -88,7 +92,7 @@ namespace LandCost.Licensing
         {
             get
             {
-                return string.Format("Дана копія програми зареєстрована на користувача {0}. Термін дії ліцензії закінчується {1}.", User, ExpireDate.ToString("D", dateTimeFormat));
+                return string.Format("Дана копія програми зареєстрована на користувача {0}. Термін дії ліцензії закінчується {1}", User, ExpireDate.ToString("F", dateTimeFormat));
             }
         }
     }
