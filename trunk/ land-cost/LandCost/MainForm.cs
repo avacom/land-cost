@@ -14,6 +14,7 @@ using GMap.NET.MapProviders;
 using GMap.NET;
 using LandCost.Entities.Helpers;
 using GMap.NET.WindowsForms.Markers;
+using LandCost.Licensing;
 
 namespace LandCost
 {
@@ -35,41 +36,47 @@ namespace LandCost
         ProgressForm m_ProgressForm;
         AboutForm aboutForm;
 
+        LicenseChecker licChecker;
+
         public MainForm()
         {
-            m_bLoaded = false;
-            m_Splash = new SplashScreen();
-            m_Splash.StartPosition = FormStartPosition.CenterScreen;
-            m_Splash.Show();
             InitializeComponent();
-            certForm = new CertificationForm();
-            regions = new GMapOverlay("regions");
-            markers = new GMapOverlay("markers");
+            licChecker = new LicenseChecker("license.lcs");
+            if (licChecker.CheckLicense())
+            {
+                m_bLoaded = false;
+                m_Splash = new SplashScreen();
+                m_Splash.StartPosition = FormStartPosition.CenterScreen;
+                m_Splash.Show();
+                certForm = new CertificationForm();
+                regions = new GMapOverlay("regions");
+                markers = new GMapOverlay("markers");
 
-            GMapProvider.Language = LanguageType.Ukrainian;
-            map.MapProvider = GMap.NET.MapProviders.YandexMapProviderUA.Instance;
-            GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
+                GMapProvider.Language = LanguageType.Ukrainian;
+                map.MapProvider = GMap.NET.MapProviders.YandexMapProviderUA.Instance;
+                GMap.NET.GMaps.Instance.Mode = GMap.NET.AccessMode.ServerAndCache;
 
-            map.MinZoom = 3;
-            map.MaxZoom = 17;
-            map.Zoom = 15;
+                map.MinZoom = 3;
+                map.MaxZoom = 17;
+                map.Zoom = 15;
 
-            map.Overlays.Add(regions);
-            map.Overlays.Add(markers);
+                map.Overlays.Add(regions);
+                map.Overlays.Add(markers);
 
-            m_DB = new LandDB();
-            m_DB.LoadConfiguration(CONF_DB);
-            
-            m_ConfigForm = new ConfigurationForm();
-            m_ConfigForm.Config = m_DB.Config;
-            
-            m_ProgressForm = new ProgressForm();
-            aboutForm = new AboutForm();
+                m_DB = new LandDB();
+                m_DB.LoadConfiguration(CONF_DB);
 
-            UpdateMenu();
+                m_ConfigForm = new ConfigurationForm();
+                m_ConfigForm.Config = m_DB.Config;
 
-            m_Splash.Close();
-            m_bLoaded = true;
+                m_ProgressForm = new ProgressForm();
+                aboutForm = new AboutForm();
+                aboutForm.License = licChecker.LicenseString;
+                UpdateMenu();
+
+                m_Splash.Close();
+                m_bLoaded = true;
+            }
         }
 
         private void ReloadRegionSelCtl()
@@ -604,6 +611,14 @@ namespace LandCost
         private void aboutMenu_Click(object sender, EventArgs e)
         {
             aboutForm.ShowDialog();
+        }
+
+        private void MainForm_Shown(object sender, EventArgs e)
+        {
+            if (!m_bLoaded)
+            {
+                this.Close();
+            }
         }
     }
 }

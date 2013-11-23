@@ -10,6 +10,7 @@ namespace LandCost
 {
     partial class AboutForm : Form
     {
+        string m_sLic;
         public AboutForm()
         {
             InitializeComponent();
@@ -101,5 +102,18 @@ namespace LandCost
             }
         }
         #endregion
+
+        public string License
+        {
+            get
+            {
+                return m_sLic;
+            }
+            set
+            {
+                m_sLic = value;
+                this.textBoxDescription.Text = AssemblyDescription + Environment.NewLine + Environment.NewLine + License;
+            }
+        }
     }
 }

@@ -169,6 +169,10 @@
       <Project>{39B3AB40-5C4A-4892-8F34-BAAC57070988}</Project>
       <Name>LandCost.Forms</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LandCost.Licensing\LandCost.Licensing.csproj">
+      <Project>{932F77F1-B7AF-4C10-8D1F-55767CBD42CC}</Project>
+      <Name>LandCost.Licensing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\netDxf\netDxf.csproj">
       <Project>{785380E0-CEB9-4C34-82E5-60D0E33E848E}</Project>
       <Name>netDxf</Name>
