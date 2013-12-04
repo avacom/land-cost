@@ -357,22 +357,28 @@ namespace LandCost.Licensing
 
             string sHardID = "";
             string sQuery = "SELECT ProcessorId FROM Win32_Processor";
-
-            ManagementObjectSearcher oManagementObjectSearcher = new ManagementObjectSearcher(sQuery);
-            ManagementObjectCollection oCollection = oManagementObjectSearcher.Get();
-
-            foreach (ManagementObject oManagementObject in oCollection)
+            try
             {
-                sHardID += (string)oManagementObject["ProcessorId"];
+                ManagementObjectSearcher oManagementObjectSearcher = new ManagementObjectSearcher(sQuery);
+                ManagementObjectCollection oCollection = oManagementObjectSearcher.Get();
+
+                foreach (ManagementObject oManagementObject in oCollection)
+                {
+                    sHardID += (string)oManagementObject["ProcessorId"];
+                }
+
+                sQuery = "SELECT SerialNumber FROM Win32_PhysicalMedia";
+                oManagementObjectSearcher = new ManagementObjectSearcher(sQuery);
+                oCollection = oManagementObjectSearcher.Get();
+
+                foreach (ManagementObject oManagementObject in oCollection)
+                {
+                    sHardID += (string)oManagementObject["SerialNumber"];
+                }
             }
-
-            sQuery = "SELECT SerialNumber FROM Win32_DiskDrive";
-            oManagementObjectSearcher = new ManagementObjectSearcher(sQuery);
-            oCollection = oManagementObjectSearcher.Get();
-
-            foreach (ManagementObject oManagementObject in oCollection)
+            catch (Exception ex)
             {
-                sHardID += (string)oManagementObject["SerialNumber"];
+                MessageBox.Show("GetHardwareID() Exception: " + ex.Message);
             }
             return (sHardID);
         }
