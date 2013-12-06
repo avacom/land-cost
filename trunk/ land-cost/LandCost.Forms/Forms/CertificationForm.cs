@@ -276,9 +276,9 @@ namespace LandCost.Forms
                 }
                 doc.Close();
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show(this, "Не вдалося надрукувати довідку!", "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "Не вдалося надрукувати довідку! Помилка: " + ex.Message + " " + ex.StackTrace, "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             finally
             {
@@ -300,7 +300,7 @@ namespace LandCost.Forms
             }
             catch (Exception ex)
             {
-                MessageBox.Show(this, "Не вдалося експортувати довідку! " + ex.Message , "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "Не вдалося експортувати довідку! " + ex.Message + " " + ex.StackTrace, "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             finally
             {
@@ -316,7 +316,8 @@ namespace LandCost.Forms
             {
                 if (cert.SideActive)
                 {
-                    myDataReport.Load(@"Reports\CertificationExt.rpt");
+                    
+                    myDataReport.Load(Application.StartupPath + "\\Reports\\CertificationExt.rpt");
 
                     myDataReport.SetParameterValue("txtKfSide", cert.KfSide);
                     myDataReport.SetParameterValue("txtKfNameSide", cert.KfNameSide);
@@ -328,7 +329,7 @@ namespace LandCost.Forms
                 }
                 else
                 {
-                    myDataReport.Load(@"Reports\Certification.rpt");
+                    myDataReport.Load(Application.StartupPath + "\\Reports\\Certification.rpt");
                     myDataReport.SetParameterValue("txtMainLetters", cert.TotalEvalMainLetters);
                 }
                 myDataReport.SetParameterValue("txtAgencyName", m_Profile.AgencyName.ToUpper());
