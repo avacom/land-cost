@@ -1118,15 +1118,15 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:LandCost"
-        "ProductCode" = "8:{C220C004-60F1-4788-B235-55DFFF92C56E}"
-        "PackageCode" = "8:{BA2E7E59-BFF7-48B0-90AF-136BE30F1216}"
+        "ProductCode" = "8:{4D7798F8-4BA1-4A60-8345-EC91A433F542}"
+        "PackageCode" = "8:{1DB8F188-7009-49F8-B6D5-98C4384C50D3}"
         "UpgradeCode" = "8:{25750C43-E8D9-4501-9FE8-AD830C114AD8}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:FALSE"
         "DetectNewerInstalledVersion" = "11:TRUE"
         "InstallAllUsers" = "11:FALSE"
-        "ProductVersion" = "8:1.0.5"
+        "ProductVersion" = "8:1.0.6"
         "Manufacturer" = "8:Andriy Apostol"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
@@ -1269,9 +1269,9 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BA0B3B74BFDF44C885BBEE35D9F81B3E"
             {
-            "Name" = "8:LandCost 1.0.5"
+            "Name" = "8:LandCost"
             "Arguments" = "8:"
-            "Description" = "8:LandCost 1.0.5"
+            "Description" = "8:LandCost"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"
@@ -1283,9 +1283,9 @@
             }
             "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_F1C9720ECA2F41D7B8CAC0AC5563EA10"
             {
-            "Name" = "8:LandCost 1.0.5"
+            "Name" = "8:LandCost"
             "Arguments" = "8:"
-            "Description" = "8:LandCost 1.0.5"
+            "Description" = "8:LandCost"
             "ShowCmd" = "3:1"
             "IconIndex" = "3:0"
             "Transitive" = "11:FALSE"

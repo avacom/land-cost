@@ -369,6 +369,7 @@ namespace LandCost.Entities
                 {
                     m_dKi = value;
                     OnPropertyChanged(new PropertyChangedEventArgs("IndexCoefficient"));
+                    Recalculate();
                     OnChanged(this, null);
                 }
             }

@@ -46,7 +46,7 @@ namespace LandCost.Entities.Helpers
             money = decimal.Round(money, 2);
             decimal decintpart = decimal.Truncate(money);
             ulong intpart = decimal.ToUInt64(decintpart);
-            string str = NumPhrase(intpart, true) + " ";
+            string str = NumPhrase(intpart, false) + " ";
             byte endpart = (byte)(intpart % 100UL);
             if (endpart > 19) endpart = (byte)(endpart % 10);
             switch (endpart)
@@ -74,7 +74,7 @@ namespace LandCost.Entities.Helpers
         {
             bool In234 = ((Dek >= 2) && (Dek <= 4));
             bool More4 = ((Dek > 4) || (Dek == 0));
-            if (((ThNum > 2) && In234) || ((ThNum == 2) && (Dek == 1))) return "и";
+            if (((ThNum > 2) && In234) || ((ThNum == 2) && (Dek == 1))) return "а";
             else if ((ThNum > 2) && More4) return "ів";
             else if ((ThNum == 2) && In234) return "і";
             else return "";

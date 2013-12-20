@@ -484,7 +484,7 @@ namespace LandCost.Entities
         /// </summary>
         /// <param name="number">required number</param>
         /// <returns></returns>
-        private Area GetAreaByNumber(int number)
+        public Area GetAreaByNumber(int number)
         {
             Area ret = null;
             foreach (Area a in Areas)
