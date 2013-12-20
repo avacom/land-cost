@@ -35,12 +35,14 @@ namespace LandCost.Forms
             cert.Changed += new EventHandler(cert_Changed);
             m_bChanged = true;
             saveMenu.Enabled = true;
+            saveBtn.Enabled = true;
         }
 
         void cert_Changed(object sender, EventArgs e)
         {
             m_bChanged = true;
             saveMenu.Enabled = true;
+            saveBtn.Enabled = true;
         }
 
         private void ClearBindings()
@@ -137,6 +139,7 @@ namespace LandCost.Forms
             coefValSetCtl.CoefficientsChanged += new EventHandler(coefValSetCtl_CoefficientsChanged);
             m_bChanged = false;
             saveMenu.Enabled = false;
+            saveBtn.Enabled = false;
             m_sFileName = filename;
             fileLabel.Text = m_sFileName;
             cert.Changed += new EventHandler(cert_Changed);
@@ -250,6 +253,7 @@ namespace LandCost.Forms
                     fileLabel.Text = m_sFileName;
                     m_bChanged = false;
                     saveMenu.Enabled = false;
+                    saveBtn.Enabled = false;
                 }
                 catch
                 {
@@ -378,7 +382,7 @@ namespace LandCost.Forms
             return myDataReport;
         }
 
-        private void saveMenu_Click(object sender, EventArgs e)
+        void SaveCmd()
         {
             ownerBox.Focus();
             this.ValidateChildren();
@@ -395,7 +399,7 @@ namespace LandCost.Forms
             }
         }
 
-        private void saveAsMenu_Click(object sender, EventArgs e)
+        void SaveAsCmd()
         {
             ownerBox.Focus();
             this.ValidateChildren();
@@ -403,6 +407,67 @@ namespace LandCost.Forms
             {
                 SaveAs();
             }
+        }
+
+        void PrintCmd()
+        {
+            ownerBox.Focus();
+            this.ValidateChildren();
+            if (ValidateValues())
+            {
+                Print();
+            }
+        }
+
+        void PdfCmd()
+        {
+            ownerBox.Focus();
+            this.ValidateChildren();
+            if (ValidateValues())
+            {
+                ExportPDF();
+            }
+        }
+
+        void RefreshCmd()
+        {
+            if (cert != null && m_Profile != null)
+            {
+                DialogResult res = MessageBox.Show(this, "Увага! Дана дія призведе до того, що"
+                    + Environment.NewLine + Environment.NewLine
+                    + "Коефіцієнт К(і)" 
+                    + Environment.NewLine
+                    + "Коефіцієнт Км2"
+                    + Environment.NewLine
+                    + "Середня вартісь земельної ділянки"
+                    + Environment.NewLine + Environment.NewLine
+                    + "будуть замінені на актуальні згідно з даними профілю. Ви впевнені, що хочете оновити ці значення?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (res == System.Windows.Forms.DialogResult.Yes)
+                {
+                    cert.IndexCoefficient = m_Profile.IndexCoefficient;
+
+                    int i = -1;
+                    if (int.TryParse(cert.Area, out i))
+                    {
+                        LandCost.Entities.Area a = m_Profile.GetAreaByNumber(i);
+                        if (a != null)
+                        {
+                            cert.Km2 = a.KM2;
+                            cert.Price = a.Price;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void saveMenu_Click(object sender, EventArgs e)
+        {
+            SaveCmd();
+        }
+
+        private void saveAsMenu_Click(object sender, EventArgs e)
+        {
+            SaveAsCmd();
         }
 
         bool ValidateValues()
@@ -507,22 +572,12 @@ namespace LandCost.Forms
 
         private void printMenu_Click(object sender, EventArgs e)
         {
-            ownerBox.Focus();
-            this.ValidateChildren();
-            if (ValidateValues())
-            {
-                Print();
-            }
+            PrintCmd();
         }
 
         private void pdfMenu_Click(object sender, EventArgs e)
         {
-            ownerBox.Focus();
-            this.ValidateChildren();
-            if (ValidateValues())
-            {
-                ExportPDF();
-            }
+            PdfCmd();
         }
 
         private void kfBox_KeyUp(object sender, KeyEventArgs e)
@@ -552,5 +607,29 @@ namespace LandCost.Forms
             }
         }
 
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            SaveCmd();
+        }
+
+        private void exportBtn_Click(object sender, EventArgs e)
+        {
+            PdfCmd();
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            PrintCmd();
+        }
+
+        private void refreshBtn_Click(object sender, EventArgs e)
+        {
+            RefreshCmd();
+        }
+
+        private void refreshMenu_Click(object sender, EventArgs e)
+        {
+            RefreshCmd();
+        }
     }
 }
