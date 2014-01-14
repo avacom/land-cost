@@ -364,7 +364,12 @@ namespace LandCost.Licensing
 
                 foreach (ManagementObject oManagementObject in oCollection)
                 {
-                    sHardID += (string)oManagementObject["ProcessorId"];
+                    if (oManagementObject["ProcessorId"] != null &&
+                        !string.IsNullOrEmpty(oManagementObject["ProcessorId"].ToString()))
+                    {
+                        sHardID += (string)oManagementObject["ProcessorId"];
+                        break;
+                    }
                 }
 
                 sQuery = "SELECT SerialNumber FROM Win32_PhysicalMedia";
@@ -373,7 +378,12 @@ namespace LandCost.Licensing
 
                 foreach (ManagementObject oManagementObject in oCollection)
                 {
-                    sHardID += (string)oManagementObject["SerialNumber"];
+                    if (oManagementObject["SerialNumber"] != null &&
+                        !string.IsNullOrEmpty(oManagementObject["SerialNumber"].ToString()))
+                    {
+                        sHardID += (string)oManagementObject["SerialNumber"];
+                        break;
+                    }
                 }
             }
             catch (Exception ex)
@@ -452,7 +462,7 @@ namespace LandCost.Licensing
                         string sName = string.Format("{0} {1}", assName.Name, assName.Version.Major);
                         if (sName == terms.ProductName)
                         {
-                            if (GetHardwareID() == terms.HardwareID)
+                            if (GetHardwareID().Equals(terms.HardwareID))
                             {
                                 int nLeft = terms.EndDate.Subtract(now).Days;
                                 if (nLeft <= 10)
