@@ -602,7 +602,7 @@ namespace LandCost.Forms
 
             if (m_Profile != null)
             {
-                if (m_Profile.Executors.Intersect(executorBox.Lines).ToArray<string>().Length != m_Profile.Executors.Count)
+                if (m_Profile.Executors.Intersect(executorBox.Lines).ToArray<string>().Length != m_Profile.Executors.Count || m_Profile.Executors.Count != executorBox.Lines.Length)
                 {
                     m_Profile.Executors.Clear();
                     m_Profile.Executors.AddRange(executorBox.Lines);
@@ -623,7 +623,7 @@ namespace LandCost.Forms
 
             if (m_Profile != null)
             {
-                if (m_Profile.Chiefs.Intersect(chiefBox.Lines).ToArray<string>().Length != m_Profile.Chiefs.Count)
+                if (m_Profile.Chiefs.Intersect(chiefBox.Lines).ToArray<string>().Length != m_Profile.Chiefs.Count || m_Profile.Chiefs.Count != chiefBox.Lines.Length)
                 {
                     m_Profile.Chiefs.Clear();
                     m_Profile.Chiefs.AddRange(chiefBox.Lines);
