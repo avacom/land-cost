@@ -45,6 +45,7 @@
             this.areaBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.coefBox = new System.Windows.Forms.GroupBox();
+            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
             this.label11 = new System.Windows.Forms.Label();
             this.oneMoreCheck = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -67,6 +68,8 @@
             this.saveAsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.pdfMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.printMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.refreshMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
             this.closeMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -93,12 +96,9 @@
             this.indexCoefBox = new LandCost.Forms.DecimalTextBox();
             this.kfBox2 = new LandCost.Forms.DecimalTextBox();
             this.km3Box = new LandCost.Forms.DecimalTextBox();
-            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
             this.priceBox = new LandCost.Forms.DecimalTextBox();
             this.km2Box = new LandCost.Forms.DecimalTextBox();
             this.squareBox = new LandCost.Forms.DecimalTextBox();
-            this.refreshMenu = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.coefBox.SuspendLayout();
             this.menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -246,6 +246,16 @@
             this.coefBox.TabIndex = 22;
             this.coefBox.TabStop = false;
             this.coefBox.Text = "Локальні коефіцієнти";
+            // 
+            // coefValSetCtl
+            // 
+            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coefValSetCtl.List = null;
+            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
+            this.coefValSetCtl.Name = "coefValSetCtl";
+            this.coefValSetCtl.ReadOnly = false;
+            this.coefValSetCtl.Size = new System.Drawing.Size(391, 186);
+            this.coefValSetCtl.TabIndex = 0;
             // 
             // label11
             // 
@@ -453,6 +463,19 @@
             this.printMenu.Size = new System.Drawing.Size(208, 22);
             this.printMenu.Text = "Друкувати";
             this.printMenu.Click += new System.EventHandler(this.printMenu_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(205, 6);
+            // 
+            // refreshMenu
+            // 
+            this.refreshMenu.Image = ((System.Drawing.Image)(resources.GetObject("refreshMenu.Image")));
+            this.refreshMenu.Name = "refreshMenu";
+            this.refreshMenu.Size = new System.Drawing.Size(208, 22);
+            this.refreshMenu.Text = "Оновити дані з профілю";
+            this.refreshMenu.Click += new System.EventHandler(this.refreshMenu_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -662,7 +685,7 @@
             this.totalSquareBox.BackColor = System.Drawing.SystemColors.Control;
             this.totalSquareBox.Location = new System.Drawing.Point(579, 441);
             this.totalSquareBox.Name = "totalSquareBox";
-            this.totalSquareBox.Precision = 3;
+            this.totalSquareBox.Precision = 2;
             this.totalSquareBox.ReadOnly = true;
             this.totalSquareBox.Size = new System.Drawing.Size(84, 20);
             this.totalSquareBox.TabIndex = 38;
@@ -675,7 +698,7 @@
             this.buildSquareBox.BackColor = System.Drawing.SystemColors.Control;
             this.buildSquareBox.Location = new System.Drawing.Point(579, 400);
             this.buildSquareBox.Name = "buildSquareBox";
-            this.buildSquareBox.Precision = 3;
+            this.buildSquareBox.Precision = 2;
             this.buildSquareBox.ReadOnly = true;
             this.buildSquareBox.Size = new System.Drawing.Size(84, 20);
             this.buildSquareBox.TabIndex = 36;
@@ -721,16 +744,6 @@
             this.km3Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.km3Box.Value = 0D;
             // 
-            // coefValSetCtl
-            // 
-            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.coefValSetCtl.List = null;
-            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
-            this.coefValSetCtl.Name = "coefValSetCtl";
-            this.coefValSetCtl.ReadOnly = false;
-            this.coefValSetCtl.Size = new System.Drawing.Size(391, 186);
-            this.coefValSetCtl.TabIndex = 0;
-            // 
             // priceBox
             // 
             this.priceBox.Location = new System.Drawing.Point(185, 210);
@@ -760,26 +773,13 @@
             this.squareBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.squareBox.Location = new System.Drawing.Point(185, 151);
             this.squareBox.Name = "squareBox";
-            this.squareBox.Precision = 0;
+            this.squareBox.Precision = 2;
             this.squareBox.Size = new System.Drawing.Size(99, 20);
             this.squareBox.TabIndex = 12;
             this.squareBox.Text = "0";
             this.squareBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.squareBox.Value = 0D;
             this.squareBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.squareBox_KeyUp);
-            // 
-            // refreshMenu
-            // 
-            this.refreshMenu.Image = ((System.Drawing.Image)(resources.GetObject("refreshMenu.Image")));
-            this.refreshMenu.Name = "refreshMenu";
-            this.refreshMenu.Size = new System.Drawing.Size(208, 22);
-            this.refreshMenu.Text = "Оновити дані з профілю";
-            this.refreshMenu.Click += new System.EventHandler(this.refreshMenu_Click);
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(205, 6);
             // 
             // CertificationForm
             // 
