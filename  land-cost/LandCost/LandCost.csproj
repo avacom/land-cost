@@ -199,9 +199,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>IF NOT EXIST $(TargetDir)Reports MKDIR $(TargetDir)Reports 
-COPY /Y $(ProjectDir)Reports\CertificationExt.rpt $(TargetDir)Reports\CertificationExt.rpt
-COPY /Y $(ProjectDir)Reports\Certification.rpt $(TargetDir)Reports\Certification.rpt</PostBuildEvent>
+    <PostBuildEvent>IF NOT EXIST "$(TargetDir)Reports" MKDIR "$(TargetDir)Reports" 
+COPY /Y "$(ProjectDir)Reports\CertificationExt.rpt" "$(TargetDir)Reports\CertificationExt.rpt"
+COPY /Y "$(ProjectDir)Reports\Certification.rpt" "$(TargetDir)Reports\Certification.rpt"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

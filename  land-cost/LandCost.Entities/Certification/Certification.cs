@@ -16,6 +16,7 @@ namespace LandCost.Entities
         bool m_bLoaded;
 
         DateTime m_dtDate;
+        bool m_bHideNumberDate;
 
         string m_sOwner;
         string m_sOwnerLocation;
@@ -79,6 +80,23 @@ namespace LandCost.Entities
                 {
                     m_dtDate = value;
                     OnPropertyChanged(new PropertyChangedEventArgs("Date"));
+                    OnChanged(this, null);
+                }
+            }
+        }
+
+        public bool HideNumberDate
+        {
+            get
+            {
+                return m_bHideNumberDate;
+            }
+            set
+            {
+                if (m_bHideNumberDate != value)
+                {
+                    m_bHideNumberDate = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("HideNumberDate"));
                     OnChanged(this, null);
                 }
             }
@@ -536,6 +554,7 @@ namespace LandCost.Entities
         public void SetZero()
         {
             Date = DateTime.Now;
+            HideNumberDate = false;
             Owner = string.Empty;
             OwnerLocation = string.Empty;
             Address = string.Empty;

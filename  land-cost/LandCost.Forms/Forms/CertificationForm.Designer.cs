@@ -84,6 +84,7 @@
             this.printBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.refreshBtn = new System.Windows.Forms.ToolStripButton();
+            this.hideNumberDateCheck = new System.Windows.Forms.CheckBox();
             this.evalTotalBox2 = new LandCost.Forms.DecimalTextBox();
             this.evalTotalBox = new LandCost.Forms.DecimalTextBox();
             this.evalBox2 = new LandCost.Forms.DecimalTextBox();
@@ -383,7 +384,7 @@
             this.dateBox.Location = new System.Drawing.Point(349, 57);
             this.dateBox.Name = "dateBox";
             this.dateBox.Size = new System.Drawing.Size(155, 20);
-            this.dateBox.TabIndex = 54;
+            this.dateBox.TabIndex = 3;
             // 
             // docBox
             // 
@@ -593,6 +594,18 @@
             this.refreshBtn.Text = "Оновити дані з профілю";
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
             // 
+            // hideNumberDateCheck
+            // 
+            this.hideNumberDateCheck.AutoSize = true;
+            this.hideNumberDateCheck.Checked = true;
+            this.hideNumberDateCheck.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.hideNumberDateCheck.Location = new System.Drawing.Point(15, 62);
+            this.hideNumberDateCheck.Name = "hideNumberDateCheck";
+            this.hideNumberDateCheck.Size = new System.Drawing.Size(195, 17);
+            this.hideNumberDateCheck.TabIndex = 2;
+            this.hideNumberDateCheck.Text = "Приховати номер та дату довідки";
+            this.hideNumberDateCheck.UseVisualStyleBackColor = true;
+            // 
             // evalTotalBox2
             // 
             this.evalTotalBox2.Enabled = false;
@@ -786,6 +799,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 701);
+            this.Controls.Add(this.hideNumberDateCheck);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.evalTotalBox2);
             this.Controls.Add(this.evalTotalBox);
@@ -927,6 +941,7 @@
         private System.Windows.Forms.ToolStripButton refreshBtn;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem refreshMenu;
+        private System.Windows.Forms.CheckBox hideNumberDateCheck;
 
     }
 }

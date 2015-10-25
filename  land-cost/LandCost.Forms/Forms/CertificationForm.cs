@@ -31,6 +31,7 @@ namespace LandCost.Forms
             m_sFileName = string.Empty;
             fileLabel.Text = "Нова довідка";
             cert = new Certification();
+            cert.HideNumberDate = true;
             SetBindings();
             cert.Changed += new EventHandler(cert_Changed);
             m_bChanged = true;
@@ -48,6 +49,7 @@ namespace LandCost.Forms
         private void ClearBindings()
         {
             dateBox.DataBindings.Clear();
+            hideNumberDateCheck.DataBindings.Clear();
             ownerBox.DataBindings.Clear();
             ownerLocationBox.DataBindings.Clear();
             addressBox.DataBindings.Clear();
@@ -78,6 +80,7 @@ namespace LandCost.Forms
         private void SetBindings()
         {
             dateBox.DataBindings.Add("Value", cert, "Date", false, DataSourceUpdateMode.OnPropertyChanged);
+            hideNumberDateCheck.DataBindings.Add("Checked", cert, "HideNumberDate", false, DataSourceUpdateMode.OnPropertyChanged);
             ownerBox.DataBindings.Add("Text", cert, "Owner", false, DataSourceUpdateMode.OnPropertyChanged);
             ownerLocationBox.DataBindings.Add("Text", cert, "OwnerLocation", false, DataSourceUpdateMode.OnPropertyChanged);
             addressBox.DataBindings.Add("Text", cert, "Address", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -150,6 +153,7 @@ namespace LandCost.Forms
             cert.Changed -= new EventHandler(cert_Changed);
             ClearBindings();
             cert = new Certification();
+            cert.HideNumberDate = true;
             SetBindings();
             cert.Changed += new EventHandler(cert_Changed);
             cert.IndexCoefficient = m_Profile.IndexCoefficient;
@@ -336,6 +340,7 @@ namespace LandCost.Forms
                     myDataReport.Load(Application.StartupPath + "\\Reports\\Certification.rpt");
                     myDataReport.SetParameterValue("txtMainLetters", cert.TotalEvalMainLetters);
                 }
+                myDataReport.SetParameterValue("l1HideNumberDate", hideNumberDateCheck.Checked);
                 myDataReport.SetParameterValue("txtAgencyName", m_Profile.AgencyName.ToUpper());
                 myDataReport.SetParameterValue("txtAgencyAddress", m_Profile.AgencyAddress);
                 myDataReport.SetParameterValue("txtDate", cert.Date.ToString("D", dateTimeFormat));
