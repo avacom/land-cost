@@ -69,9 +69,16 @@ namespace LandCost.Forms
                 agencyNameEdit.Text = m_Profile.AgencyName;
                 agencyAddressEdit.Text = m_Profile.AgencyAddress;
                 indexCoefEdit.Text = m_Profile.IndexCoefficient.ToString();
+                indexCoefAgricultureEdit.Text = m_Profile.IndexCoefficientAgriculture.ToString();
+                indexCoefArableEdit.Text = m_Profile.IndexCoefficientArable.ToString();
+
 
                 chiefBox.Lines = m_Profile.Chiefs.ToArray();
                 executorBox.Lines = m_Profile.Executors.ToArray();
+                if (m_Profile.LandCategories != null)
+                {
+                    categoryBox.Lines = m_Profile.LandCategories.ToArray();
+                }
             }
             this.Text = string.Format("Профіль {0}", m_Profile.Name);
         }
@@ -596,6 +603,46 @@ namespace LandCost.Forms
             return bRet;
         }
 
+        private bool FinalizeIndexCoefAgriculture()
+        {
+            bool bRet = true;
+
+            if (m_Profile != null)
+            {
+                if (m_Profile.IndexCoefficientAgriculture != indexCoefAgricultureEdit.Value)
+                {
+                    m_Profile.IndexCoefficientAgriculture = indexCoefAgricultureEdit.Value;
+                    this.OnValidated(null);
+                    OnModified(this, null);
+                }
+            }
+            else
+            {
+                bRet = false;
+            }
+            return bRet;
+        }
+
+        private bool FinalizeIndexCoefArable()
+        {
+            bool bRet = true;
+
+            if (m_Profile != null)
+            {
+                if (m_Profile.IndexCoefficientArable != indexCoefArableEdit.Value)
+                {
+                    m_Profile.IndexCoefficientArable = indexCoefArableEdit.Value;
+                    this.OnValidated(null);
+                    OnModified(this, null);
+                }
+            }
+            else
+            {
+                bRet = false;
+            }
+            return bRet;
+        }
+
         private bool FinalizeExecutors()
         {
             bool bRet = true;
@@ -638,6 +685,32 @@ namespace LandCost.Forms
             return bRet;
         }
 
+        private bool FinalizeCategories()
+        {
+            bool bRet = true;
+
+            if (m_Profile != null)
+            {
+                if (m_Profile.LandCategories == null)
+                {
+                    m_Profile.LandCategories = new List<string>();
+                }
+
+                if (m_Profile.LandCategories.Intersect(categoryBox.Lines).ToArray<string>().Length != m_Profile.LandCategories.Count || m_Profile.LandCategories.Count != categoryBox.Lines.Length)
+                {
+                    m_Profile.LandCategories.Clear();
+                    m_Profile.LandCategories.AddRange(categoryBox.Lines);
+                    this.OnValidated(null);
+                    OnModified(this, null);
+                }
+            }
+            else
+            {
+                bRet = false;
+            }
+            return bRet;
+        }
+
         public bool FinalizeAll()
         {
             bool bRet = true;
@@ -645,8 +718,11 @@ namespace LandCost.Forms
                 FinalizeAgencyName() &&
                 FinalizeAgencyAddress() &&
                 FinalizeIndexCoef() &&
+                FinalizeIndexCoefAgriculture() &&
+                FinalizeIndexCoefArable() &&
                 FinalizeExecutors() &&
-                FinalizeChiefs();
+                FinalizeChiefs() &&
+                FinalizeCategories();
             return bRet;
         }
 
@@ -710,6 +786,30 @@ namespace LandCost.Forms
         private void ProfileControl_Validated(object sender, EventArgs e)
         {
             
+        }
+
+        private void indexCoefAgricultureEdit_Validating(object sender, CancelEventArgs e)
+        {
+            if (!FinalizeIndexCoefAgriculture())
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void indexCoefArableEdit_Validating(object sender, CancelEventArgs e)
+        {
+            if (!FinalizeIndexCoefArable())
+            {
+                e.Cancel = true;
+            }
+        }
+
+        private void categoryBox_Validating(object sender, CancelEventArgs e)
+        {
+            if (!FinalizeCategories())
+            {
+                e.Cancel = true;
+            }
         }
        
     }

@@ -31,6 +31,7 @@ namespace LandCost.Licensing
         public bool CheckLicense()
         {
             bool bRet = true;
+            #if !DEBUG
             licForm = new LicenseForm();
             licForm.Serial = m_sID;
 
@@ -69,6 +70,7 @@ namespace LandCost.Licensing
                     bRet = false;
                 }
             }
+            #endif
             return bRet;
         }
 

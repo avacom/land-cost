@@ -389,9 +389,9 @@
             // 
             // openDialog
             // 
-            this.openDialog.DefaultExt = "lcc";
-            this.openDialog.Filter = "Довідки про грошову оцінку|*.lcc";
-            this.openDialog.Title = "Відкрити довідку про грошову оцінку";
+            this.openDialog.DefaultExt = "lce";
+            this.openDialog.Filter = "Витяги про грошову оцінку|*.lce|Довідки про грошову оцінку|*.lcc";
+            this.openDialog.Title = "Відкрити витяг / довідку";
             // 
             // MainForm
             // 

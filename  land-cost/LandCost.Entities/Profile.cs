@@ -18,6 +18,8 @@ namespace LandCost.Entities
         string m_sAgencyName;
         string m_sAgencyAddress;
         double m_dIndexCoef;
+        double m_dIndexCoefAgriculture;
+        double m_dIndexCoefArable;
         List<Area> m_aAreas;
         List<LandRegion> m_aRegions;
         List<FunctionalUsage> m_aFunctionalUsages;
@@ -25,6 +27,7 @@ namespace LandCost.Entities
         List<Document> m_aDocuments;
         List<string> m_aExecutors;
         List<string> m_aChiefs;
+        List<string> m_aLandCategories;
         Map m_Map;
 
         #endregion Members
@@ -41,6 +44,8 @@ namespace LandCost.Entities
             m_sAgencyAddress = string.Empty;
             m_sAgencyName = string.Empty;
             m_dIndexCoef = 0;
+            m_dIndexCoefAgriculture = 0;
+            m_dIndexCoefArable = 0;
             m_aAreas = new List<Area>();
             m_aRegions = new List<LandRegion>();
             m_aFunctionalUsages = new List<FunctionalUsage>();
@@ -48,6 +53,7 @@ namespace LandCost.Entities
             m_aDocuments = new List<Document>();
             m_aExecutors = new List<string>();
             m_aChiefs = new List<string>();
+            m_aLandCategories = new List<string>();
             m_Map = null;
         }
 
@@ -89,6 +95,24 @@ namespace LandCost.Entities
         {
             get { return m_dIndexCoef; }
             set { m_dIndexCoef = value; }
+        }
+
+        /// <summary>
+        /// Get or set the coefficient of indexation for the agricultural lands
+        /// </summary>
+        public double IndexCoefficientAgriculture
+        {
+            get { return m_dIndexCoefAgriculture; }
+            set { m_dIndexCoefAgriculture = value; }
+        }
+
+        /// <summary>
+        /// Get or set the coefficient of indexation for the arable lands
+        /// </summary>
+        public double IndexCoefficientArable
+        {
+            get { return m_dIndexCoefArable; }
+            set { m_dIndexCoefArable = value; }
         }
 
         /// <summary>
@@ -145,6 +169,15 @@ namespace LandCost.Entities
         public List<string> Chiefs
         {
             get { return m_aChiefs; }
+        }
+
+        /// <summary>
+        /// Get or set the list of land categories
+        /// </summary>
+        public List<string> LandCategories
+        {
+            get { return m_aLandCategories; }
+            set { m_aLandCategories = value; }
         }
 
         /// <summary>
@@ -361,9 +394,17 @@ namespace LandCost.Entities
                 double dIndCoef = -1;
                 double.TryParse(ExcelHelper.GetValue(2, "B3").Trim(), out dIndCoef);
 
+                double dIndCoefAgriculture = -1;
+                double.TryParse(ExcelHelper.GetValue(2, "B4").Trim(), out dIndCoefAgriculture);
+
+                double dIndCoefArable = -1;
+                double.TryParse(ExcelHelper.GetValue(2, "B5").Trim(), out dIndCoefArable);
+
                 this.AgencyName = sAgency;
                 this.AgencyAddress = sAddress;
                 this.IndexCoefficient = dIndCoef;
+                this.IndexCoefficientAgriculture = dIndCoefAgriculture;
+                this.IndexCoefficientArable = dIndCoefArable;
 
                 // Sheet 3
                 cnt = 1;
@@ -414,6 +455,23 @@ namespace LandCost.Entities
                     {
                         d = new Document(s, string.Empty);
                         Documents.Add(d);
+                    }
+                    cnt++;
+                }
+
+                // Sheet 6
+                cnt = 1;
+                while (true)
+                {
+                    string s = ExcelHelper.GetValue(6, string.Format("A{0}", cnt)).Trim();
+                    if (string.IsNullOrEmpty(s))
+                    {
+                        break;
+                    }
+
+                    if (!LandCategories.Contains(s))
+                    {
+                        LandCategories.Add(s);
                     }
                     cnt++;
                 }

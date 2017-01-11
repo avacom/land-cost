@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Area.cs" />
     <Compile Include="Certification\Certification.cs" />
+    <Compile Include="Certification\Certification2017.cs" />
     <Compile Include="Configuration.cs" />
     <Compile Include="EnumStorage\Document.cs" />
     <Compile Include="EnumStorage\LocalCoefficient.cs" />

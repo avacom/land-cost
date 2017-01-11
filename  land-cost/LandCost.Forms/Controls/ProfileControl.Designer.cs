@@ -37,6 +37,10 @@ namespace LandCost.Forms
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.chiefBox = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.indexCoefArableEdit = new LandCost.Forms.DecimalTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.indexCoefAgricultureEdit = new LandCost.Forms.DecimalTextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.indexCoefEdit = new LandCost.Forms.DecimalTextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -61,6 +65,9 @@ namespace LandCost.Forms
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.categoryBox = new System.Windows.Forms.TextBox();
             this.loadMapDlg = new System.Windows.Forms.OpenFileDialog();
             this.xlsDialog = new System.Windows.Forms.OpenFileDialog();
             this.settingsTabControl.SuspendLayout();
@@ -72,6 +79,8 @@ namespace LandCost.Forms
             this.regionTab.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.mapPanel.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // settingsTabControl
@@ -82,6 +91,7 @@ namespace LandCost.Forms
             this.settingsTabControl.Controls.Add(this.coefficientsTab);
             this.settingsTabControl.Controls.Add(this.areaTab);
             this.settingsTabControl.Controls.Add(this.regionTab);
+            this.settingsTabControl.Controls.Add(this.tabPage1);
             this.settingsTabControl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.settingsTabControl.Location = new System.Drawing.Point(0, 0);
             this.settingsTabControl.Name = "settingsTabControl";
@@ -106,7 +116,7 @@ namespace LandCost.Forms
             // 
             // loadXlsBtn
             // 
-            this.loadXlsBtn.Location = new System.Drawing.Point(664, 282);
+            this.loadXlsBtn.Location = new System.Drawing.Point(664, 311);
             this.loadXlsBtn.Name = "loadXlsBtn";
             this.loadXlsBtn.Size = new System.Drawing.Size(112, 23);
             this.loadXlsBtn.TabIndex = 10;
@@ -119,7 +129,7 @@ namespace LandCost.Forms
             this.groupBox4.Controls.Add(this.executorBox);
             this.groupBox4.Location = new System.Drawing.Point(465, 144);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(311, 132);
+            this.groupBox4.Size = new System.Drawing.Size(311, 161);
             this.groupBox4.TabIndex = 9;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Виконавці (один на рядок)";
@@ -130,7 +140,7 @@ namespace LandCost.Forms
             this.executorBox.Multiline = true;
             this.executorBox.Name = "executorBox";
             this.executorBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.executorBox.Size = new System.Drawing.Size(299, 101);
+            this.executorBox.Size = new System.Drawing.Size(299, 136);
             this.executorBox.TabIndex = 1;
             this.executorBox.Validating += new System.ComponentModel.CancelEventHandler(this.executorBox_Validating);
             // 
@@ -156,23 +166,71 @@ namespace LandCost.Forms
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.indexCoefArableEdit);
+            this.groupBox2.Controls.Add(this.label9);
+            this.groupBox2.Controls.Add(this.indexCoefAgricultureEdit);
+            this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.indexCoefEdit);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Location = new System.Drawing.Point(6, 180);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(453, 96);
+            this.groupBox2.Size = new System.Drawing.Size(453, 125);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Загальнодержавні коефіцієнти";
             // 
+            // indexCoefArableEdit
+            // 
+            this.indexCoefArableEdit.Location = new System.Drawing.Point(333, 82);
+            this.indexCoefArableEdit.Name = "indexCoefArableEdit";
+            this.indexCoefArableEdit.Precision = 4;
+            this.indexCoefArableEdit.Size = new System.Drawing.Size(99, 20);
+            this.indexCoefArableEdit.TabIndex = 5;
+            this.indexCoefArableEdit.Text = "0";
+            this.indexCoefArableEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.indexCoefArableEdit.Value = 0D;
+            this.indexCoefArableEdit.Validating += new System.ComponentModel.CancelEventHandler(this.indexCoefArableEdit_Validating);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(17, 85);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(159, 13);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Коефіцієнт індексації для ріллі";
+            // 
+            // indexCoefAgricultureEdit
+            // 
+            this.indexCoefAgricultureEdit.Location = new System.Drawing.Point(333, 53);
+            this.indexCoefAgricultureEdit.Name = "indexCoefAgricultureEdit";
+            this.indexCoefAgricultureEdit.Precision = 4;
+            this.indexCoefAgricultureEdit.Size = new System.Drawing.Size(99, 20);
+            this.indexCoefAgricultureEdit.TabIndex = 3;
+            this.indexCoefAgricultureEdit.Text = "0";
+            this.indexCoefAgricultureEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.indexCoefAgricultureEdit.Value = 0D;
+            this.indexCoefAgricultureEdit.Validating += new System.ComponentModel.CancelEventHandler(this.indexCoefAgricultureEdit_Validating);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(17, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(298, 13);
+            this.label8.TabIndex = 2;
+            this.label8.Text = "Коефіцієнт індексації для сільськогосподарських земель";
+            // 
             // indexCoefEdit
             // 
-            this.indexCoefEdit.Location = new System.Drawing.Point(284, 25);
+            this.indexCoefEdit.Location = new System.Drawing.Point(333, 25);
             this.indexCoefEdit.Name = "indexCoefEdit";
             this.indexCoefEdit.Precision = 4;
-            this.indexCoefEdit.Size = new System.Drawing.Size(148, 20);
+            this.indexCoefEdit.Size = new System.Drawing.Size(99, 20);
             this.indexCoefEdit.TabIndex = 1;
+            this.indexCoefEdit.Text = "0";
             this.indexCoefEdit.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.indexCoefEdit.Value = 0D;
             this.indexCoefEdit.Validating += new System.ComponentModel.CancelEventHandler(this.indexCoefEdit_Validating);
             // 
             // label4
@@ -180,9 +238,9 @@ namespace LandCost.Forms
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(17, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(264, 13);
+            this.label4.Size = new System.Drawing.Size(310, 13);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Коефіцієнт індексації нормативної грошової оцінки";
+            this.label4.Text = "Коефіцієнт індексації для несільськогосподарських земель";
             // 
             // groupBox1
             // 
@@ -406,6 +464,39 @@ namespace LandCost.Forms
             this.label5.TabIndex = 0;
             this.label5.Text = "Файл:";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox5);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(857, 448);
+            this.tabPage1.TabIndex = 7;
+            this.tabPage1.Text = "Категорії земель";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.categoryBox);
+            this.groupBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox5.Location = new System.Drawing.Point(3, 3);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(851, 442);
+            this.groupBox5.TabIndex = 9;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Категорії (одна на рядок)";
+            // 
+            // categoryBox
+            // 
+            this.categoryBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.categoryBox.Location = new System.Drawing.Point(3, 16);
+            this.categoryBox.Multiline = true;
+            this.categoryBox.Name = "categoryBox";
+            this.categoryBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.categoryBox.Size = new System.Drawing.Size(845, 423);
+            this.categoryBox.TabIndex = 0;
+            this.categoryBox.Validating += new System.ComponentModel.CancelEventHandler(this.categoryBox_Validating);
+            // 
             // loadMapDlg
             // 
             this.loadMapDlg.DefaultExt = "dxf";
@@ -441,6 +532,9 @@ namespace LandCost.Forms
             this.tableLayoutPanel1.ResumeLayout(false);
             this.mapPanel.ResumeLayout(false);
             this.mapPanel.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -481,5 +575,12 @@ namespace LandCost.Forms
         private System.Windows.Forms.TabPage areaTab;
         private System.Windows.Forms.Button loadXlsBtn;
         private System.Windows.Forms.OpenFileDialog xlsDialog;
+        private DecimalTextBox indexCoefAgricultureEdit;
+        private System.Windows.Forms.Label label8;
+        private DecimalTextBox indexCoefArableEdit;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.TextBox categoryBox;
     }
 }
