@@ -351,6 +351,7 @@ namespace LandCost.Entities
                 {
                     m_dNormEvalAgriculture = value;
                     OnPropertyChanged(new PropertyChangedEventArgs("NormEvalAgriculture"));
+                    Recalculate();
                     OnChanged(this, null);
                 }
             }
@@ -466,6 +467,7 @@ namespace LandCost.Entities
         {
             Date = DateTime.Now;
             ShowDate = true;
+            UseCadasterNumber = true;
             Applicant = string.Empty;
             CadasterNumber = string.Empty;
             LandLocation = string.Empty;

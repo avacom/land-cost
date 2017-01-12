@@ -112,10 +112,15 @@ namespace LandCost.Forms
             cert.Changed -= new EventHandler(cert_Changed);
             ClearBindings();
             coefValSetCtl.CoefficientsChanged -= new EventHandler(coefValSetCtl_CoefficientsChanged);
-            XmlSerializer serializer = new XmlSerializer(typeof(Certification));
+            XmlSerializer serializer = new XmlSerializer(typeof(Certification2017));
             TextReader tr = new StreamReader(filename);
             cert = (Certification2017)serializer.Deserialize(tr);
             tr.Close();
+
+            string[] cadasterParts = GetCadasterNumberParts(cert.CadasterNumber);
+            cadBox1.Text = cadasterParts[0];
+            cadBox2.Text = cadasterParts[1];
+            cadBox3.Text = cadasterParts[2];
 
             SetBindings();
             coefValSetCtl.List = cert.CoefficientValues;
@@ -226,7 +231,7 @@ namespace LandCost.Forms
                 catch
                 {
                     bRet = false;
-                    MessageBox.Show(this, "Не можу зберегти довідку", "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show(this, "Не можу зберегти витяг", "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
             return bRet;
@@ -250,7 +255,7 @@ namespace LandCost.Forms
             }
             catch(Exception ex)
             {
-                MessageBox.Show(this, "Не вдалося надрукувати довідку! Помилка: " + ex.Message + " " + ex.StackTrace, "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show(this, "Не вдалося надрукувати витяг! Помилка: " + ex.Message + " " + ex.StackTrace, "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             finally
             {
@@ -401,31 +406,52 @@ namespace LandCost.Forms
 
             if (string.IsNullOrEmpty(applicantBox.Text.Trim()))
             {
-                sError += "Вкажіть заявника!" + Environment.NewLine;
+                sError += "Вкажіть заявника" + Environment.NewLine;
             }
  
             // Address set
             if (string.IsNullOrEmpty(landLocationBox.Text.Trim()))
             {
-                sError += "Вкажіть місце розташування земельної ділянки!" + Environment.NewLine;
+                sError += "Вкажіть місце розташування земельної ділянки" + Environment.NewLine;
             }
 
-            // Name set
+            // Purpose set
             if (string.IsNullOrEmpty(landPurposeBox.Text.Trim()))
             {
-                sError += "Вкажіть цільове призначення земельної ділянки!" + Environment.NewLine;
+                sError += "Вкажіть цільове призначення земельної ділянки" + Environment.NewLine;
             }
             
             // Square set
-            if (squareBox.Value <= 0)
+            if (landTypeBox.SelectedIndex == 0 && squareBox.Value <= 0)
             {
                 sError += "Задайте площу земельної ділянки" + Environment.NewLine;
+            }
+
+            // Square Agriculture set
+            if (landTypeBox.SelectedIndex != 0 && squareAgricultureBox.Value <= 0)
+            {
+                sError += "Задайте площу сільськогосподарських угідь" + Environment.NewLine;
+            }
+
+            // Norm Eval Agriculture set
+            if (landTypeBox.SelectedIndex != 0 && normEvalAgricultureBox.Value <= 0)
+            {
+                sError += "Задайте нормативну грошову оцінку сільськогосподарських угідь" + Environment.NewLine;
+            }
+
+            // Cadaster number set
+            if (cadasterNumberCheckBox.Checked &&
+                (cadBox1.Text.Length != cadBox1.MaxLength ||
+                cadBox2.Text.Length != cadBox2.MaxLength ||
+                cadBox3.Text.Length != cadBox3.MaxLength))
+            {
+                sError += "Вкажіть коректний кадастровий номер" + Environment.NewLine;
             }
 
             // Executor set
             if (string.IsNullOrEmpty(executorBox.Text.Trim()))
             {
-                sError += "Задайте виконавця!" + Environment.NewLine;
+                sError += "Задайте виконавця" + Environment.NewLine;
             }
 
             if (!string.IsNullOrEmpty(sError))
@@ -529,10 +555,11 @@ namespace LandCost.Forms
             RefreshCmd();
         }
 
-        private void landTypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void landTypeBox_SelectedValueChanged(object sender, EventArgs e)
         {
             if (m_Profile != null)
             {
+                landTypeBox.DataBindings[0].WriteValue();
                 switch (landTypeBox.SelectedIndex)
                 {
                     case 0:
@@ -548,7 +575,90 @@ namespace LandCost.Forms
                         cert.IndexCoefficient = m_Profile.IndexCoefficient;
                         break;
                 }
+                EnableSquareAndPrices(cert.LandType);
             }
+        }
+
+        void EnableSquareAndPrices(int type)
+        {
+            label6.Enabled = type == 0;
+            label10.Enabled = type == 0;
+            squareBox.Enabled = type == 0;
+            priceBox.Enabled = type == 0;
+
+            label1.Enabled = type != 0;
+            label3.Enabled = type != 0;
+            squareAgricultureBox.Enabled = type != 0;
+            normEvalAgricultureBox.Enabled = type != 0;
+        }
+
+        private void squareAgricultureBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                applicantBox.Focus();
+                squareAgricultureBox.Focus();
+            }
+        }
+
+        private void normEvalAgricultureBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                applicantBox.Focus();
+                normEvalAgricultureBox.Focus();
+            }
+        }
+
+        private void cadasterNumberCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            cadLabel1.Enabled = cadasterNumberCheckBox.Checked;
+            cadLabel2.Enabled = cadasterNumberCheckBox.Checked;
+            cadLabel3.Enabled = cadasterNumberCheckBox.Checked;
+
+            cadBox1.Enabled = cadasterNumberCheckBox.Checked;
+            cadBox2.Enabled = cadasterNumberCheckBox.Checked;
+            cadBox3.Enabled = cadasterNumberCheckBox.Checked;
+        }
+
+        private string[] GetCadasterNumberParts(string cadasterNumber)
+        {
+            string[] ret = new string[3] { string.Empty, string.Empty, string.Empty };
+            if (cadasterNumber != null)
+            {
+                string[] splitted = cadasterNumber.Split(':');
+                if (splitted != null && splitted.Length > 1)
+                {
+                    for (int i = 0; i < Math.Min(splitted.Length, ret.Length); i++)
+                    {
+                        if (i + 1 < splitted.Length)
+                        {
+                            ret[i] = splitted[i + 1];
+                        }
+                    }
+                }
+            }
+            return ret;
+        }
+
+        private string GetCadasterNumber()
+        {
+            return cadLabel1.Text + cadBox1.Text + cadLabel2.Text + cadBox2.Text + cadLabel3.Text + cadBox3.Text;
+        }
+
+        private void cadBox1_TextChanged(object sender, EventArgs e)
+        {
+            cert.CadasterNumber = GetCadasterNumber();
+        }
+
+        private void cadBox2_TextChanged(object sender, EventArgs e)
+        {
+            cert.CadasterNumber = GetCadasterNumber();
+        }
+
+        private void cadBox3_TextChanged(object sender, EventArgs e)
+        {
+            cert.CadasterNumber = GetCadasterNumber();
         }
     }
 }

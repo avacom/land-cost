@@ -34,7 +34,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.landLocationBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.landPurposeBox = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -84,6 +83,7 @@
             this.showDateCheck = new System.Windows.Forms.CheckBox();
             this.label7 = new System.Windows.Forms.Label();
             this.landTypeBox = new System.Windows.Forms.ComboBox();
+            this.landPurposeBox = new System.Windows.Forms.ComboBox();
             this.normEvalAgricultureBox = new LandCost.Forms.DecimalTextBox();
             this.squareAgricultureBox = new LandCost.Forms.DecimalTextBox();
             this.evalTotalBox = new LandCost.Forms.DecimalTextBox();
@@ -142,15 +142,6 @@
             this.label5.TabIndex = 9;
             this.label5.Text = "Цільове призначення земельної ділянки:";
             // 
-            // landPurposeBox
-            // 
-            this.landPurposeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.landPurposeBox.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.landPurposeBox.Location = new System.Drawing.Point(197, 128);
-            this.landPurposeBox.Name = "landPurposeBox";
-            this.landPurposeBox.Size = new System.Drawing.Size(192, 20);
-            this.landPurposeBox.TabIndex = 11;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -162,21 +153,20 @@
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(402, 131);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(155, 13);
+            this.label8.Size = new System.Drawing.Size(183, 29);
             this.label8.TabIndex = 15;
-            this.label8.Text = "Економіко-планувальна зона";
+            this.label8.Text = "Номер економіко-планувальної зони:";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(402, 163);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 13);
+            this.label9.Size = new System.Drawing.Size(88, 13);
             this.label9.TabIndex = 17;
-            this.label9.Text = "Коефіцієнт Км2";
+            this.label9.Text = "Коефіцієнт Км2:";
             // 
             // areaBox
             // 
@@ -210,18 +200,18 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(418, 287);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(134, 13);
+            this.label11.Size = new System.Drawing.Size(137, 13);
             this.label11.TabIndex = 23;
-            this.label11.Text = "Сукупний коефіцієнт Км3";
+            this.label11.Text = "Сукупний коефіцієнт Км3:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(418, 366);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 13);
+            this.label12.Size = new System.Drawing.Size(82, 13);
             this.label12.TabIndex = 27;
-            this.label12.Text = "Коефіцієнт Кф";
+            this.label12.Text = "Коефіцієнт Кф:";
             // 
             // label13
             // 
@@ -238,7 +228,7 @@
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(151, 26);
             this.label18.TabIndex = 44;
-            this.label18.Text = "Нормативна грошова оцінка\r\nземельної ділянки, грн";
+            this.label18.Text = "Нормативна грошова оцінка\r\nземельної ділянки, грн:";
             // 
             // label19
             // 
@@ -484,20 +474,19 @@
             this.cadasterNumberCheckBox.TabIndex = 5;
             this.cadasterNumberCheckBox.Text = "Кадастровий номер:";
             this.cadasterNumberCheckBox.UseVisualStyleBackColor = true;
+            this.cadasterNumberCheckBox.CheckedChanged += new System.EventHandler(this.cadasterNumberCheckBox_CheckedChanged);
             // 
             // cadLabel1
             // 
-            this.cadLabel1.AutoSize = true;
-            this.cadLabel1.Location = new System.Drawing.Point(574, 63);
+            this.cadLabel1.Location = new System.Drawing.Point(588, 63);
             this.cadLabel1.Name = "cadLabel1";
-            this.cadLabel1.Size = new System.Drawing.Size(70, 13);
+            this.cadLabel1.Size = new System.Drawing.Size(71, 13);
             this.cadLabel1.TabIndex = 67;
             this.cadLabel1.Text = "0710400000:";
             // 
             // cadLabel2
             // 
-            this.cadLabel2.AutoSize = true;
-            this.cadLabel2.Location = new System.Drawing.Point(683, 63);
+            this.cadLabel2.Location = new System.Drawing.Point(686, 63);
             this.cadLabel2.Name = "cadLabel2";
             this.cadLabel2.Size = new System.Drawing.Size(10, 13);
             this.cadLabel2.TabIndex = 69;
@@ -515,11 +504,12 @@
             // cadBox1
             // 
             this.cadBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.cadBox1.Location = new System.Drawing.Point(650, 60);
+            this.cadBox1.Location = new System.Drawing.Point(657, 60);
             this.cadBox1.MaxLength = 2;
             this.cadBox1.Name = "cadBox1";
             this.cadBox1.Size = new System.Drawing.Size(27, 20);
             this.cadBox1.TabIndex = 6;
+            this.cadBox1.TextChanged += new System.EventHandler(this.cadBox1_TextChanged);
             // 
             // cadBox2
             // 
@@ -527,8 +517,9 @@
             this.cadBox2.Location = new System.Drawing.Point(699, 60);
             this.cadBox2.MaxLength = 3;
             this.cadBox2.Name = "cadBox2";
-            this.cadBox2.Size = new System.Drawing.Size(27, 20);
+            this.cadBox2.Size = new System.Drawing.Size(28, 20);
             this.cadBox2.TabIndex = 7;
+            this.cadBox2.TextChanged += new System.EventHandler(this.cadBox2_TextChanged);
             // 
             // cadBox3
             // 
@@ -538,6 +529,7 @@
             this.cadBox3.Name = "cadBox3";
             this.cadBox3.Size = new System.Drawing.Size(39, 20);
             this.cadBox3.TabIndex = 8;
+            this.cadBox3.TextChanged += new System.EventHandler(this.cadBox3_TextChanged);
             // 
             // label1
             // 
@@ -588,7 +580,20 @@
             this.landTypeBox.Name = "landTypeBox";
             this.landTypeBox.Size = new System.Drawing.Size(192, 21);
             this.landTypeBox.TabIndex = 13;
-            this.landTypeBox.SelectedIndexChanged += new System.EventHandler(this.landTypeBox_SelectedIndexChanged);
+            this.landTypeBox.SelectedValueChanged += new System.EventHandler(this.landTypeBox_SelectedValueChanged);
+            // 
+            // landPurposeBox
+            // 
+            this.landPurposeBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.landPurposeBox.FormattingEnabled = true;
+            this.landPurposeBox.Items.AddRange(new object[] {
+            "інформація не внесена до відомостей Державного земельного кадастру",
+            "у відомостях Державного земельного кадастру відсутній код Класифікації видів ціль" +
+                "ового призначення земель"});
+            this.landPurposeBox.Location = new System.Drawing.Point(197, 128);
+            this.landPurposeBox.Name = "landPurposeBox";
+            this.landPurposeBox.Size = new System.Drawing.Size(192, 21);
+            this.landPurposeBox.TabIndex = 76;
             // 
             // normEvalAgricultureBox
             // 
@@ -602,6 +607,7 @@
             this.normEvalAgricultureBox.Text = "0";
             this.normEvalAgricultureBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.normEvalAgricultureBox.Value = 0D;
+            this.normEvalAgricultureBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.normEvalAgricultureBox_KeyUp);
             // 
             // squareAgricultureBox
             // 
@@ -614,6 +620,7 @@
             this.squareAgricultureBox.Text = "0";
             this.squareAgricultureBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.squareAgricultureBox.Value = 0D;
+            this.squareAgricultureBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.squareAgricultureBox_KeyUp);
             // 
             // evalTotalBox
             // 
@@ -715,6 +722,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 544);
+            this.Controls.Add(this.landPurposeBox);
             this.Controls.Add(this.landTypeBox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.showDateCheck);
@@ -753,7 +761,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.squareBox);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.landPurposeBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.landLocationBox);
             this.Controls.Add(this.label4);
@@ -786,7 +793,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox landLocationBox;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox landPurposeBox;
         private System.Windows.Forms.Label label6;
         private DecimalTextBox squareBox;
         private System.Windows.Forms.Label label8;
@@ -846,6 +852,7 @@
         private System.Windows.Forms.CheckBox showDateCheck;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox landTypeBox;
+        private System.Windows.Forms.ComboBox landPurposeBox;
 
     }
 }
