@@ -686,6 +686,30 @@ namespace LandCost.Entities
             return GetRegionByPolygon(pol);
         }
 
+        private void AddMissing()
+        {
+            FunctionalUsage f1 = new FunctionalUsage("Земельна ділянка, інформація про яку не внесена до відомостей Державного земельного кадастру", 2);
+            FunctionalUsage f2 = new FunctionalUsage("У відомостях Державного земельного кадастру відсутній код Класифікації видів цільового призначення земель", 2);
+
+            FunctionalUsages.Add(f1);
+            FunctionalUsages.Add(f2);
+
+            FunctionalUsageCoefficients fc1 = new FunctionalUsageCoefficients(f1);
+            FunctionalUsageCoefficients fc2 = new FunctionalUsageCoefficients(f2);
+            foreach (LocalCoefficient lc in LocalCoefficients)
+            {
+                LocalCoefficientValue lcv1 = new LocalCoefficientValue(lc, 1);
+                LocalCoefficientValue lcv2 = new LocalCoefficientValue(lc, 1);
+                fc1.AddCoefficientValue(lcv1);
+                fc2.AddCoefficientValue(lcv2);
+            }
+
+            foreach (LandRegion reg in Regions)
+            {
+                reg.AddFunctionalUsageCoefficients(fc1);
+                reg.AddFunctionalUsageCoefficients(fc2);
+            }
+        }
         #endregion Methods
     }
 }

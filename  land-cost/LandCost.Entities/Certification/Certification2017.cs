@@ -37,6 +37,8 @@ namespace LandCost.Entities
         double m_dKm3;
 
         double m_dKf;
+        double m_dKfReal;
+        double m_dKfAdditional;
 
         double m_dSquareAgriculture;
         double m_dNormEvalAgriculture;
@@ -57,6 +59,37 @@ namespace LandCost.Entities
             SetZero();
 
             m_bLoaded = true;
+        }
+
+        public Certification2017(Certification old, string category, string executor)
+        {
+            m_bLoaded = false;
+
+            Date = old.Date;
+            ShowDate = !old.HideNumberDate;
+            UseCadasterNumber = false;
+            Applicant = old.Owner;
+            CadasterNumber = "відсутній";
+            LandLocation = old.Address;
+            LandCategory = category;
+            LandPurpose = old.LandName;
+            LandType = 0;
+            Square = old.Square;
+            Price = old.Price;
+            Area = old.Area;
+            Km2 = old.Km2;
+            CoefficientValues = old.CoefficientValues;
+            Km3 = old.Km3;
+            Kf = old.KfMain;
+            KfReal = old.KfMain;
+            KfAdditional = 0;
+            SquareAgriculture = 0;
+            NormEvalAgriculture = 0;
+            IndexCoefficient = old.IndexCoefficient;
+            Executor = executor;
+            m_bLoaded = true;
+
+            Recalculate();
         }
 
         #endregion Constructors
@@ -305,7 +338,7 @@ namespace LandCost.Entities
         {
             get
             {
-                return m_dKf;
+                return m_dKfAdditional > 0 ? m_dKfAdditional : m_dKfReal;
             }
             set
             {
@@ -313,6 +346,42 @@ namespace LandCost.Entities
                 {
                     m_dKf = value;
                     OnPropertyChanged(new PropertyChangedEventArgs("Kf"));
+                    Recalculate();
+                    OnChanged(this, null);
+                }
+            }
+        }
+
+        public double KfReal
+        {
+            get
+            {
+                return m_dKfReal;
+            }
+            set
+            {
+                if (m_dKfReal != value)
+                {
+                    m_dKfReal = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("KfReal"));
+                    Recalculate();
+                    OnChanged(this, null);
+                }
+            }
+        }
+
+        public double KfAdditional
+        {
+            get
+            {
+                return m_dKfAdditional;
+            }
+            set
+            {
+                if (m_dKfAdditional != value)
+                {
+                    m_dKfAdditional = value;
+                    OnPropertyChanged(new PropertyChangedEventArgs("KfAdditional"));
                     Recalculate();
                     OnChanged(this, null);
                 }
@@ -459,7 +528,7 @@ namespace LandCost.Entities
 
                 NormEval = LandType == 0 ? 
                     Math.Round(Square * Price * Km2 * Km3 * Kf * IndexCoefficient, 2):
-                    Math.Round(SquareAgriculture * NormEvalAgriculture * IndexCoefficient, 2);
+                    Math.Round(SquareAgriculture * NormEvalAgriculture * Kf * IndexCoefficient, 2);
             }
         }
 
@@ -481,6 +550,8 @@ namespace LandCost.Entities
             CoefficientValues = new List<LocalCoefficientValue>();
             Km3 = 0;
             Kf = 0;
+            KfReal = 0;
+            KfAdditional = 0;
             SquareAgriculture = 0;
             NormEvalAgriculture = 0;
             IndexCoefficient = 0;

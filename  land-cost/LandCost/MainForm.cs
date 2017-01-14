@@ -19,7 +19,7 @@ using System.Globalization;
 
 namespace LandCost
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IActionForm
     {
         const string CONF_DB = "config.lcd";
         bool m_bLoaded = false;
@@ -50,8 +50,8 @@ namespace LandCost
                 m_Splash = new SplashScreen();
                 m_Splash.StartPosition = FormStartPosition.CenterScreen;
                 m_Splash.Show();
-                certForm = new CertificationForm();
-                certForm2017 = new Certification2017Form();
+                certForm = new CertificationForm(this);
+                certForm2017 = new Certification2017Form(this);
                 regions = new GMapOverlay("regions");
                 markers = new GMapOverlay("markers");
 
@@ -597,28 +597,33 @@ namespace LandCost
         {
             if (openDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                try
+                OpenFile(openDialog.FileName);
+            }
+        }
+
+        public void OpenFile(string filename)
+        {
+            try
+            {
+                // Old
+                if (filename.EndsWith(".lcc", true, CultureInfo.InvariantCulture))
                 {
-                    // Old
-                    if (openDialog.FileName.EndsWith(".lcc", true, CultureInfo.InvariantCulture))
-                    {
-                        certForm.StartPosition = FormStartPosition.CenterScreen;
-                        certForm.SetProfile(m_DB.Config.CurrentProfile);
-                        certForm.LoadFromFile(openDialog.FileName);
-                        certForm.ShowDialog();
-                    }
-                    else if (openDialog.FileName.EndsWith(".lce", true, CultureInfo.InvariantCulture))
-                    {
-                        certForm2017.StartPosition = FormStartPosition.CenterScreen;
-                        certForm2017.SetProfile(m_DB.Config.CurrentProfile);
-                        certForm2017.LoadFromFile(openDialog.FileName);
-                        certForm2017.ShowDialog();
-                    }
+                    certForm.StartPosition = FormStartPosition.CenterScreen;
+                    certForm.SetProfile(m_DB.Config.CurrentProfile);
+                    certForm.LoadFromFile(filename);
+                    certForm.ShowDialog();
                 }
-                catch
+                else if (filename.EndsWith(".lce", true, CultureInfo.InvariantCulture))
                 {
-                    MessageBox.Show(this, "Не можу завантажити витяг / довідку!", "Горечко :(", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    certForm2017.StartPosition = FormStartPosition.CenterScreen;
+                    certForm2017.SetProfile(m_DB.Config.CurrentProfile);
+                    certForm2017.LoadFromFile(filename);
+                    certForm2017.ShowDialog();
                 }
+            }
+            catch
+            {
+                MessageBox.Show(this, "Не можу завантажити витяг / довідку!", "Горечко :(", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 

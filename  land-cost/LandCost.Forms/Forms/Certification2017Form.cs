@@ -18,14 +18,16 @@ namespace LandCost.Forms
     public partial class Certification2017Form : Form
     {
         DateTimeFormatInfo dateTimeFormat;
+        IActionForm m_Parent;
         Profile m_Profile;
         Certification2017 cert;
         string m_sFileName;
         bool m_bChanged;
 
-        public Certification2017Form()
+        public Certification2017Form(IActionForm parent)
         {
             InitializeComponent();
+            m_Parent = parent;
             dateTimeFormat = (new CultureInfo("uk-UA")).DateTimeFormat;
             dateBox.Value = DateTime.Now;
             m_sFileName = string.Empty;
@@ -102,7 +104,15 @@ namespace LandCost.Forms
             m_Profile = profile;
             if (profile != null)
             {
-                categoryBox.Items.AddRange(profile.LandCategories.ToArray());
+                if (profile.LandCategories != null)
+                {
+                    categoryBox.Items.AddRange(profile.LandCategories.ToArray());
+                    if (profile.LandCategories.Count > 0)
+                    {
+                        categoryBox.SelectedIndex = 0;
+                    }
+                }
+
                 executorBox.Items.AddRange(profile.Executors.ToArray());
             }
         }
@@ -138,6 +148,16 @@ namespace LandCost.Forms
             cert.Changed -= new EventHandler(cert_Changed);
             ClearBindings();
             cert = new Certification2017();
+
+            if (string.IsNullOrEmpty(cert.LandCategory))
+            {
+                cert.LandCategory = categoryBox.Text;
+            }
+
+            cadBox1.Text = string.Empty;
+            cadBox2.Text = string.Empty;
+            cadBox3.Text = string.Empty;
+
             cert.ShowDate = true;
             SetBindings();
             cert.Changed += new EventHandler(cert_Changed);
@@ -195,6 +215,7 @@ namespace LandCost.Forms
             if (selectedCoefs != null)
             {
                 cert.Kf = selectedCoefs.Usage.Weight;
+                cert.KfReal = selectedCoefs.Usage.Weight;
             }
         }
 
@@ -291,7 +312,43 @@ namespace LandCost.Forms
             ReportDocument myDataReport = new ReportDocument();
             if (cert != null)
             {
-               myDataReport.Load(Application.StartupPath + "\\Reports\\Certification2017.rpt");
+                myDataReport.Load(Application.StartupPath + "\\Reports\\Certification2017.rpt");
+                myDataReport.SetParameterValue("txtApplicant", cert.Applicant);
+                myDataReport.SetParameterValue("txtCadasterNumber", cert.CadasterNumber);
+                myDataReport.SetParameterValue("txtLandLocation", cert.LandLocation);
+                myDataReport.SetParameterValue("txtLandCategory", cert.LandCategory);
+                myDataReport.SetParameterValue("txtLandPurpose", cert.LandPurpose);
+
+                myDataReport.SetParameterValue("txtSquare", cert.Square);
+                myDataReport.SetParameterValue("txtPrice", cert.Price);
+                myDataReport.SetParameterValue("txtArea", cert.Area);
+                myDataReport.SetParameterValue("txtKm2", cert.Km2);
+
+                int number = 0;
+                for (int i = 0; i < cert.CoefficientValues.Count; i++)
+                {
+                    number++;
+                    myDataReport.SetParameterValue(string.Format("txtC{0}Name", number), cert.CoefficientValues[i].Coefficient.Name);
+                    myDataReport.SetParameterValue(string.Format("txtC{0}Value", number), cert.CoefficientValues[i].Value);
+                }
+                while (number < 12)
+                {
+                    number++;
+                    myDataReport.SetParameterValue(string.Format("txtC{0}Name", number), "Не задано");
+                    myDataReport.SetParameterValue(string.Format("txtC{0}Value", number), 1);
+                }
+
+                myDataReport.SetParameterValue("txtKm3", cert.Km3);
+                myDataReport.SetParameterValue("txtKf", cert.Kf);
+                myDataReport.SetParameterValue("txtSquareAgriculture", cert.SquareAgriculture);
+                myDataReport.SetParameterValue("txtNormEvalAgriculture", cert.NormEvalAgriculture);
+                myDataReport.SetParameterValue("txtIndexCoef", cert.IndexCoefficient);
+                myDataReport.SetParameterValue("txtNormEval", cert.NormEval);
+                myDataReport.SetParameterValue("txtLetters", cert.NormEvalLetters);
+                myDataReport.SetParameterValue("txtExecutor", cert.Executor);
+                myDataReport.SetParameterValue("l1ShowDate", cert.ShowDate);
+                myDataReport.SetParameterValue("l2LandType", cert.LandType);
+                myDataReport.SetParameterValue("txtDate", cert.Date.ToString("D", dateTimeFormat));
             }
             processLbl.Text = string.Empty;
             return myDataReport;
@@ -564,15 +621,19 @@ namespace LandCost.Forms
                 {
                     case 0:
                         cert.IndexCoefficient = m_Profile.IndexCoefficient;
+                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 0;
                         break;
                     case 1:
                         cert.IndexCoefficient = m_Profile.IndexCoefficientAgriculture;
+                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 1;
                         break;
                     case 2:
                         cert.IndexCoefficient = m_Profile.IndexCoefficientArable;
+                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 1;
                         break;
                     default:
                         cert.IndexCoefficient = m_Profile.IndexCoefficient;
+                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 0;
                         break;
                 }
                 EnableSquareAndPrices(cert.LandType);
@@ -659,6 +720,40 @@ namespace LandCost.Forms
         private void cadBox3_TextChanged(object sender, EventArgs e)
         {
             cert.CadasterNumber = GetCadasterNumber();
+        }
+
+        private void showDateCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            dateBox.Enabled = showDateCheck.Checked;
+        }
+
+        private void landPurposeBox_TextChanged(object sender, EventArgs e)
+        {
+            if (cert != null)
+            {
+                landPurposeBox.DataBindings[0].WriteValue();
+                if (landPurposeBox.SelectedIndex >= 0)
+                {
+                    cert.KfAdditional = 2;
+                }
+                else
+                {
+                    if (cert.LandType == 0)
+                    {
+                        cert.KfAdditional = 0;
+                    }
+                    else
+                    {
+                        cert.KfAdditional = 1;
+                    }
+                }
+            }
+        }
+
+        private void Certification2017Form_Shown(object sender, EventArgs e)
+        {
+            this.landTypeBox.SelectedValueChanged -= new System.EventHandler(this.landTypeBox_SelectedValueChanged);
+            this.landTypeBox.SelectedValueChanged += new System.EventHandler(this.landTypeBox_SelectedValueChanged);
         }
     }
 }

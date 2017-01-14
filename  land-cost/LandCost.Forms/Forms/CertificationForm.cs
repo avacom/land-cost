@@ -18,14 +18,16 @@ namespace LandCost.Forms
     public partial class CertificationForm : Form
     {
         DateTimeFormatInfo dateTimeFormat;
+        IActionForm m_Parent;
         Profile m_Profile;
         Certification cert;
         string m_sFileName;
         bool m_bChanged;
 
-        public CertificationForm()
+        public CertificationForm(IActionForm parent)
         {
             InitializeComponent();
+            m_Parent = parent;
             dateTimeFormat = (new CultureInfo("uk-UA")).DateTimeFormat;
             dateBox.Value = DateTime.Now;
             m_sFileName = string.Empty;
@@ -635,6 +637,35 @@ namespace LandCost.Forms
         private void refreshMenu_Click(object sender, EventArgs e)
         {
             RefreshCmd();
+        }
+
+        private void convertBtn_Click(object sender, EventArgs e)
+        {
+            if (m_Profile != null && cert != null)
+            {
+                ownerBox.Focus();
+                this.ValidateChildren();
+                if (ValidateValues())
+                {
+                    Certification2017 newCert = new Certification2017(cert, 
+                        m_Profile.LandCategories == null || m_Profile.LandCategories.Count == 0 ? string.Empty : m_Profile.LandCategories[0],
+                        m_Profile.Executors == null || m_Profile.Executors.Count == 0 ? string.Empty : m_Profile.Executors[0]);
+                    if (saveFileDialog2017.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        try
+                        {
+                            newCert.Save(saveFileDialog2017.FileName);
+                            this.Hide();
+                            m_Parent.OpenFile(saveFileDialog2017.FileName);
+                        }
+                        catch
+                        {
+                            MessageBox.Show(this, "Не можу конвертувати довідку", "Халепа!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                        }
+                    }
+                }
+
+            }
         }
     }
 }

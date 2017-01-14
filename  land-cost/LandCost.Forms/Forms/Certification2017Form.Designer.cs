@@ -40,6 +40,7 @@
             this.areaBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.coefBox = new System.Windows.Forms.GroupBox();
+            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -90,7 +91,6 @@
             this.kfBox = new LandCost.Forms.DecimalTextBox();
             this.indexCoefBox = new LandCost.Forms.DecimalTextBox();
             this.km3Box = new LandCost.Forms.DecimalTextBox();
-            this.coefValSetCtl = new LandCost.Forms.CoefficientValueSetControl();
             this.priceBox = new LandCost.Forms.DecimalTextBox();
             this.km2Box = new LandCost.Forms.DecimalTextBox();
             this.squareBox = new LandCost.Forms.DecimalTextBox();
@@ -194,6 +194,16 @@
             this.coefBox.TabIndex = 22;
             this.coefBox.TabStop = false;
             this.coefBox.Text = "Локальні коефіцієнти";
+            // 
+            // coefValSetCtl
+            // 
+            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.coefValSetCtl.List = null;
+            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
+            this.coefValSetCtl.Name = "coefValSetCtl";
+            this.coefValSetCtl.ReadOnly = false;
+            this.coefValSetCtl.Size = new System.Drawing.Size(391, 195);
+            this.coefValSetCtl.TabIndex = 0;
             // 
             // label11
             // 
@@ -558,6 +568,7 @@
             this.showDateCheck.TabIndex = 24;
             this.showDateCheck.Text = "Дата формування витягу";
             this.showDateCheck.UseVisualStyleBackColor = true;
+            this.showDateCheck.CheckedChanged += new System.EventHandler(this.showDateCheck_CheckedChanged);
             // 
             // label7
             // 
@@ -580,7 +591,6 @@
             this.landTypeBox.Name = "landTypeBox";
             this.landTypeBox.Size = new System.Drawing.Size(192, 21);
             this.landTypeBox.TabIndex = 13;
-            this.landTypeBox.SelectedValueChanged += new System.EventHandler(this.landTypeBox_SelectedValueChanged);
             // 
             // landPurposeBox
             // 
@@ -593,7 +603,8 @@
             this.landPurposeBox.Location = new System.Drawing.Point(197, 128);
             this.landPurposeBox.Name = "landPurposeBox";
             this.landPurposeBox.Size = new System.Drawing.Size(192, 21);
-            this.landPurposeBox.TabIndex = 76;
+            this.landPurposeBox.TabIndex = 11;
+            this.landPurposeBox.TextChanged += new System.EventHandler(this.landPurposeBox_TextChanged);
             // 
             // normEvalAgricultureBox
             // 
@@ -669,16 +680,6 @@
             this.km3Box.Text = "0";
             this.km3Box.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.km3Box.Value = 0D;
-            // 
-            // coefValSetCtl
-            // 
-            this.coefValSetCtl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.coefValSetCtl.List = null;
-            this.coefValSetCtl.Location = new System.Drawing.Point(3, 16);
-            this.coefValSetCtl.Name = "coefValSetCtl";
-            this.coefValSetCtl.ReadOnly = false;
-            this.coefValSetCtl.Size = new System.Drawing.Size(391, 195);
-            this.coefValSetCtl.TabIndex = 0;
             // 
             // priceBox
             // 
@@ -773,7 +774,9 @@
             this.Name = "Certification2017Form";
             this.ShowInTaskbar = false;
             this.Text = "Грошова оцінка";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CertificationForm_FormClosing);
+            this.Shown += new System.EventHandler(this.Certification2017Form_Shown);
             this.coefBox.ResumeLayout(false);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();
@@ -853,6 +856,5 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox landTypeBox;
         private System.Windows.Forms.ComboBox landPurposeBox;
-
     }
 }

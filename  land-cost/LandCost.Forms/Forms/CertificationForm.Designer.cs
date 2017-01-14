@@ -84,6 +84,8 @@
             this.printBtn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.refreshBtn = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.convertBtn = new System.Windows.Forms.ToolStripButton();
             this.hideNumberDateCheck = new System.Windows.Forms.CheckBox();
             this.evalTotalBox2 = new LandCost.Forms.DecimalTextBox();
             this.evalTotalBox = new LandCost.Forms.DecimalTextBox();
@@ -100,6 +102,7 @@
             this.priceBox = new LandCost.Forms.DecimalTextBox();
             this.km2Box = new LandCost.Forms.DecimalTextBox();
             this.squareBox = new LandCost.Forms.DecimalTextBox();
+            this.saveFileDialog2017 = new System.Windows.Forms.SaveFileDialog();
             this.coefBox.SuspendLayout();
             this.menu.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -542,7 +545,9 @@
             this.exportBtn,
             this.printBtn,
             this.toolStripSeparator1,
-            this.refreshBtn});
+            this.refreshBtn,
+            this.toolStripSeparator2,
+            this.convertBtn});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(804, 25);
@@ -593,6 +598,21 @@
             this.refreshBtn.Size = new System.Drawing.Size(23, 22);
             this.refreshBtn.Text = "Оновити дані з профілю";
             this.refreshBtn.Click += new System.EventHandler(this.refreshBtn_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+            // 
+            // convertBtn
+            // 
+            this.convertBtn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.convertBtn.Image = ((System.Drawing.Image)(resources.GetObject("convertBtn.Image")));
+            this.convertBtn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.convertBtn.Name = "convertBtn";
+            this.convertBtn.Size = new System.Drawing.Size(23, 22);
+            this.convertBtn.Text = "Конвертувати до нового витягу";
+            this.convertBtn.Click += new System.EventHandler(this.convertBtn_Click);
             // 
             // hideNumberDateCheck
             // 
@@ -794,6 +814,12 @@
             this.squareBox.Value = 0D;
             this.squareBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.squareBox_KeyUp);
             // 
+            // saveFileDialog2017
+            // 
+            this.saveFileDialog2017.DefaultExt = "lce";
+            this.saveFileDialog2017.Filter = "Витяги про грошову оцінку|*.lce";
+            this.saveFileDialog2017.Title = "Зберегти витяг про грошову оцінку";
+            // 
             // CertificationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -856,6 +882,7 @@
             this.Name = "CertificationForm";
             this.ShowInTaskbar = false;
             this.Text = "Грошова оцінка";
+            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CertificationForm_FormClosing);
             this.coefBox.ResumeLayout(false);
             this.menu.ResumeLayout(false);
@@ -942,6 +969,9 @@
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem refreshMenu;
         private System.Windows.Forms.CheckBox hideNumberDateCheck;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripButton convertBtn;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog2017;
 
     }
 }

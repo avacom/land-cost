@@ -112,6 +112,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reports\Certification2017.cs">
+      <DependentUpon>Certification2017.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <EmbeddedResource Include="AboutForm.resx">
       <DependentUpon>AboutForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -136,6 +142,10 @@
     <EmbeddedResource Include="Reports\Certification.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Certification.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Certification2017.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Certification2017.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -200,8 +210,7 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>IF NOT EXIST "$(TargetDir)Reports" MKDIR "$(TargetDir)Reports" 
-COPY /Y "$(ProjectDir)Reports\CertificationExt.rpt" "$(TargetDir)Reports\CertificationExt.rpt"
-COPY /Y "$(ProjectDir)Reports\Certification.rpt" "$(TargetDir)Reports\Certification.rpt"</PostBuildEvent>
+COPY /Y "$(ProjectDir)Reports\*.rpt" "$(TargetDir)Reports\*.rpt"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

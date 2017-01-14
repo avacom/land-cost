@@ -171,6 +171,7 @@
     <Compile Include="Forms\FunctionalUsageCoefficientsForm.Designer.cs">
       <DependentUpon>FunctionalUsageCoefficientsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IActionForm.cs" />
     <Compile Include="Interfaces\IEditor.cs" />
     <Compile Include="Forms\LocalCoefficientForm.cs">
       <SubType>Form</SubType>
