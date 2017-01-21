@@ -528,7 +528,7 @@ namespace LandCost.Entities
 
                 NormEval = LandType == 0 ? 
                     Math.Round(Square * Price * Km2 * Km3 * Kf * IndexCoefficient, 2):
-                    Math.Round(SquareAgriculture * NormEvalAgriculture * Kf * IndexCoefficient, 2);
+                    Math.Round(SquareAgriculture * NormEvalAgriculture * IndexCoefficient, 2);
             }
         }
 

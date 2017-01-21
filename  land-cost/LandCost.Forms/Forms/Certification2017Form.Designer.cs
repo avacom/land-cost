@@ -774,7 +774,6 @@
             this.Name = "Certification2017Form";
             this.ShowInTaskbar = false;
             this.Text = "Грошова оцінка";
-            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CertificationForm_FormClosing);
             this.Shown += new System.EventHandler(this.Certification2017Form_Shown);
             this.coefBox.ResumeLayout(false);

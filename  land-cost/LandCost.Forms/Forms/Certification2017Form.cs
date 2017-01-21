@@ -140,6 +140,7 @@ namespace LandCost.Forms
             saveBtn.Enabled = false;
             m_sFileName = filename;
             fileLabel.Text = m_sFileName;
+            EnableSquareAndPrices(cert.LandType);
             cert.Changed += new EventHandler(cert_Changed);
         }
 
@@ -217,6 +218,8 @@ namespace LandCost.Forms
                 cert.Kf = selectedCoefs.Usage.Weight;
                 cert.KfReal = selectedCoefs.Usage.Weight;
             }
+
+            EnableSquareAndPrices(cert.LandType);
         }
 
         void coefValSetCtl_CoefficientsChanged(object sender, EventArgs e)
@@ -625,11 +628,11 @@ namespace LandCost.Forms
                         break;
                     case 1:
                         cert.IndexCoefficient = m_Profile.IndexCoefficientAgriculture;
-                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 1;
+                        //cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 1;
                         break;
                     case 2:
                         cert.IndexCoefficient = m_Profile.IndexCoefficientArable;
-                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 1;
+                        //cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 1;
                         break;
                     default:
                         cert.IndexCoefficient = m_Profile.IndexCoefficient;
@@ -651,6 +654,13 @@ namespace LandCost.Forms
             label3.Enabled = type != 0;
             squareAgricultureBox.Enabled = type != 0;
             normEvalAgricultureBox.Enabled = type != 0;
+
+            areaBox.Enabled = type == 0;
+            km2Box.Enabled = type == 0;
+            km3Box.Enabled = type == 0;
+
+            label12.Enabled = type == 0;
+            kfBox.Enabled = type == 0;
         }
 
         private void squareAgricultureBox_KeyUp(object sender, KeyEventArgs e)
