@@ -342,9 +342,9 @@ namespace LandCost.Entities
             }
             set
             {
-                if (m_dKf != value)
+                if (m_dKfReal != value)
                 {
-                    m_dKf = value;
+                    m_dKfReal = value;
                     OnPropertyChanged(new PropertyChangedEventArgs("Kf"));
                     Recalculate();
                     OnChanged(this, null);

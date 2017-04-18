@@ -316,6 +316,8 @@ namespace LandCost.Forms
             if (cert != null)
             {
                 myDataReport.Load(Application.StartupPath + "\\Reports\\Certification2017.rpt");
+                myDataReport.SetParameterValue("txtAgencyName", m_Profile.AgencyName);
+                myDataReport.SetParameterValue("txtAgencyAddress", m_Profile.AgencyAddress);
                 myDataReport.SetParameterValue("txtApplicant", cert.Applicant);
                 myDataReport.SetParameterValue("txtCadasterNumber", cert.CadasterNumber);
                 myDataReport.SetParameterValue("txtLandLocation", cert.LandLocation);

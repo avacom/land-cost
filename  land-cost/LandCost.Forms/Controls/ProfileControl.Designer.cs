@@ -269,8 +269,9 @@ namespace LandCost.Forms
             // agencyAddressEdit
             // 
             this.agencyAddressEdit.Location = new System.Drawing.Point(213, 125);
+            this.agencyAddressEdit.Multiline = true;
             this.agencyAddressEdit.Name = "agencyAddressEdit";
-            this.agencyAddressEdit.Size = new System.Drawing.Size(219, 20);
+            this.agencyAddressEdit.Size = new System.Drawing.Size(219, 37);
             this.agencyAddressEdit.TabIndex = 5;
             this.agencyAddressEdit.Validating += new System.ComponentModel.CancelEventHandler(this.agencyAddressEdit_Validating);
             // 
