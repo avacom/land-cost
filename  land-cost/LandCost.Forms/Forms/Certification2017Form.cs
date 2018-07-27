@@ -122,6 +122,9 @@ namespace LandCost.Forms
             cert.Changed -= new EventHandler(cert_Changed);
             ClearBindings();
             coefValSetCtl.CoefficientsChanged -= new EventHandler(coefValSetCtl_CoefficientsChanged);
+            landTypeBox.SelectedValueChanged -= landTypeBox_SelectedValueChanged;
+            landPurposeBox.TextChanged -= landPurposeBox_TextChanged;
+
             XmlSerializer serializer = new XmlSerializer(typeof(Certification2017));
             TextReader tr = new StreamReader(filename);
             cert = (Certification2017)serializer.Deserialize(tr);
@@ -418,7 +421,7 @@ namespace LandCost.Forms
                     + Environment.NewLine
                     + "Середня вартісь земельної ділянки"
                     + Environment.NewLine + Environment.NewLine
-                    + "будуть замінені на актуальні згідно з даними профілю. Ви впевнені, що хочете оновити ці значення?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    + "будуть замінені на актуальні згідно з даними профілю. Також можлива зміна коефіцієнту Кф. Ви впевнені, що хочете оновити ці значення?", "Підтвердження", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (res == System.Windows.Forms.DialogResult.Yes)
                 {
                     switch (landTypeBox.SelectedIndex)
@@ -447,6 +450,8 @@ namespace LandCost.Forms
                             cert.Price = a.Price;
                         }
                     }
+
+                    landTypeBox_SelectedValueChanged(this, null);
                 }
             }
         }
@@ -626,7 +631,7 @@ namespace LandCost.Forms
                 {
                     case 0:
                         cert.IndexCoefficient = m_Profile.IndexCoefficient;
-                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 0;
+                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 3 : 0;
                         break;
                     case 1:
                         cert.IndexCoefficient = m_Profile.IndexCoefficientAgriculture;
@@ -638,7 +643,7 @@ namespace LandCost.Forms
                         break;
                     default:
                         cert.IndexCoefficient = m_Profile.IndexCoefficient;
-                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 2 : 0;
+                        cert.KfAdditional = landPurposeBox.SelectedIndex >= 0 ? 3 : 0;
                         break;
                 }
                 EnableSquareAndPrices(cert.LandType);
@@ -746,7 +751,7 @@ namespace LandCost.Forms
                 landPurposeBox.DataBindings[0].WriteValue();
                 if (landPurposeBox.SelectedIndex >= 0)
                 {
-                    cert.KfAdditional = 2;
+                    cert.KfAdditional = 3;
                 }
                 else
                 {
@@ -766,6 +771,9 @@ namespace LandCost.Forms
         {
             this.landTypeBox.SelectedValueChanged -= new System.EventHandler(this.landTypeBox_SelectedValueChanged);
             this.landTypeBox.SelectedValueChanged += new System.EventHandler(this.landTypeBox_SelectedValueChanged);
+
+            landPurposeBox.TextChanged -= landPurposeBox_TextChanged;
+            landPurposeBox.TextChanged += landPurposeBox_TextChanged;
         }
     }
 }

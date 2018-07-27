@@ -363,7 +363,7 @@ namespace LandCost.Entities
                 if (m_dKfReal != value)
                 {
                     m_dKfReal = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("KfReal"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Kf"));
                     Recalculate();
                     OnChanged(this, null);
                 }
@@ -381,7 +381,7 @@ namespace LandCost.Entities
                 if (m_dKfAdditional != value)
                 {
                     m_dKfAdditional = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("KfAdditional"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Kf"));
                     Recalculate();
                     OnChanged(this, null);
                 }

@@ -441,7 +441,7 @@ namespace LandCost
 
                 Placemark? pl = null;
                 GeoCoderStatusCode st = GeoCoderStatusCode.G_GEO_SUCCESS;
-                pl = GMapProviders.YandexMapUA.GetPlacemark(coord, out st);
+                pl = GMapProviders.GoogleMap.GetPlacemark(coord, out st);
                 if (st == GeoCoderStatusCode.G_GEO_SUCCESS && pl != null)
                 {
                     if (pl.HasValue)
@@ -501,18 +501,25 @@ namespace LandCost
                 m_DB.Config.CurrentProfile.RegionMap != null)
             {
                 GeoCoderStatusCode st = GeoCoderStatusCode.G_GEO_SUCCESS;
-                List<Placemark?> pls = new List<Placemark?>();
-                pls = GMapProviders.YandexMapUA.GetPlacemarks(addressBox.Text, out st);
-                bool bFound = false;
-                foreach (Placemark? pl in pls)
+                Placemark? pl = null;
+                var prov = GMapProviders.GoogleTerrainMap;
+                var point = prov.GetPoint(addressBox.Text + " Ковель", out st);
+
+                if (point != null)
                 {
-                    PointLatLng pnt = new PointLatLng(pl.Value.Lat, pl.Value.Lng);
-                    if (m_DB.Config.CurrentProfile.RegionMap.IsInside(pnt))
+                    pl = prov.GetPlacemark((PointLatLng)point, out st);
+                    //List<Placemark> pls = new List<Placemark>();
+                    //prov.GetPlacemarks((PointLatLng)point, out pls);
+                }
+                
+                bool bFound = false;
+                if (pl != null)
+                {
+                    if (m_DB.Config.CurrentProfile.RegionMap.IsInside((PointLatLng)point))
                     {
                         addressBox.Text = GetAddressString(pl);
-                        SetFoundLocation(pnt);
+                        SetFoundLocation((PointLatLng)point);
                         bFound = true;
-                        break;
                     }
                 }
 
@@ -543,31 +550,35 @@ namespace LandCost
         private string GetAddressString(Placemark? pl)
         {
             string s = string.Empty;
-            s = string.IsNullOrEmpty(pl.Value.LocalityName) ? s : pl.Value.LocalityName;
-
-            if (!string.IsNullOrEmpty(pl.Value.ThoroughfareName))
+            if (pl != null)
             {
-                if (!string.IsNullOrEmpty(s))
-                {
-                    s += string.Format(", {0}", pl.Value.ThoroughfareName);
-                }
-                else
-                {
-                    s += pl.Value.ThoroughfareName;
-                }
+                s = pl.Value.Address;
             }
+            //s = string.IsNullOrEmpty(pl.Value.LocalityName) ? s : pl.Value.LocalityName;
 
-            if (!string.IsNullOrEmpty(pl.Value.HouseNo))
-            {
-                if (!string.IsNullOrEmpty(s))
-                {
-                    s += string.Format(", {0}", pl.Value.HouseNo);
-                }
-                else
-                {
-                    s += pl.Value.HouseNo;
-                }
-            }
+            //if (!string.IsNullOrEmpty(pl.Value.ThoroughfareName))
+            //{
+            //    if (!string.IsNullOrEmpty(s))
+            //    {
+            //        s += string.Format(", {0}", pl.Value.ThoroughfareName);
+            //    }
+            //    else
+            //    {
+            //        s += pl.Value.ThoroughfareName;
+            //    }
+            //}
+
+            //if (!string.IsNullOrEmpty(pl.Value.HouseNo))
+            //{
+            //    if (!string.IsNullOrEmpty(s))
+            //    {
+            //        s += string.Format(", {0}", pl.Value.HouseNo);
+            //    }
+            //    else
+            //    {
+            //        s += pl.Value.HouseNo;
+            //    }
+            //}
 
             return s;
         }
@@ -582,6 +593,7 @@ namespace LandCost
 
         private void evalBtn_Click(object sender, EventArgs e)
         {
+            certForm2017 = new Certification2017Form(this);
             certForm2017.StartPosition = FormStartPosition.CenterScreen;
             certForm2017.SetProfile(m_DB.Config.CurrentProfile);
             certForm2017.SetValues(regionSelCtl.CurrentRegion, regionSelCtl.CurrentFunctionalUsageCoefficients, addressBox.Text);
